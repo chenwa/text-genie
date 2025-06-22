@@ -95,6 +95,13 @@ const Home: React.FC = () => {
       {/* Features Section */}
       <section className="features-section">
         <div>
+          <h3>How It Works</h3>
+          <ol className="how-list">
+            <li>You give a rough idea</li>
+            <li>TypingGenie refines & rewrites it</li>
+          </ol>
+        </div>
+        <div>
           <h3>🧠 AI That Understands You</h3>
           <p>Your tone, purpose, and voice — all fine-tuned automatically.</p>
         </div>
@@ -111,24 +118,6 @@ const Home: React.FC = () => {
           <p>Grammar, tone, flow, and structure — instantly optimized.</p>
         </div>
       </section>
-
-      {/* How It Works Section */}
-      <section className="how-section">
-        <h2 className="how-title">How It Works</h2>
-        <ol className="how-list">
-          <li>You give a prompt (or rough idea)</li>
-          <li>TypingGenie refines, rewrites, or expands it</li>
-          <li>You copy, tweak, or send</li>
-        </ol>
-        <div className="how-desc">No fluff. Just fast, clean writing.</div>
-      </section>
-
-      {/* Pricing Section */}
-      {/*
-      <section className="pricing-section">
-        ...
-      </section>
-      */}
 
       {/* Footer */}
       <footer className="footer">
