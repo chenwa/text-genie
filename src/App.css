@@ -138,40 +138,54 @@
 }
 .demo-select {
   flex: 1;
-  font-size: 1.05rem;
+  font-size: 1rem;
   border-radius: 6px;
   border: 1px solid #bbb;
-  padding: 8px;
+  padding: 6px 10px;
+  min-width: 120px;
+  height: 36px;
+  background: #fff;
+  color: #222;
+  font-weight: 400;
+  transition: border 0.2s;
+}
+.demo-select:focus {
+  border-color: #388ee7;
+  outline: none;
 }
 .demo-generate-btn {
   background: #4f8cff;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 10px 22px;
-  font-weight: 600;
-  font-size: 1.08rem;
+  border-radius: 8px;
+  padding: 16px 36px;
+  font-weight: 700;
+  font-size: 1.25rem;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(79,140,255,0.08);
+  box-shadow: 0 4px 12px rgba(79,140,255,0.12);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+.demo-generate-btn:active {
+  transform: scale(0.97);
 }
 .demo-output {
   background: #f4f8ff;
-  border-radius: 6px;
-  min-height: 48px;
-  padding: 12px;
+  border-radius: 8px;
+  min-height: 64px;
+  padding: 22px 20px 22px 20px;
   color: #444;
-  font-size: 1.08rem;
-  margin-top: 8px;
+  font-size: 1.22rem;
+  margin-top: 14px;
 }
 .demo-output-text {
   position: relative;
-  min-height: 32px;
-  padding-right: 60px; /* space for copy button */
+  min-height: 48px;
+  padding-right: 80px; /* space for copy button */
   word-break: break-word;
   background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  margin-bottom: 0.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  margin-bottom: 0.8em;
 }
 
 .how-section {

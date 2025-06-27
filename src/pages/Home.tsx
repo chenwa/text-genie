@@ -111,10 +111,11 @@ const Home: React.FC = () => {
           placeholder='e.g. "Tell my boss I need to take Friday off for a family emergency."'
           style={isLoggedIn ? { height: '270px' } : {}}
         />
-        <div className="demo-row">
+        <div className="demo-row" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+          <label htmlFor="document_type" style={{ fontWeight: 500, marginRight: 4 }}>Document Type:</label>
           <select id="document_type" className="demo-select" defaultValue="Formal Email">
-            <option>Formal Email</option>
             <option>Friendly Note</option>
+            <option>Formal Email</option>
             <option>Summary</option>
             <option>Business Proposal</option>
             <option>Report/Review</option>
@@ -125,6 +126,7 @@ const Home: React.FC = () => {
             <option>Story</option>
             <option>Poem</option>
           </select>
+          <label htmlFor="tone" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>Tone:</label>
           <select id="tone" className="demo-select" defaultValue="Neutral">
             <option>Neutral</option>
             <option>Friendly</option>
@@ -140,7 +142,7 @@ const Home: React.FC = () => {
             <option>Romantic</option>
             <option>Angry</option>
           </select>
-          <button className="demo-generate-btn" onClick={handleDemoGenerate} disabled={demoLoading}>
+          <button className="demo-generate-btn" onClick={handleDemoGenerate} disabled={demoLoading} style={{ marginLeft: 12 }}>
             {demoLoading ? 'Generating...' : '➤ Generate Text'}
           </button>
         </div>
