@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Messenger.css';
-import { sendGolfMessengerMessage } from '../api/api';
+import { sendWriterMessengerMessage } from '../api/api';
 
 interface Message {
   id: number;
@@ -10,7 +10,7 @@ interface Message {
 
 const Messenger: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: 1, sender: 'ai', text: 'Hi! Here is Genie. How can I help you with your writing today?' }
+    { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ const Messenger: React.FC = () => {
     setInput('');
     setLoading(true);
     try {
-      const aiText = await sendGolfMessengerMessage(userMsg.text);
+      const aiText = await sendWriterMessengerMessage(userMsg.text);
       setMessages(prev => [
         ...prev,
         {

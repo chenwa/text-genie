@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Messenger from '../components/Messenger';
+import { callWriterApi } from '../api/api';
 
 const Home: React.FC = () => {
   const demoRef = React.useRef<HTMLDivElement>(null);
@@ -11,13 +12,37 @@ const Home: React.FC = () => {
     }
   };
 
+  // State for demo output
+  const [demoOutput, setDemoOutput] = React.useState<string>("");
+  const [demoLoading, setDemoLoading] = React.useState<boolean>(false);
+
+  const handleDemoGenerate = async () => {
+    const text = (document.getElementById('user_input') as HTMLTextAreaElement)?.value || '';
+    const documentType = (document.getElementById('document_type') as HTMLSelectElement)?.value || '';
+    const tone = (document.getElementById('tone') as HTMLSelectElement)?.value || '';
+    if (!text.trim()) {
+      setDemoOutput('Please enter what you need help writing.');
+      return;
+    }
+    setDemoLoading(true);
+    setDemoOutput('');
+    try {
+      const result = await callWriterApi({ text, documentType, tone });
+      setDemoOutput(result);
+    } catch (e) {
+      setDemoOutput('Sorry, there was a problem generating your text.');
+    } finally {
+      setDemoLoading(false);
+    }
+  };
+
   return (
     <div className="home-root">
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
           <h1 className="hero-title">
-            Your Personal Writing Assistant — <span className="hero-highlight">Powered by AI Magic</span>
+            Your Personal Writing Assistant — <span className="hero-highlight" style={{ whiteSpace: 'nowrap' }}>Powered by AI Magic</span>
           </h1>
         </div>
         <div className="hero-illustration">
@@ -43,9 +68,9 @@ const Home: React.FC = () => {
       <section ref={demoRef} id="demo-section" className="demo-section">
         <h2 className="demo-title">✨ Try TypingGenie Demo</h2>
         <div className="demo-desc">💬 Describe what you need help writing…</div>
-        <textarea className="demo-textarea" placeholder='e.g. "Tell my boss I need to take Friday off for a family emergency."' />
+        <textarea id="user_input" className="demo-textarea" placeholder='e.g. "Tell my boss I need to take Friday off for a family emergency."' />
         <div className="demo-row">
-          <select className="demo-select" defaultValue="Formal Email">
+          <select id="document_type" className="demo-select" defaultValue="Formal Email">
             <option>Formal Email</option>
             <option>Friendly Note</option>
             <option>Summary</option>
@@ -56,7 +81,7 @@ const Home: React.FC = () => {
             <option>Story</option>
             <option>Poem</option>
           </select>
-          <select className="demo-select" defaultValue="Neutral">
+          <select id="tone" className="demo-select" defaultValue="Neutral">
             <option>Neutral</option>
             <option>Friendly</option>
             <option>Professional</option>
@@ -71,10 +96,16 @@ const Home: React.FC = () => {
             <option>Romantic</option>
             <option>Angry</option>
           </select>
-          <button className="demo-generate-btn">➤ Generate Text</button>
+          <button className="demo-generate-btn" onClick={handleDemoGenerate} disabled={demoLoading}>
+            {demoLoading ? 'Generating...' : '➤ Generate Text'}
+          </button>
         </div>
         <div className="demo-output">
           <em>✨ Polished response will appear here</em>
+              {/* This is where the generated text will be displayed */}
+            <div className="demo-output-text" id="demo-output-text">
+              {demoOutput}
+            </div>
         </div>
       </section>
 
@@ -83,8 +114,8 @@ const Home: React.FC = () => {
         <div>
           <h3>How It Works</h3>
           <ol className="how-list">
-            <li>You give a rough idea</li>
-            <li>TypingGenie refines & rewrites it</li>
+            <li>You provide a general overview</li>
+            <li>A refined reply will be provided shortly.</li>
           </ol>
         </div>
         <div>
