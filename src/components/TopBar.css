@@ -1,0 +1,82 @@
+.nf-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem 1.5rem 2rem;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.nf-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.nf-logo-neutral {
+  color: #fff;
+  font-weight: 700;
+}
+
+.nf-logo-fit {
+  color: #e60023;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.nf-nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nf-nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nf-nav-links a:hover {
+  color: #e60023;
+}
+
+.nf-logo-link {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  display: inline-block;
+  transition: transform 0.22s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.nf-logo-link:visited,
+.nf-logo-link:active,
+.nf-logo-link:focus,
+.nf-logo-link:hover {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  color: inherit;
+}
+
+.nf-logo-link * {
+  text-decoration: none !important;
+}
+
+.nf-nav-user {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-left: 1.2rem;
+  margin-right: 0.2rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.nf-nav-user:hover {
+  color: #e60023;
+}

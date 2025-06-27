@@ -13,20 +13,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-root">
-      {/* Navigation Bar */}
-      <nav className="navbar">
-        <div className="navbar-left">
-          <Link to="/" className="navbar-brand">
-            <span className="navbar-brand-typing">Typing</span>
-            <span className="navbar-brand-genie">Genie</span>
-          </Link>
-        </div>
-        <div className="navbar-right">
-          <Link to="/login" className="navbar-link login">Login</Link>
-          <Link to="/signup" className="navbar-link signup">Sign Up</Link>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
