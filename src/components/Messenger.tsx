@@ -10,7 +10,7 @@ interface Message {
 
 const Messenger: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { id: 1, sender: 'ai', text: 'Hi! How can I help you with your golf fitting today?' }
+    { id: 1, sender: 'ai', text: 'Hi! Here is Genie. How can I help you with your writing today?' }
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -87,11 +87,27 @@ const Messenger: React.FC = () => {
         title={visible ? 'Hide Messenger' : 'Show Messenger'}
       >
         {visible ? '×' : <span role="img" aria-label="chat">💬</span>}
+      {!visible && (
+        <span style={{
+          position: 'absolute',
+          top: 11,
+          right: 8 + 54 + 8 + 2 - 20 + 5, // moved right by 5px from previous -20
+          color: '#1976d2',
+          background: '#fff',
+          borderRadius: 8,
+          fontWeight: 600,
+          fontSize: 16,
+          padding: '2px 10px',
+          height: 32,
+          display: 'flex',
+          alignItems: 'center',
+        }}>Ask Genie</span>
+      )}
       </button>
       {visible && (
         <div className="messenger-container" style={{ marginTop: 36 }}>
           <div className="messenger-header">
-            <h3 className="messenger-title" style={{padding: '0 1.2em'}}>NeutralFit Assistant</h3>
+            <h3 className="messenger-title" style={{padding: '0 1.2em'}}>Typing Genie</h3>
           </div>
           <div className="messenger-messages">
             {messages.map(msg => (
