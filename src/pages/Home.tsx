@@ -221,7 +221,7 @@ const Home: React.FC = () => {
           <p>Grammar, tone, flow, and structure — instantly optimized.</p>
         </div>
         <div>
-          <h3>How It Works</h3>
+          <h3>🧞‍♂️ How It Works</h3>
           <ol className="how-list">
             <li>You provide a general overview</li>
             <li>A refined reply will be provided shortly.</li>
