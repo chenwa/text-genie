@@ -4,17 +4,17 @@ import Messenger from '../components/Messenger';
 import { callWriterApi } from '../api/api';
 
 const Home: React.FC = () => {
-  const demoRef = React.useRef<HTMLDivElement>(null);
-  const scrollToDemo = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (demoRef.current) {
-      demoRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   // State for demo output
   const [demoOutput, setDemoOutput] = React.useState<string>("");
   const [demoLoading, setDemoLoading] = React.useState<boolean>(false);
+  const [copied, setCopied] = React.useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(!!localStorage.getItem('token'));
+
+  React.useEffect(() => {
+    const onStorage = () => setIsLoggedIn(!!localStorage.getItem('token'));
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
 
   const handleDemoGenerate = async () => {
     const text = (document.getElementById('user_input') as HTMLTextAreaElement)?.value || '';
@@ -72,45 +72,56 @@ const Home: React.FC = () => {
       )}
 
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Your Personal Writing Assistant — <span className="hero-highlight" style={{ whiteSpace: 'nowrap' }}>Powered by AI Magic</span>
-          </h1>
-        </div>
-        <div className="hero-illustration">
-          <div className="hero-genie">
-            <span role="img" aria-label="Genie" style={{ fontSize: 240 }}>🧞‍♂️</span>
+      {!isLoggedIn && (
+        <section className="hero-section">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              Your Personal Writing Assistant — <span className="hero-highlight" style={{ whiteSpace: 'nowrap' }}>Powered by AI Magic</span>
+            </h1>
           </div>
-        </div>
-        <div className="hero-content">
-          <p className="hero-subtitle">
-            Write emails, reports, and docs with clarity and confidence. 
-            TypingGenie helps you go from idea to polished text in seconds.
-          </p>
-          <div className="hero-cta-row">
-            <Link to="/signup" className="hero-signup-btn">Sign Up for Free</Link>
+          <div className="hero-illustration">
+            <div className="hero-genie">
+              <span role="img" aria-label="Genie" style={{ fontSize: 240 }}>🧞‍♂️</span>
+            </div>
           </div>
-          <div className="hero-tagline">
-            <em>“Just type your idea. We'll handle the words.”</em>
+          <div className="hero-content">
+            <p className="hero-subtitle">
+              Write emails, reports, and docs with clarity and confidence. 
+              Typing Genie helps you go from idea to polished text in seconds.
+            </p>
+            <div className="hero-cta-row">
+              <Link to="/signup" className="hero-signup-btn">Sign Up for Free</Link>
+            </div>
+            <div className="hero-tagline">
+              <em>“Just type your idea. We'll handle the words.”</em>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* Live Demo Section */}
-      <section ref={demoRef} id="demo-section" className="demo-section">
-        <h2 className="demo-title">✨ Try TypingGenie Demo</h2>
+      {/* Live Section */}
+      <section id="demo-section" className="demo-section">
+        {!isLoggedIn && (
+          <h2 className="demo-title">✨ Try Typing Genie Demo</h2>
+        )}
         <div className="demo-desc">💬 Describe what you need help writing…</div>
-        <textarea id="user_input" className="demo-textarea" placeholder='e.g. "Tell my boss I need to take Friday off for a family emergency."' />
+        <textarea
+          id="user_input"
+          className="demo-textarea"
+          placeholder='e.g. "Tell my boss I need to take Friday off for a family emergency."'
+          style={isLoggedIn ? { height: '270px' } : {}}
+        />
         <div className="demo-row">
           <select id="document_type" className="demo-select" defaultValue="Formal Email">
             <option>Formal Email</option>
             <option>Friendly Note</option>
             <option>Summary</option>
+            <option>Business Proposal</option>
             <option>Report/Review</option>
             <option>Invitation</option>
             <option>Announcement</option>
             <option>Complaint</option>
+            <option>Apology</option>
             <option>Story</option>
             <option>Poem</option>
           </select>
@@ -119,9 +130,9 @@ const Home: React.FC = () => {
             <option>Friendly</option>
             <option>Professional</option>
             <option>Confident</option>
-            <option>Empathetic</option>
             <option>Encouraging</option>
             <option>Assertive</option>
+            <option>Empathetic</option>
             <option>Apologetic</option>
             <option>Optimistic</option>
             <option>Persuasive</option>
@@ -138,11 +149,56 @@ const Home: React.FC = () => {
             <em>✨ Polished response will appear here</em>
           )}
           {/* This is where the generated text will be displayed */}
-          <div
-            className="demo-output-text"
-            id="demo-output-text"
-            dangerouslySetInnerHTML={{ __html: demoOutput }}
-          />
+          <div style={{ position: 'relative' }}>
+            <div
+              className="demo-output-text"
+              id="demo-output-text"
+              dangerouslySetInnerHTML={{ __html: demoOutput }}
+            />
+            {demoOutput && (
+              <button
+                onClick={() => {
+                  const el = document.getElementById('demo-output-text');
+                  if (el) {
+                    const text = el.innerText;
+                    navigator.clipboard.writeText(text);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 1200);
+                  }
+                }}
+                title="Copy to clipboard"
+                style={{
+                  position: 'absolute',
+                  top: 8,
+                  right: 8,
+                  background: '#fff',
+                  border: '1px solid #ccc',
+                  borderRadius: 4,
+                  padding: '4px 8px',
+                  cursor: 'pointer',
+                  fontSize: 16,
+                  boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+                  zIndex: 2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 4,
+                  transition: 'all 0.2s',
+                }}
+              >
+                {copied ? (
+                  <span role="img" aria-label="Copied">✅</span>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block' }}>
+                    <rect x="6" y="4" width="9" height="12" rx="2" fill="#fff" stroke="#1976d2" strokeWidth="1.5"/>
+                    <rect x="3" y="7" width="9" height="9" rx="2" fill="#fff" stroke="#1976d2" strokeWidth="1.5"/>
+                  </svg>
+                )}
+                <span style={{ fontSize: 13, color: copied ? '#388e3c' : '#1976d2', fontWeight: 500 }}>
+                  {copied ? 'Copied!' : 'Copy'}
+                </span>
+              </button>
+            )}
+          </div>
         </div>
       </section>
 

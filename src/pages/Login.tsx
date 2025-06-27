@@ -25,7 +25,7 @@ const Login: React.FC = () => {
         const data = await res.json();
         localStorage.setItem('token', data.access_token);
         localStorage.setItem('user', JSON.stringify(data.user));
-        navigate('/club-fitting');
+        navigate('/');
       } else {
         setError('Login failed.');
       }

@@ -70,9 +70,29 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
             <span className="navbar-brand-genie">Genie</span>
           </Link>
         </div>
+        {/* Only show navbar-right if showSignOut is not true */}
         <div className="navbar-right">
-          <Link to="/login" className="navbar-link login">Login</Link>
-          <Link to="/signup" className="navbar-link signup">Sign Up</Link>
+        {showSignOut ? (
+          <>
+            {formattedName && (
+              <div style={{ marginTop: '0.1em', float: 'right', marginRight: 16 }}>
+                <span className="nf-nav-separator">Hi {formattedName}!</span>
+              </div>
+            )}
+            <Link to="/" className="navbar-link login" onClick={e => {
+              e.preventDefault();
+              localStorage.removeItem('token');
+              localStorage.removeItem('user');
+              if (onSignOut) onSignOut();
+              window.location.reload(); // ensure UI updates to logged out mode
+            }}>Sign Out</Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login" className="navbar-link login">Login</Link> &nbsp; &nbsp;
+            <Link to="/signup" className="navbar-link signup">Sign Up</Link>
+          </>
+        )}
         </div>
       </nav>
   );

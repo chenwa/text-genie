@@ -6,6 +6,9 @@ import TopBar from './components/TopBar';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import './App.css';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
+import Contact from './pages/Contact'; // Import the Contact page
 
 // Create a new component to be able to use hooks
 const AppContent = () => {
@@ -29,8 +32,11 @@ const AppContent = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/terms" element={<Terms />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/contact" element={<Contact />} /> {/* Add the Contact route */}
             </Routes>
         </>
     );
