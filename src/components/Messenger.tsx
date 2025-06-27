@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Messenger.css';
-import { sendGolfMessengerMessage } from '../api/messenger';
+import { sendGolfMessengerMessage } from '../api/api';
 
 interface Message {
   id: number;
