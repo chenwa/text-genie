@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
+import Messenger from '../components/Messenger';
 
 const Home: React.FC = () => {
   const demoRef = React.useRef<HTMLDivElement>(null);
@@ -19,22 +19,22 @@ const Home: React.FC = () => {
           <h1 className="hero-title">
             Your Personal Writing Assistant — <span className="hero-highlight">Powered by AI Magic</span>
           </h1>
-          <p className="hero-subtitle">
-            Write emails, reports, and docs with clarity and confidence. TypingGenie helps you go from idea to polished text in seconds.
-          </p>
-          <div className="hero-cta-row">
-            { /* Uncomment the following line to add a "Try a Demo" button
-            <a href="#demo-section" onClick={scrollToDemo} className="hero-demo-btn">✨ Try a Demo</a>
-            */ }
-            <Link to="/signup" className="hero-signup-btn">Sign Up for Free</Link>
-          </div>
-          <div className="hero-tagline">
-            <em>“Just type your idea. We'll handle the words.”</em>
-          </div>
         </div>
         <div className="hero-illustration">
           <div className="hero-genie">
             <span role="img" aria-label="Genie" style={{ fontSize: 240 }}>🧞‍♂️</span>
+          </div>
+        </div>
+        <div className="hero-content">
+          <p className="hero-subtitle">
+            Write emails, reports, and docs with clarity and confidence. 
+            TypingGenie helps you go from idea to polished text in seconds.
+          </p>
+          <div className="hero-cta-row">
+            <Link to="/signup" className="hero-signup-btn">Sign Up for Free</Link>
+          </div>
+          <div className="hero-tagline">
+            <em>“Just type your idea. We'll handle the words.”</em>
           </div>
         </div>
       </section>
@@ -109,6 +109,10 @@ const Home: React.FC = () => {
       <footer className="footer">
         © 2025 TypingGenie · <Link to="/terms" className="footer-link">Terms</Link> · <Link to="/privacy" className="footer-link">Privacy</Link> · <Link to="/contact" className="footer-link">Contact</Link>
       </footer>
+
+      <div style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 1000 }}>
+        <Messenger />
+      </div>
     </div>
   );
 };
