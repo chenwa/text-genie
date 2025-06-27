@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Messenger.css';
-import { sendWriterMessengerMessage } from '../api/api';
+import { sendMessengerMessage } from '../api/api';
 
 interface Message {
   id: number;
@@ -16,10 +16,18 @@ const Messenger: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
+  // Focus input when Messenger is shown or after messages update
+  useEffect(() => {
+    if (visible && !loading) {
+      inputRef.current?.focus();
+    }
+  }, [visible, messages, loading]);
 
   const handleSend = async () => {
     if (input.trim() === '' || loading) return;
@@ -32,7 +40,7 @@ const Messenger: React.FC = () => {
     setInput('');
     setLoading(true);
     try {
-      const aiText = await sendWriterMessengerMessage(userMsg.text);
+      const aiText = await sendMessengerMessage(userMsg.text);
       setMessages(prev => [
         ...prev,
         {
@@ -47,7 +55,7 @@ const Messenger: React.FC = () => {
         {
           id: prev.length + 1,
           sender: 'ai',
-          text: 'Sorry, there was a problem connecting to the golf assistant.',
+          text: 'Sorry, there was a problem connecting to the assistant.',
         },
       ]);
     } finally {
@@ -126,6 +134,7 @@ const Messenger: React.FC = () => {
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleInputKeyDown}
               disabled={loading}
+              ref={inputRef}
             />
             <button className="messenger-send-btn" onClick={handleSend} disabled={!input.trim() || loading}>
               {loading ? '...' : 'Send'}

@@ -37,7 +37,40 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="home-root">
+    <div className="home-root" style={{ position: 'relative' }}>
+      {/* Progress Bar Overlay */}
+      {demoLoading && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(255,255,255,0.6)',
+          zIndex: 2000,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 16,
+          }}>
+            <div className="loader" style={{
+              border: '6px solid #f3f3f3',
+              borderTop: '6px solid #1976d2',
+              borderRadius: '50%',
+              width: 60,
+              height: 60,
+              animation: 'spin 1s linear infinite',
+            }} />
+            <div style={{ fontWeight: 600, color: '#1976d2', fontSize: 20 }}>Generating...</div>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
@@ -101,23 +134,20 @@ const Home: React.FC = () => {
           </button>
         </div>
         <div className="demo-output">
-          <em>✨ Polished response will appear here</em>
-              {/* This is where the generated text will be displayed */}
-            <div className="demo-output-text" id="demo-output-text">
-              {demoOutput}
-            </div>
+          {!demoLoading && !demoOutput && (
+            <em>✨ Polished response will appear here</em>
+          )}
+          {/* This is where the generated text will be displayed */}
+          <div
+            className="demo-output-text"
+            id="demo-output-text"
+            dangerouslySetInnerHTML={{ __html: demoOutput }}
+          />
         </div>
       </section>
 
       {/* Features Section */}
       <section className="features-section">
-        <div>
-          <h3>How It Works</h3>
-          <ol className="how-list">
-            <li>You provide a general overview</li>
-            <li>A refined reply will be provided shortly.</li>
-          </ol>
-        </div>
         <div>
           <h3>🧠 AI That Understands You</h3>
           <p>Your tone, purpose, and voice — all fine-tuned automatically.</p>
@@ -133,6 +163,13 @@ const Home: React.FC = () => {
         <div>
           <h3>🛠️ Fix, Polish & Improve</h3>
           <p>Grammar, tone, flow, and structure — instantly optimized.</p>
+        </div>
+        <div>
+          <h3>How It Works</h3>
+          <ol className="how-list">
+            <li>You provide a general overview</li>
+            <li>A refined reply will be provided shortly.</li>
+          </ol>
         </div>
       </section>
 

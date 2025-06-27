@@ -7,15 +7,18 @@ export async function callWriterApi({ text, documentType, tone }: { text: string
     body: JSON.stringify({ text, document_type: documentType, tone }),
   });
   if (!response.ok) {
-    throw new Error('Failed to get response from writer_api');
+    throw new Error('Failed to get response from Typing Genie');
   }
   const data = await response.json();
-  if (typeof data === 'string') return data;
-  if (data && typeof data.text === 'string') return data.text;
-  return JSON.stringify(data);
+  let resp = data.response || "No response from Typing Genie";
+  if (typeof resp === 'string') {
+    resp = resp.replace(/\n/g, '<br />');
+  }
+  // console.log('API return data:', resp);
+  return resp;
 }
 
-export const sendWriterMessengerMessage = async (text: string): Promise<string> => {
+export const sendMessengerMessage = async (text: string): Promise<string> => {
   const response = await fetch(`${API_BASE_URL}/write_messenger_api`, {
     method: 'POST',
     headers: {
@@ -25,15 +28,9 @@ export const sendWriterMessengerMessage = async (text: string): Promise<string> 
   });
 
   if (!response.ok) {
-    throw new Error('Failed to get response from write messenger API');
+    throw new Error('Failed to get response from Typing Genie');
   }
   const data = await response.json();
-  // If API returns just a string, return it; if wrapped in {text: ...}, return data.text
-  if (typeof data === 'string') return data;
-  if (data && typeof data.text === 'string') return data.text;
-  let str = JSON.stringify(data.response);
-  if (str.length > 1 && str[0] === '"' && str[str.length - 1] === '"') {
-    str = str.slice(1, -1);
-  }
-  return str;
+  if (data && typeof data.response === 'string') return data.response;
+  return "No response from Typing Genie";
 };
