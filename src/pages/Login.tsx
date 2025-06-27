@@ -15,7 +15,7 @@ const Login: React.FC = () => {
       const form = new URLSearchParams();
       form.append('username', email);
       form.append('password', password);
-      form.append('org', 'neutralfit');
+      form.append('org', 'typinggenie');
       const res = await fetch(`${API_BASE_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -51,7 +51,7 @@ const Login: React.FC = () => {
         Please <Link to="/signup">Sign Up</Link> if you don't have an account. 
       </div>
       <footer className="nf-footer nf-footer-small">
-        &copy; {new Date().getFullYear()} NeutralFit. All rights reserved.
+        &copy; {new Date().getFullYear()} TypingGenie. All rights reserved.
       </footer>
     </div>
   );

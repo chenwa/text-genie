@@ -113,7 +113,7 @@ const ResetPassword: React.FC = () => {
       {message && <div className="nf-success">{message}</div>}
       {error && <div className="nf-error">{error}</div>}
       <footer className="nf-footer nf-footer-small">
-        &copy; {new Date().getFullYear()} NeutralFit. All rights reserved.
+        &copy; {new Date().getFullYear()} TypingGenie. All rights reserved.
       </footer>
     </div>
   );

@@ -37,7 +37,7 @@
   }
 }
 
-/* --- NeutralFit Signup Styles Start --- */
+/* --- TypingGenie Signup Styles Start --- */
 .nf-footer {
   text-align: center;
   padding: 1rem;
@@ -177,14 +177,14 @@
 }
 
 .nf-btn-primary {
-  background-color: #e60023;
+  background-color: #4f8cff;
   color: #fff;
-  border: 2px solid #e60023;
+  border: 2px solid #4f8cff;
 }
 
 .nf-btn-primary:hover {
   background-color: #fff;
-  color: #e60023;
+  color: #4f8cff;
 }
 
 .nf-btn-secondary {
@@ -208,4 +208,4 @@
   background-color: #222;
   color: #fff;
 }
-/* --- NeutralFit Signup Styles End --- */
+/* --- TypingGenie Signup Styles End --- */
