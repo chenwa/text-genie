@@ -70,7 +70,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
           </Link>
         </div>
         {/* Only show navbar-right if showSignOut is not true */}
-        <div className="navbar-right">
+        <div className="navbar-right" style={{ position: 'relative', right: 10, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16 }}>
         {showSignOut ? (
           <>
             {formattedName && (

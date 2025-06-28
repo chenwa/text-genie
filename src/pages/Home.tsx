@@ -2,8 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Messenger from '../components/Messenger';
 import { callWriterApi } from '../api/api_utils';
+import translations from './Translations';
+export type SupportedLang = 'en' | 'es' | 'zh' | 'de' | 'ru' | 'ja' | 'fr' | 'pt' | 'it' | 'ar' | 'hi';
+
+// Fix: import the full translations object from Translations.ts
+// and ensure all languages are included and exported.
+// If needed, update Translations.ts to export the full object and its type.
+
+type TranslationObject = typeof translations['en'];
+
+type TranslationsType = Record<SupportedLang, TranslationObject>;
+
+const translationsTyped = translations as TranslationsType;
 
 const Home: React.FC = () => {
+  const [lang, setLang] = React.useState<SupportedLang>('en');
   // State for demo output
   const [demoOutput, setDemoOutput] = React.useState<string>("");
   const [demoLoading, setDemoLoading] = React.useState<boolean>(false);
@@ -23,7 +36,7 @@ const Home: React.FC = () => {
     const tone = (document.getElementById('tone') as HTMLSelectElement)?.value || '';
     const revise = (document.getElementById('revise') as HTMLSelectElement)?.value || '';
     if (!text.trim()) {
-      setDemoOutput('Please enter what you need help writing.');
+      setDemoOutput(translations[lang].pleaseEnter);
       return;
     }
     setDemoLoading(true);
@@ -32,7 +45,7 @@ const Home: React.FC = () => {
       const result = await callWriterApi({ text, documentType, tone, revise, is_logged_in: isLoggedIn });
       setDemoOutput(result);
     } catch (e) {
-      setDemoOutput('Sorry, there was a problem generating your text.');
+      setDemoOutput(translations[lang].sorryProblem);
     } finally {
       setDemoLoading(false);
     }
@@ -40,8 +53,44 @@ const Home: React.FC = () => {
 
   const maxChars = isLoggedIn ? undefined : 5000;
 
+  // Add type assertions for translations
+  const t = translationsTyped[lang];
+
   return (
     <div className="home-root" style={{ position: 'relative' }}>
+      {/* Language Selector */}
+      <div style={{ position: 'absolute', top: 8, right: 20, zIndex: 3000 }}>
+        <select
+          value={lang}
+          onChange={e => setLang(e.target.value as SupportedLang)}
+          style={{
+            padding: '4px 10px',
+            borderRadius: 6,
+            border: '1px solid #bbb',
+            fontWeight: 600,
+            fontSize: 15,
+            background: '#fff',
+            color: '#1976d2',
+            cursor: 'pointer',
+            outline: 'none',
+            boxShadow: '0 1px 4px rgba(0,0,0,0.04)'
+          }}
+          aria-label="Select language"
+        >
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="zh">中文</option>
+          <option value="de">Deutsch</option>
+          <option value="ru">Русский</option>
+          <option value="ja">日本語</option>
+          <option value="fr">Français</option>
+          <option value="pt">Português</option>
+          <option value="it">Italiano</option>
+          <option value="ar">العربية</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+
       {/* Progress Bar Overlay */}
       {demoLoading && (
         <div style={{
@@ -70,7 +119,7 @@ const Home: React.FC = () => {
               height: 60,
               animation: 'spin 1s linear infinite',
             }} />
-            <div style={{ fontWeight: 600, color: '#1976d2', fontSize: 20 }}>Generating...</div>
+            <div style={{ fontWeight: 600, color: '#1976d2', fontSize: 20 }}>{t.demoGenerating}</div>
           </div>
         </div>
       )}
@@ -80,7 +129,7 @@ const Home: React.FC = () => {
         <section className="hero-section">
           <div className="hero-content">
             <h1 className="hero-title">
-              Your Personal Writing Assistant — <span className="hero-highlight" style={{ whiteSpace: 'nowrap' }}>Powered by AI Magic</span>
+              {t.heroTitle} <span className="hero-highlight" style={{ whiteSpace: 'nowrap' }}>{t.heroHighlight}</span>
             </h1>
           </div>
           <div className="hero-illustration">
@@ -90,14 +139,13 @@ const Home: React.FC = () => {
           </div>
           <div className="hero-content">
             <p className="hero-subtitle">
-              Write emails, reports, and docs with clarity and confidence. 
-              Typing Genie helps you go from idea to polished text in seconds.
+              {t.heroSubtitle}
             </p>
             <div className="hero-cta-row">
-              <Link to="/signup" className="hero-signup-btn">Sign Up for Free</Link>
+              <Link to="/signup" className="hero-signup-btn">{t.heroCta}</Link>
             </div>
             <div className="hero-tagline">
-              <em>“Just type your idea. We'll handle the words.”</em>
+              <em>{t.heroTagline}</em>
             </div>
           </div>
         </section>
@@ -106,13 +154,13 @@ const Home: React.FC = () => {
       {/* Live Section */}
       <section id="demo-section" className="demo-section">
         {!isLoggedIn && (
-          <h2 className="demo-title">✨ Try Typing Genie Demo</h2>
+          <h2 className="demo-title">{t.demoTitle}</h2>
         )}
-        <div className="demo-desc">💬 Describe what you need help writing…</div>
+        <div className="demo-desc">{t.demoDesc}</div>
         <textarea
           id="user_input"
           className="demo-textarea"
-          placeholder='e.g. "Tell my boss I need to take Friday off for a family emergency."'
+          placeholder={t.demoPlaceholder}
           style={isLoggedIn ? { height: '270px' } : { height: '170px' }}
           value={userInput}
           onChange={e => {
@@ -125,50 +173,28 @@ const Home: React.FC = () => {
           Character {userInput.length}{!isLoggedIn}
           {userInput.length >= 5000 && !isLoggedIn && (
             <span style={{ color: '#e60023', marginLeft: 8 }}>
-              limit reached. Sign up for unlimited usage.
+              {t.demoLimit}
             </span>
           )}
         </div>
         <div className="demo-row" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-          <label htmlFor="document_type" style={{ fontWeight: 500, marginRight: 4 }}>Document Type:</label>
-          <select id="document_type" className="demo-select" defaultValue="Formal Email">
-            <option>Friendly Note</option>
-            <option>Formal Email</option>
-            <option>Summary</option>
-            <option>Business Proposal</option>
-            <option>Report/Review</option>
-            <option>Invitation</option>
-            <option>Announcement</option>
-            <option>Complaint</option>
-            <option>Apology</option>
-            <option>Story</option>
-            <option>Poem</option>
+          <label htmlFor="document_type" style={{ fontWeight: 500, marginRight: 4 }}>{t.documentTypeLabel}</label>
+          <select id="document_type" className="demo-select" defaultValue={t.documentTypeOptions[1]}>
+            {t.documentTypeOptions.map((opt: string) => (
+              <option key={opt}>{opt}</option>
+            ))}
           </select>
-          <label htmlFor="tone" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>Tone:</label>
-          <select id="tone" className="demo-select" defaultValue="Neutral">
-            <option>Neutral</option>
-            <option>Friendly</option>
-            <option>Professional</option>
-            <option>Confident</option>
-            <option>Encouraging</option>
-            <option>Assertive</option>
-            <option>Empathetic</option>
-            <option>Apologetic</option>
-            <option>Optimistic</option>
-            <option>Persuasive</option>
-            <option>Passionate</option>
-            <option>Romantic</option>
-            <option>Angry</option>
+          <label htmlFor="tone" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>{t.toneLabel}</label>
+          <select id="tone" className="demo-select" defaultValue={t.toneOptions[0]}>
+            {t.toneOptions.map((opt: string) => (
+              <option key={opt}>{opt}</option>
+            ))}
           </select>
-          <label htmlFor="revise" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>Revise:</label>
-          <select id="revise" className="demo-select" defaultValue="Enhance Clarity">
-            <option>Condense Text</option>
-            <option>Simplify Language</option>
-            <option>Enhance Clarity</option>
-            <option>Rewrite Sentences</option>
-            <option>Elaborate on Idea</option>
-            <option>Add More Detail</option>
-            <option>Expand with Imagination</option>
+          <label htmlFor="revise" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>{t.reviseLabel}</label>
+          <select id="revise" className="demo-select" defaultValue={t.reviseOptions[2]}>
+            {t.reviseOptions.map((opt: string) => (
+              <option key={opt}>{opt}</option>
+            ))}
           </select>
           <button
             className="demo-generate-btn"
@@ -177,7 +203,7 @@ const Home: React.FC = () => {
             style={{ marginLeft: 12 }}
             title="Let TypingGenie craft your perfect text!"
           >
-            {demoLoading ? 'Generating...' : '➤ Generate Text'}
+            {demoLoading ? t.demoGenerating : t.demoGenerate}
           </button>
         </div>
         <div
@@ -185,7 +211,7 @@ const Home: React.FC = () => {
           style={isLoggedIn ? { minHeight: 400, padding: 5, marginBottom: 20 } : { padding: 5, marginBottom: 20 }}
         >
           {!demoLoading && !demoOutput && (
-            <em>✨ Polished response will appear here</em>
+            <em>{t.demoPolished}</em>
           )}
           {/* This is where the generated text will be displayed */}
           <div style={{ position: 'relative' }}>
@@ -233,7 +259,7 @@ const Home: React.FC = () => {
                   </svg>
                 )}
                 <span style={{ fontSize: 13, color: copied ? '#388e3c' : '#1976d2', fontWeight: 500 }}>
-                  {copied ? 'Copied!' : 'Copy'}
+                  {copied ? t.demoCopied : t.demoCopy}
                 </span>
               </button>
             )}
@@ -243,34 +269,25 @@ const Home: React.FC = () => {
 
       {/* Features Section */}
       <section className="features-section">
+        {t.features.slice(0, -1).map((feature: { title: string; desc: string }, index: number) => (
+          <div key={index}>
+            <h3>{feature.title}</h3>
+            <p>{feature.desc}</p>
+          </div>
+        ))}
         <div>
-          <h3>🧠 AI That Understands You</h3>
-          <p>Your tone, purpose, and voice — all fine-tuned automatically.</p>
-        </div>
-        <div>
-          <h3>✉️ Professional Emails</h3>
-          <p>No more staring at blank screens. Just say what you need — we write the rest.</p>
-        </div>
-        <div>
-          <h3>📑 Clean Reports & Docs</h3>
-          <p>Summarize, rephrase, or expand ideas into organized paragraphs.</p>
-        </div>
-        <div>
-          <h3>🛠️ Fix, Polish & Improve</h3>
-          <p>Grammar, tone, flow, and structure — instantly optimized.</p>
-        </div>
-        <div>
-          <h3>🧞‍♂️ How It Works</h3>
+          <h3>{t.features[t.features.length - 1].title}</h3>
           <ol className="how-list">
-            <li>You provide a general overview</li>
-            <li>A refined reply will be provided shortly.</li>
+            {t.features[t.features.length - 1].list?.map((item: string, index: number) => (
+              <li key={index}>{item}</li>
+            ))}
           </ol>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
-        © 2025 TypingGenie · <Link to="/terms" className="footer-link">Terms</Link> · <Link to="/privacy" className="footer-link">Privacy</Link> · <Link to="/contact" className="footer-link">Contact</Link>
+        {t.footer} · <Link to="/terms" className="footer-link">{t.terms}</Link> · <Link to="/privacy" className="footer-link">{t.privacy}</Link> · <Link to="/contact" className="footer-link">{t.contact}</Link>
       </footer>
 
       <div style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 1000 }}>
