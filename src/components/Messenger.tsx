@@ -142,7 +142,10 @@ const Messenger: React.FC<{ isLoggedIn?: boolean }> = ({ isLoggedIn }) => {
       {visible && (
         <div className="messenger-container" style={{ marginTop: 36 }}>
           <div className="messenger-header">
-            <h3 className="messenger-title" style={{padding: '0 1.2em'}}>Typing Genie</h3>
+            <h3 className="messenger-title" style={{padding: '0 1.2em', display: 'flex', alignItems: 'center', gap: 8, fontWeight: 400}}>
+              <span style={{ fontSize: 30 }} role="img" aria-label="genie">🧞‍♂️</span>
+              <span style={{ fontWeight: 400 }}>Typing Genie</span>
+            </h3>
           </div>
           <div className="messenger-messages">
             {messages.map(msg => (

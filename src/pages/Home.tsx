@@ -257,7 +257,7 @@ const Home: React.FC = () => {
               <Link to="/signup" className="hero-signup-btn">{t.heroCta}</Link>
             </div>
             <div className="hero-tagline">
-              <em>{t.heroTagline}</em>
+              <em style={{ color: '#222' }}>{t.heroTagline}</em>
             </div>
           </div>
         </section>
