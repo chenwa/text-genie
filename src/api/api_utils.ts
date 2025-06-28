@@ -1,6 +1,18 @@
 import API_BASE_URL from '../config';
 
-export async function callWriterApi({ text, documentType, tone, revise, is_logged_in }: { text: string; documentType: string; tone: string; revise: string; is_logged_in: boolean }): Promise<string> {
+export async function callWriterApi({
+  text,
+  documentType,
+  tone,
+  revise,
+  is_logged_in,
+}: {
+  text: string;
+  documentType: string;
+  tone: string;
+  revise: string;
+  is_logged_in: boolean;
+}): Promise<string> {
   const response = await fetch(`${API_BASE_URL}/writer_api`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -10,15 +22,14 @@ export async function callWriterApi({ text, documentType, tone, revise, is_logge
     throw new Error('Failed to get response from Typing Genie');
   }
   const data = await response.json();
-  let resp = data.response || "No response from Typing Genie";
+  let resp = data.response || 'No response from Typing Genie';
   if (typeof resp === 'string') {
     resp = resp.replace(/\n/g, '<br />');
   }
-  // console.log('API return data:', resp);
   return resp;
 }
 
-export const sendMessengerMessage = async (text: string): Promise<string> => {
+export const callMessengerApi = async (text: string): Promise<string> => {
   const response = await fetch(`${API_BASE_URL}/write_messenger_api`, {
     method: 'POST',
     headers: {
@@ -32,5 +43,25 @@ export const sendMessengerMessage = async (text: string): Promise<string> => {
   }
   const data = await response.json();
   if (data && typeof data.response === 'string') return data.response;
-  return "No response from Typing Genie";
+  return 'No response from Typing Genie';
 };
+
+export async function callLoginAPI(
+  email: string,
+  password: string
+): Promise<{ access_token: string; user: any }> {
+  const form = new URLSearchParams();
+  form.append('username', email);
+  form.append('password', password);
+  form.append('org', 'typinggenie');
+  const res = await fetch(`${API_BASE_URL}/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: form.toString(),
+  });
+  if (!res.ok) {
+    throw new Error('Login failed.');
+  }
+  const data = await res.json();
+  return data;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { sendMessengerMessage } from '../api/api_utils';
+import { callMessengerApi } from '../api/api_utils';
 
 interface Message {
   id: number;
@@ -39,7 +39,7 @@ const Messenger: React.FC = () => {
     setInput('');
     setLoading(true);
     try {
-      const aiText = await sendMessengerMessage(userMsg.text);
+      const aiText = await callMessengerApi(userMsg.text);
       setMessages(prev => [
         ...prev,
         {
