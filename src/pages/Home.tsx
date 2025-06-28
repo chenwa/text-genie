@@ -9,6 +9,7 @@ const Home: React.FC = () => {
   const [demoLoading, setDemoLoading] = React.useState<boolean>(false);
   const [copied, setCopied] = React.useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(!!localStorage.getItem('token'));
+  const [userInput, setUserInput] = React.useState<string>("");
 
   React.useEffect(() => {
     const onStorage = () => setIsLoggedIn(!!localStorage.getItem('token'));
@@ -36,6 +37,8 @@ const Home: React.FC = () => {
       setDemoLoading(false);
     }
   };
+
+  const maxChars = isLoggedIn ? undefined : 5000;
 
   return (
     <div className="home-root" style={{ position: 'relative' }}>
@@ -110,8 +113,22 @@ const Home: React.FC = () => {
           id="user_input"
           className="demo-textarea"
           placeholder='e.g. "Tell my boss I need to take Friday off for a family emergency."'
-          style={isLoggedIn ? { height: '270px' } : {}}
+          style={isLoggedIn ? { height: '270px' } : { height: '170px' }}
+          value={userInput}
+          onChange={e => {
+            if (!isLoggedIn && e.target.value.length > 5000) return;
+            setUserInput(e.target.value);
+          }}
+          maxLength={maxChars}
         />
+        <div style={{ textAlign: 'right', fontSize: 13, color: userInput.length >= 5000 && !isLoggedIn ? '#e60023' : '#888', margin: '-10px 8px 4px 0' }}>
+          Character {userInput.length}{!isLoggedIn}
+          {userInput.length >= 5000 && !isLoggedIn && (
+            <span style={{ color: '#e60023', marginLeft: 8 }}>
+              limit reached. Sign up for unlimited usage.
+            </span>
+          )}
+        </div>
         <div className="demo-row" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
           <label htmlFor="document_type" style={{ fontWeight: 500, marginRight: 4 }}>Document Type:</label>
           <select id="document_type" className="demo-select" defaultValue="Formal Email">
