@@ -410,7 +410,7 @@ const Home: React.FC = () => {
       </footer>
 
       <div style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 1000 }}>
-        <Messenger isLoggedIn={isLoggedIn} />
+        <Messenger isLoggedIn={isLoggedIn} lang={lang} />
       </div>
     </div>
   );

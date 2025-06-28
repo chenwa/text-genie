@@ -35,6 +35,7 @@ const translations: Record<SupportedLang, {
   characterCountLabel: string;
   demoGenerateTooltip: string; // <-- Added key
   signupEncouragement: string; // <-- Add this key for all languages
+  greeting: string; // Messenger greeting
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -108,6 +109,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Character',
     demoGenerateTooltip: 'Let TypingGenie craft your perfect text!',
     signupEncouragement: 'No account? Sign up to unlock unlimited Genie magic!',
+    greeting: 'Hi! How can I help you with your writing today?',
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -181,6 +183,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Caracteres',
     demoGenerateTooltip: '¡Deja que TypingGenie elabore tu texto perfecto!',
     signupEncouragement: '¿No tienes cuenta? ¡Regístrate para desbloquear magia ilimitada de Genie!',
+    greeting: '¡Hola! ¿Cómo puedo ayudarte con tu escritura hoy?',
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -254,6 +257,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: '字符',
     demoGenerateTooltip: '让TypingGenie为您制作完美的文本！',
     signupEncouragement: '还没有账号？注册即可解锁无限Genie魔法！',
+    greeting: '你好！我今天如何帮助你的写作？',
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -327,6 +331,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Zeichen',
     demoGenerateTooltip: 'Lassen Sie TypingGenie Ihren perfekten Text erstellen!',
     signupEncouragement: 'Noch kein Konto? Melden Sie sich an, um unbegrenzte Genie-Magie freizuschalten!',
+    greeting: 'Hallo! Wie kann ich Ihnen heute beim Schreiben helfen?',
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -400,6 +405,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Символы',
     demoGenerateTooltip: 'Пусть TypingGenie создаст для вас идеальный текст!',
     signupEncouragement: 'Нет аккаунта? Зарегистрируйтесь, чтобы открыть неограниченную магию Джинна!',
+    greeting: 'Привет! Как я могу помочь вам с письмом сегодня?',
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -473,6 +479,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: '文字数',
     demoGenerateTooltip: 'TypingGenieに完璧なテキストを作成させてください！',
     signupEncouragement: 'アカウントがありませんか？サインアップして無制限のGenieマジックを体験しよう！',
+    greeting: 'こんにちは！今日はどんな文章作成をお手伝いしましょうか？',
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -546,6 +553,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Caractères',
     demoGenerateTooltip: 'Laissez TypingGenie créer votre texte parfait !',
     signupEncouragement: 'Pas de compte ? Inscrivez-vous pour débloquer la magie illimitée de Genie !',
+    greeting: 'Bonjour ! Comment puis-je vous aider à écrire aujourd’hui ?',
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -619,6 +627,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Caracteres',
     demoGenerateTooltip: 'Deixe o TypingGenie criar seu texto perfeito!',
     signupEncouragement: 'Não tem conta? Inscreva-se para liberar magia ilimitada do Genie!',
+    greeting: 'Olá! Como posso ajudar você com sua escrita hoje?',
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -692,6 +701,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Caratteri',
     demoGenerateTooltip: 'Lascia che o TypingGenie crie o seu texto perfeito!',
     signupEncouragement: 'Nessun account? Iscriviti per sbloccare la magia illimitata di Genie!',
+    greeting: 'Ciao! Come posso aiutarti con la tua scrittura oggi?',
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -765,6 +775,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'عدد الأحرف',
     demoGenerateTooltip: 'دع TypingGenie يصنع لك النص المثالي!',
     signupEncouragement: 'لا تملك حسابًا؟ سجّل للحصول على سحر جيني غير محدود!',
+    greeting: 'مرحبًا! كيف يمكنني مساعدتك في الكتابة اليوم؟',
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -838,6 +849,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'अक्षर',
     demoGenerateTooltip: 'TypingGenie को आपका परफेक्ट टेक्स्ट बनाने दें!',
     signupEncouragement: 'कोई खाता नहीं? अनलिमिटेड Genie मैजिक के लिए साइन अप करें!',
+    greeting: 'नमस्ते! आज मैं आपकी लेखन में कैसे मदद कर सकता हूँ?',
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -911,6 +923,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Karakter',
     demoGenerateTooltip: 'Biarkan TypingGenie menyusun teks sempurna Anda!',
     signupEncouragement: 'Belum punya akun? Daftar untuk membuka keajaiban Genie tanpa batas!',
+    greeting: 'Hai! Hari ini saya bisa membantu apa dalam menulismu?',
   },
 };
 

@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { callMessengerApi } from '../api/api_utils';
+import translations from '../pages/Translations';
+import type { SupportedLang } from '../pages/Home';
 
 interface Message {
   id: number;
@@ -9,9 +11,11 @@ interface Message {
 
 const MESSENGER_STORAGE_KEY = 'typinggenie_messenger_history';
 
-const Messenger: React.FC<{ isLoggedIn?: boolean }> = ({ isLoggedIn }) => {
+const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ isLoggedIn, lang = 'en' }) => {
+  const t = translations[lang];
   // Only persist/load messages if logged in
   const [messages, setMessages] = useState<Message[]>(() => {
+    const greeting = t.greeting;
     if (isLoggedIn) {
       const saved = localStorage.getItem(MESSENGER_STORAGE_KEY);
       if (saved) {
@@ -19,16 +23,16 @@ const Messenger: React.FC<{ isLoggedIn?: boolean }> = ({ isLoggedIn }) => {
           return JSON.parse(saved);
         } catch {
           return [
-            { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
+            { id: 1, sender: 'ai', text: greeting }
           ];
         }
       }
       return [
-        { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
+        { id: 1, sender: 'ai', text: greeting }
       ];
     } else {
       return [
-        { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
+        { id: 1, sender: 'ai', text: greeting }
       ];
     }
   });
@@ -55,6 +59,18 @@ const Messenger: React.FC<{ isLoggedIn?: boolean }> = ({ isLoggedIn }) => {
       localStorage.setItem(MESSENGER_STORAGE_KEY, JSON.stringify(messages));
     }
   }, [messages, isLoggedIn]);
+
+  // Reset greeting if language changes
+  useEffect(() => {
+    setMessages(prev => {
+      // If the first message is the old greeting, replace it with the new one
+      if (prev.length === 1 && prev[0].sender === 'ai') {
+        return [{ id: 1, sender: 'ai', text: t.greeting }];
+      }
+      return prev;
+    });
+    // eslint-disable-next-line
+  }, [lang]);
 
   const handleSend = async () => {
     if (input.trim() === '' || loading) return;
