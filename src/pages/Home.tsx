@@ -190,7 +190,7 @@ const Home: React.FC = () => {
         <section className="hero-section">
           <div className="hero-content">
             <h1 className="hero-title">
-              {t.heroTitle} <span className="hero-highlight" style={{ whiteSpace: 'nowrap' }}>{t.heroHighlight}</span>
+              {t.heroTitle} <span className="hero-highlight">{t.heroHighlight}</span>
             </h1>
           </div>
           <div className="hero-illustration">
