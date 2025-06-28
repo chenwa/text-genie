@@ -53,8 +53,8 @@
 }
 .hero-signup-btn {
   background: #fff;
-  color: #4f8cff;
-  border: 2px solid #4f8cff;
+  color: #43b36a;
+  border: 2px solid #43b36a;
   padding: 12px 28px;
   border-radius: 8px;
   font-weight: 600;
@@ -62,6 +62,12 @@
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+}
+.hero-signup-btn:hover {
+  background: #43b36a;
+  color: #fff;
+  border: 2px solid #43b36a;
 }
 .hero-tagline {
   font-size: 1rem;
@@ -164,10 +170,12 @@
   font-size: 1.25rem;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(79,140,255,0.12);
-  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
 }
-.demo-generate-btn:active {
-  transform: scale(0.97);
+.demo-generate-btn:hover {
+  background: #388ee7;
+  color: #fff;
+  border: none;
 }
 .demo-output {
   background: #f4f8ff;
