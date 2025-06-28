@@ -74,7 +74,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
         {showSignOut ? (
           <>
             {formattedName && (
-              <div style={{ marginTop: '0.1em', float: 'right', marginRight: 16 }}>
+              <div style={{ marginTop: '0.1em', float: 'right' }}>
                 <span className="nf-nav-separator">Hi {formattedName}!</span>
               </div>
             )}

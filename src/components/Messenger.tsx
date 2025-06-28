@@ -7,10 +7,25 @@ interface Message {
   text: string;
 }
 
+const MESSENGER_STORAGE_KEY = 'typinggenie_messenger_history';
+
 const Messenger: React.FC = () => {
-  const [messages, setMessages] = useState<Message[]>([
-    { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
-  ]);
+  // Load from localStorage or use default
+  const [messages, setMessages] = useState<Message[]>(() => {
+    const saved = localStorage.getItem(MESSENGER_STORAGE_KEY);
+    if (saved) {
+      try {
+        return JSON.parse(saved);
+      } catch {
+        return [
+          { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
+        ];
+      }
+    }
+    return [
+      { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
+    ];
+  });
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -27,6 +42,11 @@ const Messenger: React.FC = () => {
       inputRef.current?.focus();
     }
   }, [visible, messages, loading]);
+
+  // Persist messages to localStorage on change
+  useEffect(() => {
+    localStorage.setItem(MESSENGER_STORAGE_KEY, JSON.stringify(messages));
+  }, [messages]);
 
   const handleSend = async () => {
     if (input.trim() === '' || loading) return;

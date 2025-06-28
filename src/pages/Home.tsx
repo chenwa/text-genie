@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Messenger from '../components/Messenger';
 import { callWriterApi } from '../api/api_utils';
 import translations from './Translations';
-export type SupportedLang = 'en' | 'es' | 'zh' | 'de' | 'ru' | 'ja' | 'fr' | 'pt' | 'it' | 'ar' | 'hi';
+export type SupportedLang = 'en' | 'es' | 'zh' | 'de' | 'ru' | 'ja' | 'fr' | 'pt' | 'it' | 'ar' | 'hi' | 'id';
 
 // Fix: import the full translations object from Translations.ts
 // and ensure all languages are included and exported.
@@ -15,20 +15,49 @@ type TranslationsType = Record<SupportedLang, TranslationObject>;
 
 const translationsTyped = translations as TranslationsType;
 
+const LANG_STORAGE_KEY = 'typinggenie_lang';
+const USER_INPUT_STORAGE_KEY = 'typinggenie_user_input';
+const DEMO_OUTPUT_STORAGE_KEY = 'typinggenie_demo_output';
+
 const Home: React.FC = () => {
-  const [lang, setLang] = React.useState<SupportedLang>('en');
+  const [lang, setLang] = React.useState<SupportedLang>(() => {
+    const stored = localStorage.getItem(LANG_STORAGE_KEY);
+    if (stored && ['en','es','zh','de','ru','ja','fr','pt','it','ar','hi','id'].includes(stored)) {
+      return stored as SupportedLang;
+    }
+    return 'en';
+  });
   // State for demo output
-  const [demoOutput, setDemoOutput] = React.useState<string>("");
+  const [demoOutput, setDemoOutput] = React.useState<string>(() => {
+    return localStorage.getItem(DEMO_OUTPUT_STORAGE_KEY) || "";
+  });
   const [demoLoading, setDemoLoading] = React.useState<boolean>(false);
   const [copied, setCopied] = React.useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(!!localStorage.getItem('token'));
-  const [userInput, setUserInput] = React.useState<string>("");
+  const [userInput, setUserInput] = React.useState<string>(() => {
+    return localStorage.getItem(USER_INPUT_STORAGE_KEY) || "";
+  });
 
   React.useEffect(() => {
     const onStorage = () => setIsLoggedIn(!!localStorage.getItem('token'));
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
   }, []);
+
+  // Persist language selection
+  React.useEffect(() => {
+    localStorage.setItem(LANG_STORAGE_KEY, lang);
+  }, [lang]);
+
+  // Persist user input
+  React.useEffect(() => {
+    localStorage.setItem(USER_INPUT_STORAGE_KEY, userInput);
+  }, [userInput]);
+
+  // Persist demo output
+  React.useEffect(() => {
+    localStorage.setItem(DEMO_OUTPUT_STORAGE_KEY, demoOutput);
+  }, [demoOutput]);
 
   const handleDemoGenerate = async () => {
     const text = (document.getElementById('user_input') as HTMLTextAreaElement)?.value || '';
@@ -88,6 +117,7 @@ const Home: React.FC = () => {
           <option value="it">Italiano</option>
           <option value="ar">العربية</option>
           <option value="hi">हिन्दी</option>
+          <option value="id">Bahasa Indonesia</option>
         </select>
       </div>
 
