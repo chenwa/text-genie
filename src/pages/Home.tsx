@@ -94,6 +94,14 @@ const Home: React.FC = () => {
     setSelectedRevise(translationsTyped[lang].reviseOptions[2]);
   }, [lang]);
 
+  // Scroll to top on first visit
+  React.useEffect(() => {
+    if (!localStorage.getItem('typinggenie_home_visited')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      localStorage.setItem('typinggenie_home_visited', '1');
+    }
+  }, []);
+
   const handleDemoGenerate = async () => {
     const text = (document.getElementById('user_input') as HTMLTextAreaElement)?.value || '';
     const documentType = selectedDocType;
@@ -123,6 +131,8 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-root" style={{ position: 'relative' }}>
+      <style>{`.demo-textarea::placeholder { color: #bbb !important; opacity: 1; }`}</style>
+
       {/* Language Selector */}
       <div style={{ position: 'absolute', top: 8, right: 20, zIndex: 3000 }}>
         <select
