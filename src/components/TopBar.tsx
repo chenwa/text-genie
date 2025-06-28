@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './TopBar.css';
 
 interface TopBarProps {
   showSignOut?: boolean;

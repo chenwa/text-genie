@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Messenger.css';
 import { sendMessengerMessage } from '../api/api';
 
 interface Message {
