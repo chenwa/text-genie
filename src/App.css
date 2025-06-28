@@ -122,12 +122,13 @@
   font-size: 1.05rem;
 }
 .demo-textarea {
-  width: 100%;
+  width: 98%;
   min-height: 70px;
   font-size: 1.08rem;
   border-radius: 6px;
   border: 1px solid #bbb;
   padding: 10px;
+  margin: 5px;
   margin-bottom: 12px;
   resize: vertical;
 }
@@ -180,12 +181,13 @@
 .demo-output-text {
   position: relative;
   min-height: 48px;
+  padding: 7px;
   padding-right: 80px; /* space for copy button */
+  margin: 7px;
   word-break: break-word;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-  margin-bottom: 0.8em;
 }
 
 .how-section {

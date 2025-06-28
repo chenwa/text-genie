@@ -20,6 +20,7 @@ const Home: React.FC = () => {
     const text = (document.getElementById('user_input') as HTMLTextAreaElement)?.value || '';
     const documentType = (document.getElementById('document_type') as HTMLSelectElement)?.value || '';
     const tone = (document.getElementById('tone') as HTMLSelectElement)?.value || '';
+    const revise = (document.getElementById('revise') as HTMLSelectElement)?.value || '';
     if (!text.trim()) {
       setDemoOutput('Please enter what you need help writing.');
       return;
@@ -27,7 +28,7 @@ const Home: React.FC = () => {
     setDemoLoading(true);
     setDemoOutput('');
     try {
-      const result = await callWriterApi({ text, documentType, tone });
+      const result = await callWriterApi({ text, documentType, tone, revise, is_logged_in: isLoggedIn });
       setDemoOutput(result);
     } catch (e) {
       setDemoOutput('Sorry, there was a problem generating your text.');
@@ -142,11 +143,30 @@ const Home: React.FC = () => {
             <option>Romantic</option>
             <option>Angry</option>
           </select>
-          <button className="demo-generate-btn" onClick={handleDemoGenerate} disabled={demoLoading} style={{ marginLeft: 12 }}>
+          <label htmlFor="revise" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>Revise:</label>
+          <select id="revise" className="demo-select" defaultValue="Enhance Clarity">
+            <option>Condense Text</option>
+            <option>Simplify Language</option>
+            <option>Enhance Clarity</option>
+            <option>Rewrite Sentences</option>
+            <option>Elaborate on Idea</option>
+            <option>Add More Detail</option>
+            <option>Expand with Imagination</option>
+          </select>
+          <button
+            className="demo-generate-btn"
+            onClick={handleDemoGenerate}
+            disabled={demoLoading}
+            style={{ marginLeft: 12 }}
+            title="Let TypingGenie craft your perfect text!"
+          >
             {demoLoading ? 'Generating...' : '➤ Generate Text'}
           </button>
         </div>
-        <div className="demo-output">
+        <div
+          className="demo-output"
+          style={isLoggedIn ? { minHeight: 400, padding: 5, marginBottom: 20 } : { padding: 5, marginBottom: 20 }}
+        >
           {!demoLoading && !demoOutput && (
             <em>✨ Polished response will appear here</em>
           )}
