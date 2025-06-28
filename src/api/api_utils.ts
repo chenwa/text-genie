@@ -6,17 +6,20 @@ export async function callWriterApi({
   tone,
   revise,
   is_logged_in,
+  language,
 }: {
   text: string;
   documentType: string;
   tone: string;
   revise: string;
   is_logged_in: boolean;
+  language: string;
 }): Promise<string> {
+  console.log('[callWriterApi] sending:', { text, documentType, tone, revise, is_logged_in, language });
   const response = await fetch(`${API_BASE_URL}/writer_api`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text, document_type: documentType, tone, revise, is_logged_in }),
+    body: JSON.stringify({ text, document_type: documentType, tone, revise, is_logged_in, language }),
   });
   if (!response.ok) {
     throw new Error('Failed to get response from Typing Genie');

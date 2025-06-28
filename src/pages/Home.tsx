@@ -18,6 +18,9 @@ const translationsTyped = translations as TranslationsType;
 const LANG_STORAGE_KEY = 'typinggenie_lang';
 const USER_INPUT_STORAGE_KEY = 'typinggenie_user_input';
 const DEMO_OUTPUT_STORAGE_KEY = 'typinggenie_demo_output';
+const DOC_TYPE_STORAGE_KEY = 'typinggenie_doc_type';
+const TONE_STORAGE_KEY = 'typinggenie_tone';
+const REVISE_STORAGE_KEY = 'typinggenie_revise';
 
 const Home: React.FC = () => {
   const [lang, setLang] = React.useState<SupportedLang>(() => {
@@ -36,6 +39,15 @@ const Home: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(!!localStorage.getItem('token'));
   const [userInput, setUserInput] = React.useState<string>(() => {
     return localStorage.getItem(USER_INPUT_STORAGE_KEY) || "";
+  });
+  const [selectedDocType, setSelectedDocType] = React.useState<string>(() => {
+    return localStorage.getItem(DOC_TYPE_STORAGE_KEY) || translationsTyped[lang].documentTypeOptions[1];
+  });
+  const [selectedTone, setSelectedTone] = React.useState<string>(() => {
+    return localStorage.getItem(TONE_STORAGE_KEY) || translationsTyped[lang].toneOptions[0];
+  });
+  const [selectedRevise, setSelectedRevise] = React.useState<string>(() => {
+    return localStorage.getItem(REVISE_STORAGE_KEY) || translationsTyped[lang].reviseOptions[2];
   });
 
   React.useEffect(() => {
@@ -59,11 +71,30 @@ const Home: React.FC = () => {
     localStorage.setItem(DEMO_OUTPUT_STORAGE_KEY, demoOutput);
   }, [demoOutput]);
 
+  // Persist selections
+  React.useEffect(() => {
+    localStorage.setItem(DOC_TYPE_STORAGE_KEY, selectedDocType);
+  }, [selectedDocType]);
+  React.useEffect(() => {
+    localStorage.setItem(TONE_STORAGE_KEY, selectedTone);
+  }, [selectedTone]);
+  React.useEffect(() => {
+    localStorage.setItem(REVISE_STORAGE_KEY, selectedRevise);
+  }, [selectedRevise]);
+
+  // Reset options if language changes
+  React.useEffect(() => {
+    setSelectedDocType(translationsTyped[lang].documentTypeOptions[1]);
+    setSelectedTone(translationsTyped[lang].toneOptions[0]);
+    setSelectedRevise(translationsTyped[lang].reviseOptions[2]);
+  }, [lang]);
+
   const handleDemoGenerate = async () => {
     const text = (document.getElementById('user_input') as HTMLTextAreaElement)?.value || '';
-    const documentType = (document.getElementById('document_type') as HTMLSelectElement)?.value || '';
-    const tone = (document.getElementById('tone') as HTMLSelectElement)?.value || '';
-    const revise = (document.getElementById('revise') as HTMLSelectElement)?.value || '';
+    const documentType = selectedDocType;
+    const tone = selectedTone;
+    const revise = selectedRevise;
+    const language = lang;
     if (!text.trim()) {
       setDemoOutput(translations[lang].pleaseEnter);
       return;
@@ -71,7 +102,7 @@ const Home: React.FC = () => {
     setDemoLoading(true);
     setDemoOutput('');
     try {
-      const result = await callWriterApi({ text, documentType, tone, revise, is_logged_in: isLoggedIn });
+      const result = await callWriterApi({ text, documentType, tone, revise, is_logged_in: isLoggedIn, language });
       setDemoOutput(result);
     } catch (e) {
       setDemoOutput(translations[lang].sorryProblem);
@@ -209,19 +240,19 @@ const Home: React.FC = () => {
         </div>
         <div className="demo-row" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
           <label htmlFor="document_type" style={{ fontWeight: 500, marginRight: 4 }}>{t.documentTypeLabel}</label>
-          <select id="document_type" className="demo-select" defaultValue={t.documentTypeOptions[1]}>
+          <select id="document_type" className="demo-select" value={selectedDocType} onChange={e => setSelectedDocType(e.target.value)}>
             {t.documentTypeOptions.map((opt: string) => (
               <option key={opt}>{opt}</option>
             ))}
           </select>
           <label htmlFor="tone" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>{t.toneLabel}</label>
-          <select id="tone" className="demo-select" defaultValue={t.toneOptions[0]}>
+          <select id="tone" className="demo-select" value={selectedTone} onChange={e => setSelectedTone(e.target.value)}>
             {t.toneOptions.map((opt: string) => (
               <option key={opt}>{opt}</option>
             ))}
           </select>
           <label htmlFor="revise" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>{t.reviseLabel}</label>
-          <select id="revise" className="demo-select" defaultValue={t.reviseOptions[2]}>
+          <select id="revise" className="demo-select" value={selectedRevise} onChange={e => setSelectedRevise(e.target.value)}>
             {t.reviseOptions.map((opt: string) => (
               <option key={opt}>{opt}</option>
             ))}
