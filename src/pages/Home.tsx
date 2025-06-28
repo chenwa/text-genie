@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Messenger from '../components/Messenger';
-import { callWriterApi } from '../api/api';
+import { callWriterApi } from '../api/api_utils';
 
 const Home: React.FC = () => {
   // State for demo output

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { sendMessengerMessage } from '../api/api';
+import { sendMessengerMessage } from '../api/api_utils';
 
 interface Message {
   id: number;
