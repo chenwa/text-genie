@@ -194,7 +194,7 @@ const Home: React.FC = () => {
             </h1>
           </div>
           <div className="hero-illustration">
-            <div className="hero-genie">
+            <div className="hero-genie" title="Sometimes, my translations like to go a little wild. Please bear with me while I tame them!">
               <span role="img" aria-label="Genie" style={{ fontSize: 240 }}>🧞‍♂️</span>
             </div>
           </div>
