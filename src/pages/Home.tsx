@@ -257,7 +257,7 @@ const Home: React.FC = () => {
               <Link to="/signup" className="hero-signup-btn">{t.heroCta}</Link>
             </div>
             <div className="hero-tagline">
-              <em style={{ color: '#222' }}>{t.heroTagline}</em>
+              <em style={{ color: '#222' }}>{t.signupEncouragement}</em>
             </div>
           </div>
         </section>
@@ -268,7 +268,7 @@ const Home: React.FC = () => {
         {!isLoggedIn && (
           <h2 className="demo-title">{t.demoTitle}</h2>
         )}
-        <div className="demo-desc">{t.demoDesc}</div>
+        <div className="demo-desc">{t.heroTagline}</div>
         <textarea
           id="user_input"
           className="demo-textarea"
@@ -319,7 +319,7 @@ const Home: React.FC = () => {
             onClick={handleDemoGenerate}
             disabled={demoLoading}
             style={{ marginLeft: 12 }}
-            title="Let TypingGenie craft your perfect text!"
+            title={t.demoGenerateTooltip}
           >
             {demoLoading ? t.demoGenerating : t.demoGenerate}
           </button>
