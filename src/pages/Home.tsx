@@ -38,7 +38,10 @@ const Home: React.FC = () => {
   const [copied, setCopied] = React.useState<boolean>(false);
   const [isLoggedIn, setIsLoggedIn] = React.useState<boolean>(!!localStorage.getItem('token'));
   const [userInput, setUserInput] = React.useState<string>(() => {
-    return localStorage.getItem(USER_INPUT_STORAGE_KEY) || "";
+    if (localStorage.getItem('token')) {
+      return localStorage.getItem(USER_INPUT_STORAGE_KEY) || "";
+    }
+    return "";
   });
   const [selectedDocType, setSelectedDocType] = React.useState<string>(() => {
     return localStorage.getItem(DOC_TYPE_STORAGE_KEY) || translationsTyped[lang].documentTypeOptions[1];
@@ -61,10 +64,12 @@ const Home: React.FC = () => {
     localStorage.setItem(LANG_STORAGE_KEY, lang);
   }, [lang]);
 
-  // Persist user input
+  // Persist user input only if logged in
   React.useEffect(() => {
-    localStorage.setItem(USER_INPUT_STORAGE_KEY, userInput);
-  }, [userInput]);
+    if (isLoggedIn) {
+      localStorage.setItem(USER_INPUT_STORAGE_KEY, userInput);
+    }
+  }, [userInput, isLoggedIn]);
 
   // Persist demo output
   React.useEffect(() => {
@@ -133,7 +138,10 @@ const Home: React.FC = () => {
             color: '#1976d2',
             cursor: 'pointer',
             outline: 'none',
-            boxShadow: '0 1px 4px rgba(0,0,0,0.04)'
+            boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
+            width: 150,
+            minWidth: 0,
+            maxWidth: 120
           }}
           aria-label="Select language"
         >
@@ -148,7 +156,7 @@ const Home: React.FC = () => {
           <option value="it">Italiano</option>
           <option value="ar">العربية</option>
           <option value="hi">हिन्दी</option>
-          <option value="id">Bahasa Indonesia</option>
+          <option value="id">Indonesia</option>
         </select>
       </div>
 
@@ -194,7 +202,40 @@ const Home: React.FC = () => {
             </h1>
           </div>
           <div className="hero-illustration">
-            <div className="hero-genie" title="Sometimes, my translations like to go a little wild. Please bear with me while I tame them!">
+            <div
+              className="hero-genie"
+              onMouseEnter={e => {
+                let tooltip = document.createElement('div');
+                tooltip.id = 'genie-tooltip';
+                tooltip.innerText = t.genieTooltip;
+                Object.assign(tooltip.style, {
+                  position: 'fixed',
+                  top: (e.currentTarget.getBoundingClientRect().top - 60) + 'px',
+                  left: (e.currentTarget.getBoundingClientRect().left + e.currentTarget.offsetWidth / 2 - 220) + 'px',
+                  background: '#fffbe7',
+                  color: '#222',
+                  fontWeight: 'bold',
+                  fontSize: '1.5rem',
+                  border: '2px solid #ffd54f',
+                  borderRadius: '12px',
+                  padding: '18px 32px',
+                  zIndex: 9999,
+                  boxShadow: '0 4px 24px rgba(0,0,0,0.13)',
+                  pointerEvents: 'none',
+                  transition: 'opacity 0.1s',
+                  opacity: '1',
+                  maxWidth: '440px',
+                  textAlign: 'center',
+                  lineHeight: '1.5',
+                });
+                document.body.appendChild(tooltip);
+              }}
+              onMouseLeave={() => {
+                const tooltip = document.getElementById('genie-tooltip');
+                if (tooltip) tooltip.remove();
+              }}
+              style={{ cursor: 'pointer' }}
+            >
               <span role="img" aria-label="Genie" style={{ fontSize: 240 }}>🧞‍♂️</span>
             </div>
           </div>
@@ -231,7 +272,7 @@ const Home: React.FC = () => {
           maxLength={maxChars}
         />
         <div style={{ textAlign: 'right', fontSize: 13, color: userInput.length >= 5000 && !isLoggedIn ? '#e60023' : '#888', margin: '-10px 8px 4px 0' }}>
-          Character {userInput.length}{!isLoggedIn}
+          {t.characterCountLabel} {userInput.length}{!isLoggedIn}
           {userInput.length >= 5000 && !isLoggedIn && (
             <span style={{ color: '#e60023', marginLeft: 8 }}>
               {t.demoLimit}
@@ -324,12 +365,13 @@ const Home: React.FC = () => {
                 </span>
               </button>
             )}
+            <span id="ai-disclaim" style={{ display: 'block', marginTop: 16, color: '#bbb', fontWeight: 400, fontSize: 15, textAlign: 'right' }}>{t.genieTooltip}</span>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="features-section">
+      <section className="features-section" style={{ marginBottom: 0, paddingBottom: 0 }}>
         {t.features.slice(0, -1).map((feature: { title: string; desc: string }, index: number) => (
           <div key={index}>
             <h3>{feature.title}</h3>
@@ -347,12 +389,12 @@ const Home: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <footer className="footer">
+      <footer className="footer" style={{ marginTop: 0 }}>
         {t.footer} · <Link to="/terms" className="footer-link">{t.terms}</Link> · <Link to="/privacy" className="footer-link">{t.privacy}</Link> · <Link to="/contact" className="footer-link">{t.contact}</Link>
       </footer>
 
       <div style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 1000 }}>
-        <Messenger />
+        <Messenger isLoggedIn={isLoggedIn} />
       </div>
     </div>
   );

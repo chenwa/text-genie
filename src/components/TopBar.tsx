@@ -82,6 +82,14 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
               e.preventDefault();
               localStorage.removeItem('token');
               localStorage.removeItem('user');
+              // Clear all TypingGenie app state
+              localStorage.removeItem('typinggenie_lang');
+              localStorage.removeItem('typinggenie_user_input');
+              localStorage.removeItem('typinggenie_demo_output');
+              localStorage.removeItem('typinggenie_doc_type');
+              localStorage.removeItem('typinggenie_tone');
+              localStorage.removeItem('typinggenie_revise');
+              localStorage.removeItem('typinggenie_messenger_history');
               if (onSignOut) onSignOut();
               window.location.reload(); // ensure UI updates to logged out mode
             }}>Sign Out</Link>

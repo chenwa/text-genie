@@ -31,6 +31,8 @@ const translations: Record<SupportedLang, {
   contact: string;
   pleaseEnter: string;
   sorryProblem: string;
+  genieTooltip: string; // <-- Added key
+  characterCountLabel: string;
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -99,7 +101,9 @@ const translations: Record<SupportedLang, {
     privacy: 'Privacy',
     contact: 'Contact',
     pleaseEnter: 'Please enter what you need help writing.',
-    sorryProblem: 'Sorry, there was a problem generating your text.'
+    sorryProblem: 'Sorry, there was a problem generating your text.',
+    genieTooltip: 'I am AI, so sometimes I get a little wild. Thanks for bearing with me!',
+    characterCountLabel: 'Character',
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -168,7 +172,9 @@ const translations: Record<SupportedLang, {
     privacy: 'Privacidad',
     contact: 'Contacto',
     pleaseEnter: 'Por favor, escribe con qué necesitas ayuda.',
-    sorryProblem: 'Lo siento, hubo un problema al generar tu texto.'
+    sorryProblem: 'Lo siento, hubo un problema al generar tu texto.',
+    genieTooltip: '¡Soy IA, así que a veces me pongo un poco loco. ¡Gracias por tu paciencia!',
+    characterCountLabel: 'Caracteres',
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -237,7 +243,9 @@ const translations: Record<SupportedLang, {
     privacy: '隐私',
     contact: '联系',
     pleaseEnter: '请输入您需要帮助撰写的内容。',
-    sorryProblem: '抱歉，生成文本时出现问题。'
+    sorryProblem: '抱歉，生成文本时出现问题。',
+    genieTooltip: '我是人工智能，有时会有点疯狂。感谢您的包容！',
+    characterCountLabel: '字符',
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -306,7 +314,9 @@ const translations: Record<SupportedLang, {
     privacy: 'Datenschutz',
     contact: 'Kontakt',
     pleaseEnter: 'Bitte geben Sie ein, wobei Sie Hilfe beim Schreiben benötigen.',
-    sorryProblem: 'Entschuldigung, beim Generieren Ihres Textes ist ein Problem aufgetreten.'
+    sorryProblem: 'Entschuldigung, beim Generieren Ihres Textes ist ein Problem aufgetreten.',
+    genieTooltip: 'Ich bin KI, manchmal werde ich ein wenig verrückt. Danke für Ihre Geduld!',
+    characterCountLabel: 'Zeichen',
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -375,7 +385,9 @@ const translations: Record<SupportedLang, {
     privacy: 'Конфиденциальность',
     contact: 'Контакт',
     pleaseEnter: 'Пожалуйста, введите, с чем вам нужна помощь в написании.',
-    sorryProblem: 'Извините, возникла проблема с генерацией вашего текста.'
+    sorryProblem: 'Извините, возникла проблема с генерацией вашего текста.',
+    genieTooltip: 'Я — ИИ, иногда могу вести себя странно. Спасибо за ваше терпение!',
+    characterCountLabel: 'Символы',
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -444,7 +456,9 @@ const translations: Record<SupportedLang, {
     privacy: 'プライバシー',
     contact: 'お問い合わせ',
     pleaseEnter: '書くのに助けが必要なことを入力してください。',
-    sorryProblem: '申し訳ありませんが、テキストの生成中に問題が発生しました。'
+    sorryProblem: '申し訳ありませんが、テキストの生成中に問題が発生しました。',
+    genieTooltip: '私はAIです。時々ちょっと変になることもあります。ご容赦ください！',
+    characterCountLabel: '文字数',
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -513,7 +527,9 @@ const translations: Record<SupportedLang, {
     privacy: 'Confidentialité',
     contact: 'Contact',
     pleaseEnter: 'Veuillez entrer ce dont vous avez besoin d\'aide pour écrire.',
-    sorryProblem: 'Désolé, il y a eu un problème lors de la génération de votre texte.'
+    sorryProblem: 'Désolé, il y a eu un problème lors de la génération de votre texte.',
+    genieTooltip: "Je suis une IA, alors parfois je deviens un peu imprévisible. Merci de votre patience !",
+    characterCountLabel: 'Caractères',
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -582,7 +598,9 @@ const translations: Record<SupportedLang, {
     privacy: 'Privacidade',
     contact: 'Contato',
     pleaseEnter: 'Por favor, digite com o que você precisa de ajuda.',
-    sorryProblem: 'Desculpe, houve um problema ao gerar seu texto.'
+    sorryProblem: 'Desculpe, houve um problema ao gerar seu texto.',
+    genieTooltip: 'Sou IA, então às vezes fico meio doido. Obrigado por sua compreensão!',
+    characterCountLabel: 'Caracteres',
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -651,7 +669,9 @@ const translations: Record<SupportedLang, {
     privacy: 'Privacy',
     contact: 'Contatto',
     pleaseEnter: 'Inserisci cosa ti serve aiuto per scrivere.',
-    sorryProblem: 'Spiacente, c\'è stato un problema nella generazione del tuo testo.'
+    sorryProblem: 'Spiacente, c\'è stato un problema nella generazione del tuo testo.',
+    genieTooltip: 'Sono un’IA, quindi a volte posso essere un po’ imprevedibile. Grazie per la pazienza!',
+    characterCountLabel: 'Caratteri',
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -720,7 +740,9 @@ const translations: Record<SupportedLang, {
     privacy: 'الخصوصية',
     contact: 'اتصل',
     pleaseEnter: 'يرجى إدخال ما تحتاج المساعدة في كتابته.',
-    sorryProblem: 'عذراً، حدثت مشكلة أثناء إنشاء النص.'
+    sorryProblem: 'عذراً، حدثت مشكلة أثناء إنشاء النص.',
+    genieTooltip: 'أنا ذكاء اصطناعي، لذا أحياناً أتصرف بغرابة. شكرًا لصبرك!',
+    characterCountLabel: 'عدد الأحرف',
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -789,7 +811,9 @@ const translations: Record<SupportedLang, {
     privacy: 'गोपनीयता',
     contact: 'संपर्क करें',
     pleaseEnter: 'कृपया बताएं आपको किस लेखन में मदद चाहिए।',
-    sorryProblem: 'माफ़ कीजिए, टेक्स्ट जनरेट करने में समस्या आई।'
+    sorryProblem: 'माफ़ कीजिए, टेक्स्ट जनरेट करने में समस्या आई।',
+    genieTooltip: 'मैं एआई हूँ, तो कभी-कभी थोड़ा अजीब हो जाता हूँ। धन्यवाद कि आप सहन करते हैं!',
+    characterCountLabel: 'अक्षर',
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -858,7 +882,9 @@ const translations: Record<SupportedLang, {
     privacy: 'Privasi',
     contact: 'Kontak',
     pleaseEnter: 'Silakan masukkan apa yang ingin Anda tulis.',
-    sorryProblem: 'Maaf, terjadi masalah saat membuat teks Anda.'
+    sorryProblem: 'Maaf, terjadi masalah saat membuat teks Anda.',
+    genieTooltip: 'Saya AI, jadi kadang-kadang saya bisa agak aneh. Terima kasih atas pengertiannya!',
+    characterCountLabel: 'Karakter',
   },
 };
 

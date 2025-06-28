@@ -9,22 +9,28 @@ interface Message {
 
 const MESSENGER_STORAGE_KEY = 'typinggenie_messenger_history';
 
-const Messenger: React.FC = () => {
-  // Load from localStorage or use default
+const Messenger: React.FC<{ isLoggedIn?: boolean }> = ({ isLoggedIn }) => {
+  // Only persist/load messages if logged in
   const [messages, setMessages] = useState<Message[]>(() => {
-    const saved = localStorage.getItem(MESSENGER_STORAGE_KEY);
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch {
-        return [
-          { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
-        ];
+    if (isLoggedIn) {
+      const saved = localStorage.getItem(MESSENGER_STORAGE_KEY);
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch {
+          return [
+            { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
+          ];
+        }
       }
+      return [
+        { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
+      ];
+    } else {
+      return [
+        { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
+      ];
     }
-    return [
-      { id: 1, sender: 'ai', text: 'Hi! How can I help you with your writing today?' }
-    ];
   });
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -45,8 +51,10 @@ const Messenger: React.FC = () => {
 
   // Persist messages to localStorage on change
   useEffect(() => {
-    localStorage.setItem(MESSENGER_STORAGE_KEY, JSON.stringify(messages));
-  }, [messages]);
+    if (isLoggedIn) {
+      localStorage.setItem(MESSENGER_STORAGE_KEY, JSON.stringify(messages));
+    }
+  }, [messages, isLoggedIn]);
 
   const handleSend = async () => {
     if (input.trim() === '' || loading) return;
