@@ -259,8 +259,10 @@ code {
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 2.5rem 0.5rem 2rem;
+  /*
   position: sticky;
   top: 0;
+  */
   z-index: 100;
   min-height: 56px;
 }
