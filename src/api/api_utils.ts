@@ -15,7 +15,7 @@ export async function callWriterApi({
   is_logged_in: boolean;
   language: string;
 }): Promise<string> {
-  console.log('[callWriterApi] sending:', { text, documentType, tone, revise, is_logged_in, language });
+  // console.log('[callWriterApi] sending:', { text, documentType, tone, revise, is_logged_in, language });
   const response = await fetch(`${API_BASE_URL}/writer_api`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

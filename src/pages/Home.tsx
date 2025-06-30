@@ -44,13 +44,13 @@ const Home: React.FC = () => {
     return "";
   });
   const [selectedDocType, setSelectedDocType] = React.useState<string>(() => {
-    return localStorage.getItem(DOC_TYPE_STORAGE_KEY) || translationsTyped[lang].documentTypeOptions[1];
+    return localStorage.getItem(DOC_TYPE_STORAGE_KEY) || translationsTyped['en'].documentTypeOptions[1];
   });
   const [selectedTone, setSelectedTone] = React.useState<string>(() => {
-    return localStorage.getItem(TONE_STORAGE_KEY) || translationsTyped[lang].toneOptions[0];
+    return localStorage.getItem(TONE_STORAGE_KEY) || translationsTyped['en'].toneOptions[0];
   });
   const [selectedRevise, setSelectedRevise] = React.useState<string>(() => {
-    return localStorage.getItem(REVISE_STORAGE_KEY) || translationsTyped[lang].reviseOptions[2];
+    return localStorage.getItem(REVISE_STORAGE_KEY) || translationsTyped['en'].reviseOptions[2];
   });
 
   React.useEffect(() => {
@@ -89,9 +89,9 @@ const Home: React.FC = () => {
 
   // Reset options if language changes
   React.useEffect(() => {
-    setSelectedDocType(translationsTyped[lang].documentTypeOptions[1]);
-    setSelectedTone(translationsTyped[lang].toneOptions[0]);
-    setSelectedRevise(translationsTyped[lang].reviseOptions[2]);
+    setSelectedDocType(translationsTyped['en'].documentTypeOptions[1]);
+    setSelectedTone(translationsTyped['en'].toneOptions[0]);
+    setSelectedRevise(translationsTyped['en'].reviseOptions[2]);
   }, [lang]);
 
   // Scroll to top on first visit
