@@ -15,7 +15,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
       const script1 = document.createElement('script');
       script1.id = 'ga-gtag-script';
       script1.async = true;
-      script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-5E61JKKBJ8';
+      script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-84FGET7M7G';
       document.head.appendChild(script1);
 
       const script2 = document.createElement('script');
@@ -23,7 +23,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-5E61JKKBJ8');
+        gtag('config', 'G-84FGET7M7G');
       `;
       document.head.appendChild(script2);
     }
