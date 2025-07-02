@@ -66,10 +66,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
         <div className="navbar-left">
           <Link to="/" className="navbar-brand">
             <span className="navbar-brand-typing">Typing</span>
-            <span className="navbar-brand-genie">
-              Genie
-              <img src={'genie-bottle.webp'} alt="Genie Bottle" style={{ marginLeft: 8, height: 36, width: 'auto', verticalAlign: 'middle', display: 'inline-block' }} />
-            </span>
+            <span className="navbar-brand-genie">Genie</span>
           </Link>
         </div>
         {/* Only show navbar-right if showSignOut is not true */}

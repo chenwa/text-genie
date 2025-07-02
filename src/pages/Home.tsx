@@ -87,13 +87,6 @@ const Home: React.FC = () => {
     localStorage.setItem(REVISE_STORAGE_KEY, selectedRevise);
   }, [selectedRevise]);
 
-  // Reset options if language changes
-  React.useEffect(() => {
-    setSelectedDocType(translationsTyped['en'].documentTypeOptions[1]);
-    setSelectedTone(translationsTyped['en'].toneOptions[0]);
-    setSelectedRevise(translationsTyped['en'].reviseOptions[2]);
-  }, [lang]);
-
   // Scroll to top on first visit
   React.useEffect(() => {
     if (!localStorage.getItem('typinggenie_home_visited')) {

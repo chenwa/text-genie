@@ -156,7 +156,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
       )}
       </button>
       {visible && (
-        <div className="messenger-container" style={{ marginTop: 36, height: 800, width: 520, minWidth: 520, maxWidth: 520 }}>
+        <div className="messenger-container" style={{ marginTop: 36, height: 700, width: 520, minWidth: 520, maxWidth: 520 }}>
           <div className="messenger-header">
             <h3 className="messenger-title" style={{padding: '0 1.2em', display: 'flex', alignItems: 'center', gap: 8, fontWeight: 400}}>
               <span style={{ fontSize: 30 }} role="img" aria-label="genie">🧞‍♂️</span>
