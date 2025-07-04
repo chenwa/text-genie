@@ -16,16 +16,23 @@ interface ConversationMessage {
 
 const MESSENGER_STORAGE_KEY = 'typinggenie_messenger_history';
 const CONVERSATION_STORAGE_KEY = 'typinggenie_conversation_history';
+const MAX_CONVERSATION_HISTORY = 20;
 
 const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ isLoggedIn, lang = 'en' }) => {
   const t = translations[lang];
+  
+  // Helper function to keep only the last N messages
+  const limitConversationHistory = (messages: ConversationMessage[], limit: number): ConversationMessage[] => {
+    return messages.slice(-limit);
+  };
   
   // Load conversation history from localStorage
   const loadConversationHistory = (): ConversationMessage[] => {
     if (!isLoggedIn) return [];
     try {
       const saved = localStorage.getItem(CONVERSATION_STORAGE_KEY);
-      return saved ? JSON.parse(saved) : [];
+      const history = saved ? JSON.parse(saved) : [];
+      return limitConversationHistory(history, MAX_CONVERSATION_HISTORY);
     } catch {
       return [];
     }
@@ -77,7 +84,9 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
   useEffect(() => {
     if (isLoggedIn) {
       localStorage.setItem(MESSENGER_STORAGE_KEY, JSON.stringify(messages));
-      localStorage.setItem(CONVERSATION_STORAGE_KEY, JSON.stringify(conversationHistory));
+      // Limit conversation history to MAX_CONVERSATION_HISTORY messages before storing
+      const limitedHistory = limitConversationHistory(conversationHistory, MAX_CONVERSATION_HISTORY);
+      localStorage.setItem(CONVERSATION_STORAGE_KEY, JSON.stringify(limitedHistory));
     }
   }, [messages, conversationHistory, isLoggedIn]);
 
@@ -119,8 +128,9 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
       // Create new conversation history with the current user message
       const newConversationHistory = [...conversationHistory, userConversationMsg];
       
-      // Call API with full conversation history
-      const aiText = await callMessengerApi(newConversationHistory);
+      // Call API with full conversation history (limited to last 20 messages)
+      const limitedHistory = limitConversationHistory(newConversationHistory, MAX_CONVERSATION_HISTORY);
+      const aiText = await callMessengerApi(limitedHistory);
       
       // Add AI response to conversation history
       const aiConversationMsg: ConversationMessage = {
@@ -128,8 +138,9 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
         content: aiText
       };
       
-      // Update conversation history with both user and AI messages
-      setConversationHistory([...newConversationHistory, aiConversationMsg]);
+      // Update conversation history with both user and AI messages, and limit to 20
+      const updatedHistory = limitConversationHistory([...newConversationHistory, aiConversationMsg], MAX_CONVERSATION_HISTORY);
+      setConversationHistory(updatedHistory);
       
       setMessages(prev => [
         ...prev,
