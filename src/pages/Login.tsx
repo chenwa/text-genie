@@ -17,7 +17,7 @@ const Login: React.FC = () => {
       localStorage.setItem('user', JSON.stringify(data.user));
       navigate('/');
     } catch (err) {
-      setError('Login failed.');
+      setError('Login failed. Please check your email and password.');
     }
   };
 

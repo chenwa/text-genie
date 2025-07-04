@@ -15,7 +15,6 @@ export async function callWriterApi({
   is_logged_in: boolean;
   language: string;
 }): Promise<string> {
-  // console.log('[callWriterApi] sending:', { text, documentType, tone, revise, is_logged_in, language });
   const response = await fetch(`${API_BASE_URL}/writer_api`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -32,13 +31,13 @@ export async function callWriterApi({
   return resp;
 }
 
-export const callMessengerApi = async (text: string): Promise<string> => {
-  const response = await fetch(`${API_BASE_URL}/write_messenger_api`, {
+export const callMessengerApi = async (messages: Array<{role: string, content: string}>): Promise<string> => {
+  const response = await fetch(`${API_BASE_URL}/write_messenger_api_with_history`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ text }),
+    body: JSON.stringify({ messages }),
   });
 
   if (!response.ok) {

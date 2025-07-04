@@ -9,10 +9,30 @@ interface Message {
   text: string;
 }
 
+interface ConversationMessage {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
 const MESSENGER_STORAGE_KEY = 'typinggenie_messenger_history';
+const CONVERSATION_STORAGE_KEY = 'typinggenie_conversation_history';
 
 const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ isLoggedIn, lang = 'en' }) => {
   const t = translations[lang];
+  
+  // Load conversation history from localStorage
+  const loadConversationHistory = (): ConversationMessage[] => {
+    if (!isLoggedIn) return [];
+    try {
+      const saved = localStorage.getItem(CONVERSATION_STORAGE_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const [conversationHistory, setConversationHistory] = useState<ConversationMessage[]>(loadConversationHistory);
+  
   // Only persist/load messages if logged in
   const [messages, setMessages] = useState<Message[]>(() => {
     const greeting = t.greeting;
@@ -53,14 +73,15 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
     }
   }, [visible, messages, loading]);
 
-  // Persist messages to localStorage on change
+  // Persist messages and conversation history to localStorage on change
   useEffect(() => {
     if (isLoggedIn) {
       localStorage.setItem(MESSENGER_STORAGE_KEY, JSON.stringify(messages));
+      localStorage.setItem(CONVERSATION_STORAGE_KEY, JSON.stringify(conversationHistory));
     }
-  }, [messages, isLoggedIn]);
+  }, [messages, conversationHistory, isLoggedIn]);
 
-  // Reset greeting if language changes
+  // Reset greeting and clear conversation history if language changes
   useEffect(() => {
     setMessages(prev => {
       // If the first message is the old greeting, replace it with the new one
@@ -69,6 +90,10 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
       }
       return prev;
     });
+    // Clear conversation history when language changes to start fresh
+    if (isLoggedIn) {
+      setConversationHistory([]);
+    }
     // eslint-disable-next-line
   }, [lang]);
 
@@ -79,11 +104,33 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
       sender: 'user',
       text: input.trim(),
     };
+    
+    // Add user message to conversation history
+    const userConversationMsg: ConversationMessage = {
+      role: 'user',
+      content: input.trim()
+    };
+    
     setMessages(prev => [...prev, userMsg]);
     setInput('');
     setLoading(true);
+    
     try {
-      const aiText = await callMessengerApi(userMsg.text);
+      // Create new conversation history with the current user message
+      const newConversationHistory = [...conversationHistory, userConversationMsg];
+      
+      // Call API with full conversation history
+      const aiText = await callMessengerApi(newConversationHistory);
+      
+      // Add AI response to conversation history
+      const aiConversationMsg: ConversationMessage = {
+        role: 'assistant',
+        content: aiText
+      };
+      
+      // Update conversation history with both user and AI messages
+      setConversationHistory([...newConversationHistory, aiConversationMsg]);
+      
       setMessages(prev => [
         ...prev,
         {
@@ -93,14 +140,22 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
         },
       ]);
     } catch (e) {
+      const errorMsg = 'Sorry, there was a problem connecting to the assistant.';
       setMessages(prev => [
         ...prev,
         {
           id: prev.length + 1,
           sender: 'ai',
-          text: 'Sorry, there was a problem connecting to the assistant.',
+          text: errorMsg,
         },
       ]);
+      
+      // Also add error to conversation history
+      const errorConversationMsg: ConversationMessage = {
+        role: 'assistant',
+        content: errorMsg
+      };
+      setConversationHistory(prev => [...prev, userConversationMsg, errorConversationMsg]);
     } finally {
       setLoading(false);
     }
@@ -108,6 +163,16 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
 
   const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') handleSend();
+  };
+
+  const clearConversation = () => {
+    const greeting = t.greeting;
+    setMessages([{ id: 1, sender: 'ai', text: greeting }]);
+    setConversationHistory([]);
+    if (isLoggedIn) {
+      localStorage.setItem(MESSENGER_STORAGE_KEY, JSON.stringify([{ id: 1, sender: 'ai', text: greeting }]));
+      localStorage.setItem(CONVERSATION_STORAGE_KEY, JSON.stringify([]));
+    }
   };
 
   return (
@@ -157,11 +222,26 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
       </button>
       {visible && (
         <div className="messenger-container" style={{ marginTop: 36, height: 700, width: 520, minWidth: 520, maxWidth: 520 }}>
-          <div className="messenger-header">
+          <div className="messenger-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h3 className="messenger-title" style={{padding: '0 1.2em', display: 'flex', alignItems: 'center', gap: 8, fontWeight: 400}}>
               <span style={{ fontSize: 30 }} role="img" aria-label="genie">🧞‍♂️</span>
               <span style={{ fontWeight: 400 }}>Typing Genie</span>
             </h3>
+            <button 
+              onClick={clearConversation}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#666',
+                cursor: 'pointer',
+                padding: '0.5rem',
+                fontSize: '0.8rem',
+                marginRight: '0.5rem'
+              }}
+              title="Clear conversation"
+            >
+              🗑️
+            </button>
           </div>
           <div className="messenger-messages">
             {messages.map(msg => (
