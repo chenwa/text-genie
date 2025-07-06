@@ -247,7 +247,10 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
                 cursor: 'pointer',
                 padding: '0.5rem',
                 fontSize: '0.8rem',
-                marginRight: '0.5rem'
+                marginRight: '0.5rem',
+                position: 'relative',
+                top: '-14px',
+                left: '-30px'
               }}
               title="Clear conversation"
             >
