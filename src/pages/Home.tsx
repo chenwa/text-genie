@@ -314,9 +314,19 @@ const Home: React.FC = () => {
             className="demo-generate-btn"
             onClick={handleDemoGenerate}
             disabled={demoLoading}
-            style={{ marginLeft: 12 }}
+            style={{ marginLeft: 12, display: 'flex', alignItems: 'center', gap: 8 }}
             title={t.demoGenerateTooltip}
           >
+            {demoLoading && (
+              <div style={{
+                width: 20,
+                height: 20,
+                border: '3px solid #f3f3f3',
+                borderTop: '3px solid #1976d2',
+                borderRadius: '50%',
+                animation: 'spin 1s linear infinite',
+              }} />
+            )}
             {demoLoading ? t.demoGenerating : t.demoGenerate}
           </button>
         </div>

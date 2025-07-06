@@ -11,6 +11,7 @@ const Signup: React.FC = () => {
     password: '',
   });
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,8 +21,10 @@ const Signup: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     if (!formData.first_name || !formData.last_name || !formData.email || !formData.password) {
       setError('First name, last name, email, and password are required.');
+      setLoading(false);
       return;
     }
     try {
@@ -48,6 +51,8 @@ const Signup: React.FC = () => {
       }
     } catch (err) {
       setError('Sign up failed.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -62,7 +67,9 @@ const Signup: React.FC = () => {
         </div>
         <input className="nf-input" name="email" type="email" placeholder="Email*" value={formData.email} onChange={handleChange} required />
         <input className="nf-input" name="password" type="password" placeholder="Password*" value={formData.password} onChange={handleChange} required />
-        <button className="nf-btn nf-btn-primary nf-form-btn" type="submit">Sign Up</button>
+        <button className="nf-btn nf-btn-primary nf-form-btn" type="submit" disabled={loading}>
+          {loading ? 'Signing Up...' : 'Sign Up'}
+        </button>
       </form>
       {error && <div className="nf-error">{error}</div>}
       <div className="nf-info-section">

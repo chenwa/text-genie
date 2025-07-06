@@ -7,6 +7,7 @@ const ResetPassword: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -40,6 +41,7 @@ const ResetPassword: React.FC = () => {
     e.preventDefault();
     setMessage('');
     setError('');
+    setLoading(true);
 
     // Check if expiration time is valid
     const now = new Date();
@@ -50,19 +52,23 @@ const ResetPassword: React.FC = () => {
 
     if (!password || !confirmPassword) {
       setError('Two passwords are required.');
+      setLoading(false);
       return;
     }
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
+      setLoading(false);
       return;
     }
     try {
         if (!paramObj['em'] || !paramObj['org'] || !paramObj['et']) {
             setError('Invalid reset link. Please request a new one.');
+            setLoading(false);
             return;
         }
         if (diffMs > 60 * 60 * 1000) {
             setError('Reset link has expired. Please request a new one.');
+            setLoading(false);
             return;
         }
       const res = await fetch(`${API_BASE_URL}/reset_user_password`, {
@@ -82,6 +88,8 @@ const ResetPassword: React.FC = () => {
       }
     } catch (err) {
       setError('Failed to reset password.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -108,7 +116,9 @@ const ResetPassword: React.FC = () => {
           onChange={e => setConfirmPassword(e.target.value)}
           required
         />
-        <button className="nf-btn nf-btn-primary nf-form-btn" type="submit">Reset Password</button>
+        <button className="nf-btn nf-btn-primary nf-form-btn" type="submit" disabled={loading}>
+          {loading ? 'Resetting...' : 'Reset Password'}
+        </button>
       </form>
       {message && <div className="nf-success">{message}</div>}
       {error && <div className="nf-error">{error}</div>}

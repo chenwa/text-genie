@@ -6,11 +6,13 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
       const data = await callLoginAPI(email, password);
       localStorage.setItem('token', data.access_token);
@@ -18,6 +20,8 @@ const Login: React.FC = () => {
       navigate('/');
     } catch (err) {
       setError('Login failed. Please check your email and password.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -44,7 +48,9 @@ const Login: React.FC = () => {
           onChange={e => setPassword(e.target.value)}
           required
         />
-        <button className="nf-btn nf-btn-primary nf-form-btn" type="submit">Login</button>
+        <button className="nf-btn nf-btn-primary nf-form-btn" type="submit" disabled={loading}>
+          {loading ? 'Logging in...' : 'Login'}
+        </button>
       </form>
       {error && <div className="nf-error">{error}</div>}
       <div className="nf-info-section">

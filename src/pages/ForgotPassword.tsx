@@ -6,6 +6,7 @@ const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -28,6 +29,7 @@ const ForgotPassword: React.FC = () => {
     e.preventDefault();
     setMessage('');
     setError('');
+    setLoading(true);
     try {
       const res = await fetch(`${API_BASE_URL}/send_forgot_password_email/${encodeURIComponent(email)}/typinggenie`, {
         method: 'GET',
@@ -39,6 +41,8 @@ const ForgotPassword: React.FC = () => {
       }
     } catch (err) {
       setError('Failed to send reset email.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -59,7 +63,9 @@ const ForgotPassword: React.FC = () => {
           onChange={e => setEmail(e.target.value)}
           required
         />
-        <button className="nf-btn nf-btn-primary nf-form-btn" type="submit">Send Reset Link</button>
+        <button className="nf-btn nf-btn-primary nf-form-btn" type="submit" disabled={loading}>
+          {loading ? 'Sending...' : 'Send Reset Link'}
+        </button>
       </form>
       {message && <div className="nf-success">{message}</div>}
       {error && <div className="nf-error">{error}</div>}
