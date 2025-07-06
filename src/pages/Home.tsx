@@ -163,38 +163,7 @@ const Home: React.FC = () => {
         </select>
       </div>
 
-      {/* Progress Bar Overlay */}
-      {demoLoading && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          background: 'rgba(255,255,255,0.6)',
-          zIndex: 2000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 16,
-          }}>
-            <div className="loader" style={{
-              border: '6px solid #f3f3f3',
-              borderTop: '6px solid #1976d2',
-              borderRadius: '50%',
-              width: 60,
-              height: 60,
-              animation: 'spin 1s linear infinite',
-            }} />
-            <div style={{ fontWeight: 600, color: '#1976d2', fontSize: 20 }}>{t.demoGenerating}</div>
-          </div>
-        </div>
-      )}
+      {/* Progress Bar Overlay - Removed to keep only button spinner */}
 
       {/* Hero Section */}
       {!isLoggedIn && (
@@ -321,8 +290,8 @@ const Home: React.FC = () => {
               <div style={{
                 width: 20,
                 height: 20,
-                border: '3px solid #f3f3f3',
-                borderTop: '3px solid #1976d2',
+                border: '3px solid var(--bg-tertiary)',
+                borderTop: '3px solid #fff',
                 borderRadius: '50%',
                 animation: 'spin 1s linear infinite',
               }} />
@@ -360,13 +329,13 @@ const Home: React.FC = () => {
                   position: 'absolute',
                   top: 8,
                   right: 8,
-                  background: '#fff',
-                  border: '1px solid #ccc',
+                  background: 'var(--bg-secondary)',
+                  border: '1px solid var(--border-color)',
                   borderRadius: 4,
                   padding: '4px 8px',
                   cursor: 'pointer',
                   fontSize: 16,
-                  boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+                  boxShadow: '0 1px 4px var(--shadow-light)',
                   zIndex: 2,
                   display: 'flex',
                   alignItems: 'center',
@@ -378,16 +347,16 @@ const Home: React.FC = () => {
                   <span role="img" aria-label="Copied">✅</span>
                 ) : (
                   <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block' }}>
-                    <rect x="6" y="4" width="9" height="12" rx="2" fill="#fff" stroke="#1976d2" strokeWidth="1.5"/>
-                    <rect x="3" y="7" width="9" height="9" rx="2" fill="#fff" stroke="#1976d2" strokeWidth="1.5"/>
+                    <rect x="6" y="4" width="9" height="12" rx="2" fill="var(--bg-secondary)" stroke="var(--accent-blue)" strokeWidth="1.5"/>
+                    <rect x="3" y="7" width="9" height="9" rx="2" fill="var(--bg-secondary)" stroke="var(--accent-blue)" strokeWidth="1.5"/>
                   </svg>
                 )}
-                <span style={{ fontSize: 13, color: copied ? '#388e3c' : '#1976d2', fontWeight: 500 }}>
+                <span style={{ fontSize: 13, color: copied ? '#388e3c' : 'var(--accent-blue)', fontWeight: 500 }}>
                   {copied ? t.demoCopied : t.demoCopy}
                 </span>
               </button>
             )}
-            <span id="ai-disclaim" style={{ display: 'block', marginTop: 16, color: '#bbb', fontWeight: 400, fontSize: 15, textAlign: 'right' }}>{t.genieTooltip}</span>
+            <span id="ai-disclaim" style={{ display: 'block', marginTop: 16, color: 'var(--text-muted)', fontWeight: 400, fontSize: 15, textAlign: 'right' }}>{t.genieTooltip}</span>
           </div>
         </div>
       </section>
