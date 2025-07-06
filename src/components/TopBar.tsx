@@ -72,12 +72,12 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
         </div>
         {/* Only show navbar-right if showSignOut is not true */}
         <div className="navbar-right" style={{ position: 'relative', right: 10, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16 }}>
-        <ThemeToggle />
+        <ThemeToggle />&nbsp;
         {showSignOut ? (
           <>
             {formattedName && (
               <div style={{ marginTop: '0.1em', float: 'right' }}>
-                <span className="nf-nav-separator">Hi {formattedName}!</span>
+                <span className="nf-nav-separator">Hi {formattedName}!&nbsp;</span>
               </div>
             )}
             <Link to="/" className="navbar-link login" onClick={e => {
@@ -98,7 +98,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
           </>
         ) : (
           <>
-            <Link to="/login" className="navbar-link login">Login</Link> &nbsp; &nbsp;
+            <Link to="/login" className="navbar-link login">Login</Link> &nbsp;
             <Link to="/signup" className="navbar-link signup">Sign Up</Link>
           </>
         )}
