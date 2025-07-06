@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 interface TopBarProps {
   showSignOut?: boolean;
@@ -71,6 +72,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut }) => {
         </div>
         {/* Only show navbar-right if showSignOut is not true */}
         <div className="navbar-right" style={{ position: 'relative', right: 10, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16 }}>
+        <ThemeToggle />
         {showSignOut ? (
           <>
             {formattedName && (

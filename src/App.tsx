@@ -9,6 +9,7 @@ import './App.css';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import Contact from './pages/Contact'; // Import the Contact page
+import { ThemeProvider } from './contexts/ThemeContext';
 
 // Create a new component to be able to use hooks
 const AppContent = () => {
@@ -44,9 +45,11 @@ const AppContent = () => {
 
 function App() {
     return (
-        <Router>
-            <AppContent />
-        </Router>
+        <ThemeProvider>
+            <Router>
+                <AppContent />
+            </Router>
+        </ThemeProvider>
     );
 }
 
