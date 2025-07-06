@@ -210,8 +210,8 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
           alignItems: 'center',
           justifyContent: 'center',
         }}
-        aria-label={visible ? 'Hide Messenger' : 'Show Messenger'}
-        title={visible ? 'Hide Messenger' : 'Show Messenger'}
+        aria-label={visible ? 'Hide Messenger' : 'Ask Genie'}
+        title={visible ? 'Hide Messenger' : 'Ask Genie'}
       >
         {visible ? '×' : <span role="img" aria-label="chat">💬</span>}
       {!visible && (
