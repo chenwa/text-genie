@@ -124,7 +124,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-root" style={{ position: 'relative' }}>
-      <style>{`.demo-textarea::placeholder { color: #bbb !important; opacity: 1; }`}</style>
+      <style>{`.demo-textarea::placeholder { color: var(--text-muted) !important; opacity: 1; }`}</style>
 
       {/* Language Selector */}
       <div style={{ position: 'absolute', top: 8, right: 20, zIndex: 3000 }}>
@@ -134,14 +134,14 @@ const Home: React.FC = () => {
           style={{
             padding: '4px 10px',
             borderRadius: 6,
-            border: '1px solid #bbb',
+            border: '1px solid var(--border-color)',
             fontWeight: 600,
             fontSize: 15,
-            background: '#fff',
-            color: '#1976d2',
+            background: 'var(--bg-secondary)',
+            color: 'var(--accent-blue)',
             cursor: 'pointer',
             outline: 'none',
-            boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
+            boxShadow: '0 1px 4px var(--shadow-light)',
             width: 150,
             minWidth: 0,
             maxWidth: 120

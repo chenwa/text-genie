@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Terms: React.FC = () => (
-  <div className="nf-form-container terms-container" style={{ maxWidth: 700, margin: '40px auto', padding: '2em 2.5em', background: '#fff', borderRadius: 12, boxShadow: '0 2px 12px rgba(0,0,0,0.04)', textAlign: 'left', alignItems: 'flex-start', display: 'block', position: 'relative' }}>
-    <button className="nf-home-btn" type="button" onClick={() => window.history.back()} aria-label="Close" style={{ position: 'absolute', top: 18, right: 18, fontSize: 22, background: 'none', border: 'none', cursor: 'pointer' }}>&#10005;</button>
+  <div className="nf-form-container terms-container" style={{ maxWidth: 700, margin: '40px auto', padding: '2em 2.5em', background: 'var(--bg-secondary)', borderRadius: 12, boxShadow: '0 2px 12px var(--shadow-medium)', textAlign: 'left', alignItems: 'flex-start', display: 'block', position: 'relative' }}>
+    <button className="nf-home-btn" type="button" onClick={() => window.history.back()} aria-label="Close" style={{ position: 'absolute', top: 18, right: 18, fontSize: 22, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>&#10005;</button>
     <h2 className="nf-form-title" style={{ marginBottom: 24 }}>Terms of Service</h2>
     <p>Welcome to TypingGenie! By using our website and services, you agree to the following terms. Please read them carefully.</p>
 
@@ -25,7 +25,7 @@ const Terms: React.FC = () => (
     </ul>
 
     <h3>4. Privacy</h3>
-    <p>We respect your privacy. Please see our <Link to="/privacy">Privacy Policy</Link> for details on how your data is collected, used, and protected.</p>
+    <p>We respect your privacy. Please see our <Link to="/privacy" style={{ color: 'var(--accent-blue)', textDecoration: 'underline', fontWeight: 600 }}>Privacy Policy</Link> for details on how your data is collected, used, and protected.</p>
 
     <h3>5. AI Content</h3>
     <ul>
@@ -43,7 +43,7 @@ const Terms: React.FC = () => (
     <p>We may update these terms from time to time. Continued use of TypingGenie after changes means you accept the new terms.</p>
 
     <h3>8. Contact</h3>
-    <p>If you have questions about these terms, please <Link to="/contact">contact us</Link>.</p>
+    <p>If you have questions about these terms, please <Link to="/contact" style={{ color: 'var(--accent-blue)', textDecoration: 'underline', fontWeight: 600 }}>contact us</Link>.</p>
 
     <footer className="nf-footer nf-footer-small" style={{ marginTop: 32 }}>
       &copy; {new Date().getFullYear()} TypingGenie. All rights reserved.

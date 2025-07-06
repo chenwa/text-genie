@@ -219,8 +219,8 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
           position: 'absolute',
           top: 11,
           right: 8 + 54 + 8 + 2 - 20 + 5, // moved right by 5px from previous -20
-          color: '#1976d2',
-          background: '#fff',
+          color: 'var(--accent-blue)',
+          background: 'var(--bg-secondary)',
           borderRadius: 8,
           fontWeight: 600,
           fontSize: 16,
@@ -228,6 +228,8 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
           height: 32,
           display: 'flex',
           alignItems: 'center',
+          border: '1px solid var(--border-color)',
+          boxShadow: '0 2px 4px var(--shadow-light)',
         }}>Ask Genie</span>
       )}
       </button>
@@ -243,7 +245,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
               style={{
                 background: 'none',
                 border: 'none',
-                color: '#666',
+                color: 'var(--text-muted)',
                 cursor: 'pointer',
                 padding: '0.5rem',
                 fontSize: '0.8rem',

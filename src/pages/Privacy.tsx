@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Privacy: React.FC = () => (
-  <div className="nf-form-container privacy-container" style={{ maxWidth: 700, margin: '40px auto', padding: '2em 2.5em', background: '#fff', borderRadius: 12, boxShadow: '0 2px 12px rgba(0,0,0,0.04)', textAlign: 'left', alignItems: 'flex-start', display: 'block', position: 'relative' }}>
-    <button className="nf-home-btn" type="button" onClick={() => window.history.back()} aria-label="Close" style={{ position: 'absolute', top: 18, right: 18, fontSize: 22, background: 'none', border: 'none', cursor: 'pointer' }}>&#10005;</button>
+  <div className="nf-form-container privacy-container" style={{ maxWidth: 700, margin: '40px auto', padding: '2em 2.5em', background: 'var(--bg-secondary)', borderRadius: 12, boxShadow: '0 2px 12px var(--shadow-medium)', textAlign: 'left', alignItems: 'flex-start', display: 'block', position: 'relative' }}>
+    <button className="nf-home-btn" type="button" onClick={() => window.history.back()} aria-label="Close" style={{ position: 'absolute', top: 18, right: 18, fontSize: 22, background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}>&#10005;</button>
     <h2 className="nf-form-title" style={{ marginBottom: 24 }}>Privacy Policy</h2>
     <p>Your privacy is important to us. This policy explains how TypingGenie collects, uses, and protects your information.</p>
 
@@ -45,7 +45,7 @@ const Privacy: React.FC = () => (
     <p>We may update this policy from time to time. We will notify you of significant changes by posting an update on our website.</p>
 
     <h3>8. Contact</h3>
-    <p>If you have questions about this policy, please <Link to="/contact">contact us</Link>.</p>
+    <p>If you have questions about this policy, please <Link to="/contact" style={{ color: 'var(--accent-blue)', textDecoration: 'underline', fontWeight: 600 }}>contact us</Link>.</p>
 
     <footer className="nf-footer nf-footer-small" style={{ marginTop: 32 }}>
       &copy; {new Date().getFullYear()} TypingGenie. All rights reserved.
