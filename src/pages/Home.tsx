@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Messenger from '../components/Messenger';
 import { callWriterApi } from '../api/api_utils';
 import translations from './Translations';
-export type SupportedLang = 'en' | 'es' | 'zh' | 'de' | 'ru' | 'ja' | 'fr' | 'pt' | 'it' | 'ar' | 'hi' | 'id';
+export type SupportedLang = 'en' | 'es' | 'zh' | 'de' | 'ru' | 'ja' | 'fr' | 'pt' | 'it' | 'ar' | 'hi' | 'id' | 'ko';
 
 // Fix: import the full translations object from Translations.ts
 // and ensure all languages are included and exported.
@@ -160,6 +160,7 @@ const Home: React.FC = () => {
           <option value="ar">العربية</option>
           <option value="hi">हिन्दी</option>
           <option value="id">Indonesia</option>
+          <option value="ko">한국어</option>
         </select>
       </div>
 
