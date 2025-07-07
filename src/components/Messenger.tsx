@@ -210,12 +210,12 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
           alignItems: 'center',
           justifyContent: 'center',
         }}
-        aria-label={visible ? 'Hide Messenger' : 'Ask Genie'}
-        title={visible ? 'Hide Messenger' : 'Ask Genie'}
+        aria-label={visible ? 'Hide Messenger' : t.askGenie}
+        title={visible ? 'Hide Messenger' : t.askGenie}
       >
         {visible ? '×' : <span role="img" aria-label="chat">💬</span>}
       {!visible && (
-        <span style={{
+        <div style={{
           position: 'absolute',
           top: 11,
           right: 8 + 54 + 8 + 2 - 20 + 5, // moved right by 5px from previous -20
@@ -230,7 +230,8 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
           alignItems: 'center',
           border: '1px solid var(--border-color)',
           boxShadow: '0 2px 4px var(--shadow-light)',
-        }}>Ask Genie</span>
+          whiteSpace: 'nowrap',
+        }}>{t.askGenie}</div>
       )}
       </button>
       {visible && (
