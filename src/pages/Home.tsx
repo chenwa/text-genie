@@ -201,13 +201,20 @@ const Home: React.FC = () => {
               <Link to="/signup" className="hero-signup-btn">{t.heroCta}</Link>
             </div>
             <div className="hero-tagline">
-              <em style={{ color: '#222' }}>{t.signupEncouragement}</em>
+              <em
+                style={{
+                  color: 'var(--text-muted, #bbb)',
+                  ...(document.body.classList.contains('dark-mode') && { color: '#bbb' }),
+                }}
+              >
+                {t.signupEncouragement}
+              </em>
             </div>
           </div>
         </section>
       )}
 
-      {/* Live Section */}
+      {/* Demo Section */}
       <section id="demo-section" className="demo-section">
         {!isLoggedIn && (
           <h2 className="demo-title">{t.demoTitle}</h2>

@@ -1,0 +1,9 @@
+/* Pure black background for TypingGenie dark mode */
+body.dark-mode,
+html.dark-mode,
+#root.dark-mode,
+.typing-genie-dark,
+.typing-genie-dark-mode {
+  background: #000 !important;
+  background-color: #000 !important;
+}
