@@ -115,7 +115,45 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut, lang: propLang 
         </div>
         {/* Only show navbar-right if showSignOut is not true */}
         <div className="navbar-right" style={{ position: 'relative', right: 10, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16 }}>
+        {/* Language Selector */}
         <ThemeToggle />&nbsp;
+        <select
+          value={currentLang}
+          onChange={e => {
+            const newLang = e.target.value as SupportedLang;
+            setCurrentLang(newLang);
+            localStorage.setItem('typinggenie_lang', newLang);
+          }}
+          style={{
+            padding: '4px 8px',
+            borderRadius: 6,
+            border: '1px solid var(--border-color)',
+            fontWeight: 600,
+            fontSize: 14,
+            background: 'var(--bg-secondary)',
+            color: 'var(--accent-blue)',
+            cursor: 'pointer',
+            outline: 'none',
+            boxShadow: '0 1px 4px var(--shadow-light)',
+            maxWidth: 120,
+            minWidth: 80
+          }}
+          aria-label="Select language"
+        >
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="zh">中文</option>
+          <option value="de">Deutsch</option>
+          <option value="ru">Русский</option>
+          <option value="ja">日本語</option>
+          <option value="fr">Français</option>
+          <option value="pt">Português</option>
+          <option value="it">Italiano</option>
+          <option value="ar">العربية</option>
+          <option value="hi">हिन्दी</option>
+          <option value="id">Indonesia</option>
+          <option value="ko">한국어</option>
+        </select>&nbsp;
         {showSignOut ? (
           <>
             {formattedName && (

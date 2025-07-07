@@ -30,6 +30,25 @@ const Home: React.FC = () => {
     }
     return 'en';
   });
+
+  // Listen for language changes from TopBar
+  React.useEffect(() => {
+    const handleStorageChange = () => {
+      const stored = localStorage.getItem(LANG_STORAGE_KEY);
+      if (stored && ['en','es','zh','de','ru','ja','fr','pt','it','ar','hi','id','ko'].includes(stored)) {
+        setLang(stored as SupportedLang);
+      }
+    };
+
+    // Listen for storage events and check periodically
+    window.addEventListener('storage', handleStorageChange);
+    const interval = setInterval(handleStorageChange, 100);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+      clearInterval(interval);
+    };
+  }, []);
   // State for demo output
   const [demoOutput, setDemoOutput] = React.useState<string>(() => {
     return localStorage.getItem(DEMO_OUTPUT_STORAGE_KEY) || "";
@@ -125,44 +144,6 @@ const Home: React.FC = () => {
   return (
     <div className="home-root" style={{ position: 'relative' }}>
       <style>{`.demo-textarea::placeholder { color: var(--text-muted) !important; opacity: 1; }`}</style>
-
-      {/* Language Selector */}
-      <div style={{ position: 'absolute', top: 8, right: 20, zIndex: 3000 }}>
-        <select
-          value={lang}
-          onChange={e => setLang(e.target.value as SupportedLang)}
-          style={{
-            padding: '4px 10px',
-            borderRadius: 6,
-            border: '1px solid var(--border-color)',
-            fontWeight: 600,
-            fontSize: 15,
-            background: 'var(--bg-secondary)',
-            color: 'var(--accent-blue)',
-            cursor: 'pointer',
-            outline: 'none',
-            boxShadow: '0 1px 4px var(--shadow-light)',
-            width: 150,
-            minWidth: 0,
-            maxWidth: 120
-          }}
-          aria-label="Select language"
-        >
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="zh">中文</option>
-          <option value="de">Deutsch</option>
-          <option value="ru">Русский</option>
-          <option value="ja">日本語</option>
-          <option value="fr">Français</option>
-          <option value="pt">Português</option>
-          <option value="it">Italiano</option>
-          <option value="ar">العربية</option>
-          <option value="hi">हिन्दी</option>
-          <option value="id">Indonesia</option>
-          <option value="ko">한국어</option>
-        </select>
-      </div>
 
       {/* Progress Bar Overlay - Removed to keep only button spinner */}
 
