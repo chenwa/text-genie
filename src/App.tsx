@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -10,6 +11,7 @@ import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import Contact from './pages/Contact'; // Import the Contact page
 import { ThemeProvider } from './contexts/ThemeContext';
+import type { SupportedLang } from './pages/Home';
 
 // Create a new component to be able to use hooks
 const AppContent = () => {

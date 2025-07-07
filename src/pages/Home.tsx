@@ -25,7 +25,7 @@ const REVISE_STORAGE_KEY = 'typinggenie_revise';
 const Home: React.FC = () => {
   const [lang, setLang] = React.useState<SupportedLang>(() => {
     const stored = localStorage.getItem(LANG_STORAGE_KEY);
-    if (stored && ['en','es','zh','de','ru','ja','fr','pt','it','ar','hi','id'].includes(stored)) {
+    if (stored && ['en','es','zh','de','ru','ja','fr','pt','it','ar','hi','id','ko'].includes(stored)) {
       return stored as SupportedLang;
     }
     return 'en';

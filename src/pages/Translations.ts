@@ -37,6 +37,9 @@ const translations: Record<SupportedLang, {
   signupEncouragement: string; // <-- Add this key for all languages
   greeting: string; // Messenger greeting
   askGenie: string; // "Ask Genie" button text
+  login: string; // "Login" link text
+  signUp: string; // "Sign Up" link text
+  signOut: string; // "Sign Out" link text
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -112,6 +115,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'No account? Sign up to unlock unlimited Genie magic!',
     greeting: 'Hi! How can I help you with your writing today?',
     askGenie: 'Ask Genie',
+    login: 'Login',
+    signUp: 'Sign Up',
+    signOut: 'Sign Out',
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -187,6 +193,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: '¿No tienes cuenta? ¡Regístrate para desbloquear magia ilimitada de Genie!',
     greeting: '¡Hola! ¿Cómo puedo ayudarte con tu escritura hoy?',
     askGenie: 'Pregunta al Genio',
+    login: 'Iniciar Sesión',
+    signUp: 'Registrarse',
+    signOut: 'Cerrar Sesión',
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -262,6 +271,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: '还没有账号？注册即可解锁无限Genie魔法！',
     greeting: '你好！我今天如何帮助你的写作？',
     askGenie: '问精灵',
+    login: '登录',
+    signUp: '注册',
+    signOut: '登出',
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -337,6 +349,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'Noch kein Konto? Melden Sie sich an, um unbegrenzte Genie-Magie freizuschalten!',
     greeting: 'Hallo! Wie kann ich Ihnen heute beim Schreiben helfen?',
     askGenie: 'Fragen Sie Genie',
+    login: 'Anmelden',
+    signUp: 'Registrieren',
+    signOut: 'Abmelden',
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -412,6 +427,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'Нет аккаунта? Зарегистрируйтесь, чтобы открыть неограниченную магию Джинна!',
     greeting: 'Привет! Как я могу помочь вам с письмом сегодня?',
     askGenie: 'Спросить Джинна',
+    login: 'Войти',
+    signUp: 'Зарегистрироваться',
+    signOut: 'Выйти',
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -487,6 +505,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'アカウントがありませんか？サインアップして無制限のGenieマジックを体験しよう！',
     greeting: 'こんにちは！今日はどんな文章作成をお手伝いしましょうか？',
     askGenie: 'ジーニーに聞く',
+    login: 'ログイン',
+    signUp: 'サインアップ',
+    signOut: 'サインアウト',
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -562,6 +583,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'Pas de compte ? Inscrivez-vous pour débloquer la magie illimitée de Genie !',
     greeting: 'Bonjour ! Comment puis-je vous aider à écrire aujourd\'hui ?',
     askGenie: 'Demander au Génie',
+    login: 'Se connecter',
+    signUp: 'S\'inscrire',
+    signOut: 'Se déconnecter',
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -637,6 +661,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'Não tem conta? Inscreva-se para liberar magia ilimitada do Genie!',
     greeting: 'Olá! Como posso ajudar você com sua escrita hoje?',
     askGenie: 'Perguntar ao Gênio',
+    login: 'Entrar',
+    signUp: 'Inscrever-se',
+    signOut: 'Sair',
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -712,6 +739,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'Nessun account? Iscriviti per sbloccare la magia illimitata di Genie!',
     greeting: 'Ciao! Come posso aiutarti con la tua scrittura oggi?',
     askGenie: 'Chiedi al Genio',
+    login: 'Accedi',
+    signUp: 'Registrati',
+    signOut: 'Esci',
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -787,6 +817,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'لا تملك حسابًا؟ سجّل للحصول على سحر جيني غير محدود!',
     greeting: 'مرحبًا! كيف يمكنني مساعدتك في الكتابة اليوم؟',
     askGenie: 'اسأل الجني',
+    login: 'تسجيل الدخول',
+    signUp: 'التسجيل',
+    signOut: 'تسجيل الخروج',
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -862,6 +895,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'कोई खाता नहीं? अनलिमिटेड Genie मैजिक के लिए साइन अप करें!',
     greeting: 'नमस्ते! आज मैं आपकी लेखन में कैसे मदद कर सकता हूँ?',
     askGenie: 'जीनी से पूछें',
+    login: 'लॉगिन',
+    signUp: 'साइन अप',
+    signOut: 'साइन आउट',
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -937,6 +973,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: 'Belum punya akun? Daftar untuk membuka keajaiban Genie tanpa batas!',
     greeting: 'Hai! Hari ini saya bisa membantu apa dalam menulismu?',
     askGenie: 'Tanya Genie',
+    login: 'Masuk',
+    signUp: 'Daftar',
+    signOut: 'Keluar',
   },
   ko: {
     heroTitle: '당신의 개인 작문 도우미 —',
@@ -1012,6 +1051,9 @@ const translations: Record<SupportedLang, {
     signupEncouragement: '계정이 없나요? 가입해서 무제한 Genie 마법을 사용해보세요!',
     greeting: '안녕하세요! 오늘 어떤 글쓰기를 도와드릴까요?',
     askGenie: '지니에게 물어보기',
+    login: '로그인',
+    signUp: '회원가입',
+    signOut: '로그아웃',
   },
 };
 
