@@ -67,3 +67,30 @@ export async function callLoginAPI(
   const data = await res.json();
   return data;
 }
+
+export async function callForgotPasswordAPI(email: string): Promise<void> {
+  const res = await fetch('/api/forgot-password', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+  });
+  if (!res.ok) {
+    throw new Error('Failed to send reset email.');
+  }
+}
+
+export async function callSignupAPI(
+  email: string,
+  password: string,
+  first_name: string,
+  last_name: string
+): Promise<void> {
+  const res = await fetch('/api/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password, first_name, last_name }),
+  });
+  if (!res.ok) {
+    throw new Error('Signup failed.');
+  }
+}

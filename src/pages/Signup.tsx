@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import API_BASE_URL from '../config';
 import '../App.css';
 
 const Signup: React.FC = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -23,13 +25,17 @@ const Signup: React.FC = () => {
     setError('');
     setLoading(true);
     if (!formData.first_name || !formData.last_name || !formData.email || !formData.password) {
-      setError('First name, last name, email, and password are required.');
+      setError(
+        (t.firstName && t.lastName && t.contact && t.privacy)
+          ? `${t.firstName}, ${t.lastName}, ${t.contact.toLowerCase()}, ${t.privacy.toLowerCase()} ${t.pleaseEnter ? t.pleaseEnter : 'are required.'}`
+          : 'First name, last name, email, and password are required.'
+      );
       setLoading(false);
       return;
     }
     try {
       const user = {
-        id: 0, // This will be set by the backend
+        id: 0,
         first_name: formData.first_name,
         last_name: formData.last_name,
         email: formData.email,
@@ -47,10 +53,10 @@ const Signup: React.FC = () => {
         localStorage.setItem('user', JSON.stringify(data.user));
         navigate('/');
       } else {
-        setError('Sign up failed.');
+        setError(t.sorryProblem || 'Sign up failed.');
       }
     } catch (err) {
-      setError('Sign up failed.');
+      setError(t.sorryProblem || 'Sign up failed.');
     } finally {
       setLoading(false);
     }
@@ -59,22 +65,53 @@ const Signup: React.FC = () => {
   return (
     <div className="nf-form-container">
       <button className="nf-home-btn" type="button" onClick={() => navigate('/')} aria-label="Close">&#10005;</button>
-      <h2 className="nf-form-title">Sign Up</h2>
+      <h2 className="nf-form-title">{t.signUp}</h2>
       <form className="nf-form nf-form-small" onSubmit={handleSubmit}>
         <div className="nf-form-row">
-          <input className="nf-input" name="first_name" placeholder="First Name*" value={formData.first_name} onChange={handleChange} required />
-          <input className="nf-input" name="last_name" placeholder="Last Name*" value={formData.last_name} onChange={handleChange} required />
+          <input
+            className="nf-input"
+            name="first_name"
+            placeholder={(t.firstName || "First Name") + "*"}
+            value={formData.first_name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="nf-input"
+            name="last_name"
+            placeholder={(t.lastName || "Last Name") + "*"}
+            value={formData.last_name}
+            onChange={handleChange}
+            required
+          />
         </div>
-        <input className="nf-input" name="email" type="email" placeholder="Email*" value={formData.email} onChange={handleChange} required />
-        <input className="nf-input" name="password" type="password" placeholder="Password*" value={formData.password} onChange={handleChange} required />
+        <input
+          className="nf-input"
+          name="email"
+          type="email"
+          placeholder={(t.contact || "Email") + "*"}
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          className="nf-input"
+          name="password"
+          type="password"
+          placeholder={(t.privacy || "Password") + "*"}
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
         <button className="nf-btn nf-btn-primary nf-form-btn" type="submit" disabled={loading}>
-          {loading ? 'Signing Up...' : 'Sign Up'}
+          {loading ? t.signUp : t.signUp}
         </button>
       </form>
       {error && <div className="nf-error">{error}</div>}
       <div className="nf-info-section">
-        <strong>Note:</strong> <Link to="/login">Login</Link> if you already have an account. <br /> <br />
-        <strong>Privacy Notice:</strong> TypingGenie does <u>not</u> collect, sell, or share your data. We will never send you marketing emails or share your information with third parties.
+        <strong>{t.login}</strong>: <Link to="/login">{t.login}</Link> {t.signupEncouragement}
+        <br /><br />
+        <strong>{t.privacy}:</strong> TypingGenie does <u>not</u> collect, sell, or share your data. {t.genieTooltip}
       </div>
       <footer className="nf-footer nf-footer-small">
         &copy; {new Date().getFullYear()} TypingGenie. All rights reserved.

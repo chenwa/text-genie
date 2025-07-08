@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import API_BASE_URL from '../config';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { callForgotPasswordAPI } from '../api/api_utils';
 
 const ForgotPassword: React.FC = () => {
+  const { t } = useLanguage();
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -27,20 +29,14 @@ const ForgotPassword: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setMessage('');
     setError('');
+    setMessage('');
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE_URL}/send_forgot_password_email/${encodeURIComponent(email)}/typinggenie`, {
-        method: 'GET',
-      });
-      if (res.ok) {
-        setMessage('If registered, a reset link has been sent.');
-      } else {
-        setError('Failed to send reset email.');
-      }
+      await callForgotPasswordAPI(email);
+      setMessage(t.resetPassword + ' ' + (t.demoPolished || 'Check your email for reset instructions.'));
     } catch (err) {
-      setError('Failed to send reset email.');
+      setError(t.sorryProblem || 'Failed to send reset email.');
     } finally {
       setLoading(false);
     }
@@ -49,26 +45,29 @@ const ForgotPassword: React.FC = () => {
   return (
     <div className="nf-form-container">
       <button className="nf-home-btn" type="button" onClick={() => navigate('/')} aria-label="Close">&#10005;</button>
-      <h2 className="nf-form-title">Forgot Password</h2>
+      <h2 className="nf-form-title">{t.resetPassword}</h2>
       {expired && (
-        <div className="nf-error">Your password reset link has expired. Please request a new one.</div>
+        <div className="nf-error">{t.forgotPasswordExpired}</div>
       )}
       <form className="nf-form" onSubmit={handleSubmit}>
         <input
           className="nf-input"
           name="email"
           type="email"
-          placeholder="Enter your email"
+          placeholder={t.contact + ' Email'}
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
         />
         <button className="nf-btn nf-btn-primary nf-form-btn" type="submit" disabled={loading}>
-          {loading ? 'Sending...' : 'Send Reset Link'}
+          {loading ? t.resetPassword : t.resetPassword}
         </button>
       </form>
       {message && <div className="nf-success">{message}</div>}
       {error && <div className="nf-error">{error}</div>}
+      <div className="nf-info-section">
+        <Link to="/login" className="nf-link">{t.login}</Link>
+      </div>
       <footer className="nf-footer nf-footer-small">
         &copy; {new Date().getFullYear()} TypingGenie. All rights reserved.
       </footer>

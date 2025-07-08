@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import API_BASE_URL from '../config';
 
 const ResetPassword: React.FC = () => {
+  const { t } = useLanguage();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -30,10 +32,8 @@ const ResetPassword: React.FC = () => {
         const [key, value] = pair.split('=');
         paramObj[key] = value;
       });
-
-      // console.log('Decoded token params:', paramObj);
     } catch (err) {
-      console.log('Failed to decode token:', err);
+      // Optionally handle decode error
     }
   }
 
@@ -51,26 +51,26 @@ const ResetPassword: React.FC = () => {
     console.log('Expiration time:', etDate, 'Current time:', now, 'Difference (ms):', diffMs);
 
     if (!password || !confirmPassword) {
-      setError('Two passwords are required.');
+      setError(t.pleaseEnter || 'Two passwords are required.');
       setLoading(false);
       return;
     }
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError(t.sorryProblem || 'Passwords do not match.');
       setLoading(false);
       return;
     }
     try {
-        if (!paramObj['em'] || !paramObj['org'] || !paramObj['et']) {
-            setError('Invalid reset link. Please request a new one.');
-            setLoading(false);
-            return;
-        }
-        if (diffMs > 60 * 60 * 1000) {
-            setError('Reset link has expired. Please request a new one.');
-            setLoading(false);
-            return;
-        }
+      if (!paramObj['em'] || !paramObj['org'] || !paramObj['et']) {
+        setError(t.forgotPasswordExpired || 'Invalid reset link. Please request a new one.');
+        setLoading(false);
+        return;
+      }
+      if (diffMs > 60 * 60 * 1000) {
+        setError(t.forgotPasswordExpired || 'Reset link has expired. Please request a new one.');
+        setLoading(false);
+        return;
+      }
       const res = await fetch(`${API_BASE_URL}/reset_user_password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -81,13 +81,13 @@ const ResetPassword: React.FC = () => {
         }),
       });
       if (res.ok) {
-        setMessage('Your password has been reset. You can now log in.');
+        setMessage(t.resetPassword + '. ' + (t.demoPolished || 'Your password has been reset. You can now log in.'));
         setTimeout(() => navigate('/login'), 2000); // Redirect to home after 2 seconds
       } else {
-        setError('Failed to reset password. The link may have expired.');
+        setError(t.sorryProblem || 'Failed to reset password. The link may have expired.');
       }
     } catch (err) {
-      setError('Failed to reset password.');
+      setError(t.sorryProblem || 'Failed to reset password.');
     } finally {
       setLoading(false);
     }
@@ -96,13 +96,13 @@ const ResetPassword: React.FC = () => {
   return (
     <div className="nf-form-container">
       <button className="nf-home-btn" type="button" onClick={() => navigate('/')} aria-label="Close">&#10005;</button>
-      <h2 className="nf-form-title">Reset Password</h2>
+      <h2 className="nf-form-title">{t.resetPassword}</h2>
       <form className="nf-form" onSubmit={handleSubmit}>
         <input
           className="nf-input"
           name="password"
           type="password"
-          placeholder="New password"
+          placeholder={t.privacy ? t.privacy + ' ' + t.resetPassword : 'New password'}
           value={password}
           onChange={e => setPassword(e.target.value)}
           required
@@ -111,13 +111,13 @@ const ResetPassword: React.FC = () => {
           className="nf-input"
           name="confirmPassword"
           type="password"
-          placeholder="Confirm new password"
+          placeholder={t.privacy ? t.privacy + ' ' + t.resetPassword : 'Confirm new password'}
           value={confirmPassword}
           onChange={e => setConfirmPassword(e.target.value)}
           required
         />
         <button className="nf-btn nf-btn-primary nf-form-btn" type="submit" disabled={loading}>
-          {loading ? 'Resetting...' : 'Reset Password'}
+          {loading ? t.resetPassword : t.resetPassword}
         </button>
       </form>
       {message && <div className="nf-success">{message}</div>}

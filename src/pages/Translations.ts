@@ -40,6 +40,11 @@ const translations: Record<SupportedLang, {
   login: string; // "Login" link text
   signUp: string; // "Sign Up" link text
   signOut: string; // "Sign Out" link text
+  forgotPassword: string; // "Forgot your password?" link text
+  resetPassword: string; // "Reset Password" link text
+  forgotPasswordExpired: string; // "Your password reset link has expired. Please request a new one."
+  firstName: string; // "First Name" field label
+  lastName: string; // "Last Name" field label
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -118,6 +123,11 @@ const translations: Record<SupportedLang, {
     login: 'Login',
     signUp: 'Sign Up',
     signOut: 'Sign Out',
+    forgotPassword: "Forgot your password?",
+    resetPassword: "Reset Password",
+    forgotPasswordExpired: "Your password reset link has expired. Please request a new one.",
+    firstName: "First Name",
+    lastName: "Last Name",
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -196,6 +206,11 @@ const translations: Record<SupportedLang, {
     login: 'Iniciar Sesión',
     signUp: 'Registrarse',
     signOut: 'Cerrar Sesión',
+    forgotPassword: "¿Olvidaste tu contraseña?",
+    resetPassword: "Restablecer contraseña",
+    forgotPasswordExpired: "El enlace para restablecer tu contraseña ha expirado. Solicita uno nuevo.",
+    firstName: "Nombre",
+    lastName: "Apellido",
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -274,6 +289,11 @@ const translations: Record<SupportedLang, {
     login: '登录',
     signUp: '注册',
     signOut: '登出',
+    forgotPassword: "忘记密码？",
+    resetPassword: "重置密码",
+    forgotPasswordExpired: "您的密码重置链接已过期。请请求一个新的链接。",
+    firstName: "名字",
+    lastName: "姓氏",
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -352,6 +372,11 @@ const translations: Record<SupportedLang, {
     login: 'Anmelden',
     signUp: 'Registrieren',
     signOut: 'Abmelden',
+    forgotPassword: "Passwort vergessen?",
+    resetPassword: "Passwort zurücksetzen",
+    forgotPasswordExpired: "Ihr Passwort-Zurücksetzlink ist abgelaufen. Bitte fordern Sie einen neuen an.",
+    firstName: "Vorname",
+    lastName: "Nachname",
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -430,6 +455,11 @@ const translations: Record<SupportedLang, {
     login: 'Войти',
     signUp: 'Зарегистрироваться',
     signOut: 'Выйти',
+    forgotPassword: "Забыли пароль?",
+    resetPassword: "Сбросить пароль",
+    forgotPasswordExpired: "Ссылка для сброса пароля истекла. Пожалуйста, запросите новую.",
+    firstName: "Имя",
+    lastName: "Фамилия",
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -508,6 +538,11 @@ const translations: Record<SupportedLang, {
     login: 'ログイン',
     signUp: 'サインアップ',
     signOut: 'サインアウト',
+    forgotPassword: "パスワードをお忘れですか？",
+    resetPassword: "パスワードをリセット",
+    forgotPasswordExpired: "パスワードリセットリンクの有効期限が切れました。新しいリンクをリクエストしてください。",
+    firstName: "名",
+    lastName: "姓",
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -586,6 +621,11 @@ const translations: Record<SupportedLang, {
     login: 'Se connecter',
     signUp: 'S\'inscrire',
     signOut: 'Se déconnecter',
+    forgotPassword: "Mot de passe oublié ?",
+    resetPassword: "Réinitialiser le mot de passe",
+    forgotPasswordExpired: "Votre lien de réinitialisation de mot de passe a expiré. Veuillez en demander un nouveau.",
+    firstName: "Prénom",
+    lastName: "Nom de famille",
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -664,6 +704,11 @@ const translations: Record<SupportedLang, {
     login: 'Entrar',
     signUp: 'Inscrever-se',
     signOut: 'Sair',
+    forgotPassword: "Esqueceu sua senha?",
+    resetPassword: "Redefinir senha",
+    forgotPasswordExpired: "Seu link de redefinição de senha expirou. Solicite um novo.",
+    firstName: "Primeiro Nome",
+    lastName: "Último Nome",
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -742,6 +787,11 @@ const translations: Record<SupportedLang, {
     login: 'Accedi',
     signUp: 'Registrati',
     signOut: 'Esci',
+    forgotPassword: "Hai dimenticato la password?",
+    resetPassword: "Reimposta password",
+    forgotPasswordExpired: "Il tuo link per reimpostare la password è scaduto. Richiedine uno nuovo.",
+    firstName: "Nome",
+    lastName: "Cognome",
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -820,6 +870,11 @@ const translations: Record<SupportedLang, {
     login: 'تسجيل الدخول',
     signUp: 'التسجيل',
     signOut: 'تسجيل الخروج',
+    forgotPassword: "هل نسيت كلمة المرور؟",
+    resetPassword: "إعادة تعيين كلمة المرور",
+    forgotPasswordExpired: "رابط إعادة تعيين كلمة المرور الخاص بك قد انتهت صلاحيته. يرجى طلب رابط جديد.",
+    firstName: "الاسم الأول",
+    lastName: "اسم العائلة",
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -898,6 +953,11 @@ const translations: Record<SupportedLang, {
     login: 'लॉगिन',
     signUp: 'साइन अप',
     signOut: 'साइन आउट',
+    forgotPassword: "पासवर्ड भूल गए?",
+    resetPassword: "पासवर्ड रीसेट करें",
+    forgotPasswordExpired: "आपका पासवर्ड रीसेट लिंक समाप्त हो गया है। कृपया एक नया अनुरोध करें।",
+    firstName: "पहला नाम",
+    lastName: "अंतिम नाम",
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -976,6 +1036,11 @@ const translations: Record<SupportedLang, {
     login: 'Masuk',
     signUp: 'Daftar',
     signOut: 'Keluar',
+    forgotPassword: "Lupa kata sandi?",
+    resetPassword: "Atur ulang kata sandi",
+    forgotPasswordExpired: "Tautan reset kata sandi Anda telah kedaluwarsa. Silakan minta yang baru.",
+    firstName: "Nama Depan",
+    lastName: "Nama Belakang",
   },
   ko: {
     heroTitle: '당신의 개인 작문 도우미 —',
@@ -1054,6 +1119,11 @@ const translations: Record<SupportedLang, {
     login: '로그인',
     signUp: '회원가입',
     signOut: '로그아웃',
+    forgotPassword: "비밀번호를 잊으셨나요?",
+    resetPassword: "비밀번호 재설정",
+    forgotPasswordExpired: "비밀번호 재설정 링크의 유효 기간이 만료되었습니다. 새 링크를 요청하십시오.",
+    firstName: "이름",
+    lastName: "성",
   },
 };
 

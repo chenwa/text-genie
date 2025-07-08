@@ -10,6 +10,7 @@ import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import Contact from './pages/Contact'; // Import the Contact page
 import { ThemeProvider } from './contexts/ThemeContext';
+import { LanguageProvider } from "./context/LanguageContext";
 
 // Create a new component to be able to use hooks
 const AppContent = () => {
@@ -46,9 +47,11 @@ const AppContent = () => {
 function App() {
     return (
         <ThemeProvider>
-            <Router>
-                <AppContent />
-            </Router>
+            <LanguageProvider>
+                <Router>
+                    <AppContent />
+                </Router>
+            </LanguageProvider>
         </ThemeProvider>
     );
 }
