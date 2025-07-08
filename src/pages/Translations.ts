@@ -45,6 +45,7 @@ const translations: Record<SupportedLang, {
   forgotPasswordExpired: string; // "Your password reset link has expired. Please request a new one."
   firstName: string; // "First Name" field label
   lastName: string; // "Last Name" field label
+  forgotPasswordError: string; // "Error message for forgotten password"
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -128,6 +129,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "Your password reset link has expired. Please request a new one.",
     firstName: "First Name",
     lastName: "Last Name",
+    forgotPasswordError: "Sorry, there was a problem sending your password reset email.",
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -211,6 +213,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "El enlace para restablecer tu contraseña ha expirado. Solicita uno nuevo.",
     firstName: "Nombre",
     lastName: "Apellido",
+    forgotPasswordError: "Lo siento, hubo un problema al enviar el correo de restablecimiento de contraseña.",
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -294,6 +297,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "您的密码重置链接已过期。请请求一个新的链接。",
     firstName: "名字",
     lastName: "姓氏",
+    forgotPasswordError: "抱歉，发送密码重置电子邮件时出现问题。",
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -377,6 +381,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "Ihr Passwort-Zurücksetzlink ist abgelaufen. Bitte fordern Sie einen neuen an.",
     firstName: "Vorname",
     lastName: "Nachname",
+    forgotPasswordError: "Entschuldigung, beim Senden Ihrer Passwort-Zurücksetz-E-Mail ist ein Problem aufgetreten.",
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -460,6 +465,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "Ссылка для сброса пароля истекла. Пожалуйста, запросите новую.",
     firstName: "Имя",
     lastName: "Фамилия",
+    forgotPasswordError: "Извините, произошла ошибка при отправке электронной почты для сброса пароля.",
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -543,6 +549,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "パスワードリセットリンクの有効期限が切れました。新しいリンクをリクエストしてください。",
     firstName: "名",
     lastName: "姓",
+    forgotPasswordError: "申し訳ありませんが、パスワードリセット用のメール送信中に問題が発生しました。",
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -626,6 +633,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "Votre lien de réinitialisation de mot de passe a expiré. Veuillez en demander un nouveau.",
     firstName: "Prénom",
     lastName: "Nom de famille",
+    forgotPasswordError: "Désolé, il y a eu un problème lors de l'envoi de votre e-mail de réinitialisation de mot de passe.",
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -709,6 +717,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "Seu link de redefinição de senha expirou. Solicite um novo.",
     firstName: "Primeiro Nome",
     lastName: "Último Nome",
+    forgotPasswordError: "Desculpe, houve um problema ao enviar seu e-mail de redefinição de senha.",
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -792,6 +801,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "Il tuo link per reimpostare la password è scaduto. Richiedine uno nuovo.",
     firstName: "Nome",
     lastName: "Cognome",
+    forgotPasswordError: "Spiacente, si è verificato un problema durante l'invio dell'email per il ripristino della password.",
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -875,6 +885,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "رابط إعادة تعيين كلمة المرور الخاص بك قد انتهت صلاحيته. يرجى طلب رابط جديد.",
     firstName: "الاسم الأول",
     lastName: "اسم العائلة",
+    forgotPasswordError: "عذراً، حدثت مشكلة أثناء إرسال بريد إعادة تعيين كلمة المرور.",
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -958,6 +969,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "आपका पासवर्ड रीसेट लिंक समाप्त हो गया है। कृपया एक नया अनुरोध करें।",
     firstName: "पहला नाम",
     lastName: "अंतिम नाम",
+    forgotPasswordError: "क्षमा करें, आपके पासवर्ड रीसेट ईमेल भेजने में समस्या हुई।",
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -1041,6 +1053,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "Tautan reset kata sandi Anda telah kedaluwarsa. Silakan minta yang baru.",
     firstName: "Nama Depan",
     lastName: "Nama Belakang",
+    forgotPasswordError: "Maaf, terjadi masalah saat mengirim email reset kata sandi Anda.",
   },
   ko: {
     heroTitle: '당신의 개인 작문 도우미 —',
@@ -1124,6 +1137,7 @@ const translations: Record<SupportedLang, {
     forgotPasswordExpired: "비밀번호 재설정 링크의 유효 기간이 만료되었습니다. 새 링크를 요청하십시오.",
     firstName: "이름",
     lastName: "성",
+    forgotPasswordError: "죄송합니다. 비밀번호 재설정 이메일을 보내는 중 문제가 발생했습니다.",
   },
 };
 
