@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { callMessengerApi } from '../api/api_utils';
+import { callMessengerApi } from '../utils/api_utils';
 import translations from '../pages/Translations';
 import type { SupportedLang } from '../pages/Home';
 

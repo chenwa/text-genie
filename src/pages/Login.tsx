@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { callLoginAPI } from '../api/api_utils';
+import { callLoginAPI } from '../utils/api_utils';
 import { useLanguage } from '../context/LanguageContext';
 
 const Login: React.FC = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Messenger from '../components/Messenger';
-import { callWriterApi } from '../api/api_utils';
+import { callWriterApi } from '../utils/api_utils';
 import translations from './Translations';
 export type SupportedLang = 'en' | 'es' | 'zh' | 'de' | 'ru' | 'ja' | 'fr' | 'pt' | 'it' | 'ar' | 'hi' | 'id' | 'ko';
 

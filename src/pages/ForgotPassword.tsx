@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { callForgotPasswordAPI } from '../api/api_utils';
+import { callForgotPasswordAPI } from '../utils/api_utils';
 
 const ForgotPassword: React.FC = () => {
   const { t } = useLanguage();
