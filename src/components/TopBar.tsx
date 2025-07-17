@@ -115,7 +115,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut, lang: propLang 
         </div>
         {/* Show 🧞‍♂️ icon link only to iPhone users */}
         {typeof navigator !== "undefined" && /iPhone/i.test(navigator.userAgent) && (
-          <Link to="/"><span style={{ fontSize: '2em', lineHeight: 1 }}>🧞‍♂️&nbsp;</span></Link>
+          <Link to="/"><span style={{ fontSize: '2em', lineHeight: 1 }}>🧞‍♂️&nbsp;&nbsp;</span></Link>
         )}
         {/* Only show navbar-right if showSignOut is not true */}
         <div className="navbar-right" style={{ position: 'relative', right: 10, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16 }}>

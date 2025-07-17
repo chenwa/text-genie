@@ -187,7 +187,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
   };
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div style={{ position: 'relative', marginRight: '-8px', marginLeft: '8px' }}>
       <button
         className="messenger-toggle-btn"
         onClick={() => setVisible(v => !v)}

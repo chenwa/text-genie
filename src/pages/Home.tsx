@@ -299,7 +299,7 @@ const Home: React.FC = () => {
           style={isLoggedIn ? { minHeight: 400, padding: 5, marginBottom: 20 } : { padding: 5, marginBottom: 20 }}
         >
           {!demoLoading && !demoOutput && (
-            <em>{t.demoPolished}</em>
+            <em style={{ color: '#888', fontSize: '0.9rem' }}>{t.demoPolished}</em>
           )}
           {/* This is where the generated text will be displayed */}
           <div style={{ position: 'relative' }}>
