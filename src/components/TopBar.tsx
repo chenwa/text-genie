@@ -116,7 +116,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut, lang: propLang 
         {/* Only show navbar-right if showSignOut is not true */}
         <div className="navbar-right" style={{ position: 'relative', right: 10, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 16 }}>
         {/* Language Selector */}
-        <ThemeToggle />&nbsp;
+        <ThemeToggle />
         <select
           value={currentLang}
           onChange={e => {
@@ -153,7 +153,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut, lang: propLang 
           <option value="hi">हिन्दी</option>
           <option value="id">Indonesia</option>
           <option value="ko">한국어</option>
-        </select>&nbsp;
+        </select>
         {showSignOut ? (
           <>
             {formattedName && (
@@ -179,7 +179,7 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut, lang: propLang 
           </>
         ) : (
           <>
-            <Link to="/login" className="navbar-link login">{t.login}</Link> &nbsp;
+            <Link to="/login" className="navbar-link login">{t.login}</Link>
             <Link to="/signup" className="navbar-link signup">{t.signUp}</Link>
           </>
         )}

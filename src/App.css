@@ -194,8 +194,12 @@ code {
   margin-bottom: 5px;
   text-align: center;
 }
+h2.demo-title {
+  margin-top: 2px;
+  margin-bottom: 0;
+}
 .demo-desc {
-  margin-bottom: 12px;
+  margin-bottom: 2px;
   color: var(--text-muted);
   font-size: 1.05rem;
 }
@@ -240,7 +244,7 @@ code {
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 16px 36px;
+  padding: 8px 8px;
   font-weight: 700;
   font-size: 1.25rem;
   cursor: pointer;
@@ -374,6 +378,25 @@ code {
 .navbar-link:hover {
   background: var(--bg-highlight);
   color: var(--accent-blue-hover);
+}
+.navbar-link.login,
+.navbar-link.signup {
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 600px) and (pointer: coarse) {
+  .hero-section {
+    display: none !important;
+  }
+  .navbar-left {
+    display: none !important;
+  }
+  .features-section > div {
+    display: none !important;
+  }
+  .demo-row label {
+    display: none !important;
+  }
 }
 
 /* --- TypingGenie Signup Styles Start --- */
@@ -662,6 +685,7 @@ code {
   border-radius: 8px;
   padding: 0.6em 1em;
   font-size: 1rem;
+  font-weight: 400;
   outline: none;
   margin-right: 0.7em;
   background: var(--bg-primary);
@@ -782,7 +806,7 @@ code {
 }
 
 .navbar-link.login {
-  margin-right: 40px !important;
+  margin-right: 10px !important;
 }
 
 .navbar-link.login,
