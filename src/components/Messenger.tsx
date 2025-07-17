@@ -248,7 +248,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
                   width: '100%',
                   minWidth: '100%',
                   maxWidth: '100%',
-                  height: '90vh'
+                  height: '80vh'
                 }
               : {}),
           }}

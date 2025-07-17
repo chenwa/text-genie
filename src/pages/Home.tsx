@@ -143,8 +143,14 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-root" style={{ position: 'relative' }}>
-      <style>{`.demo-textarea::placeholder { color: var(--text-muted) !important; opacity: 1; }`}</style>
-
+      <style>
+        {`
+          .demo-textarea::placeholder {
+            color: #bbb !important;
+            opacity: 0.5 !important;
+          }
+        `}
+      </style>
       {/* Progress Bar Overlay - Removed to keep only button spinner */}
 
       {/* Hero Section */}
@@ -169,7 +175,7 @@ const Home: React.FC = () => {
                   background: '#fffbe7',
                   color: '#222',
                   fontWeight: 'bold',
-                  fontSize: '1.5rem',
+                  fontSize: '1rem',
                   border: '2px solid #ffd54f',
                   borderRadius: '12px',
                   padding: '18px 32px',
@@ -235,7 +241,7 @@ const Home: React.FC = () => {
           }}
           maxLength={maxChars}
         />
-        <div style={{ textAlign: 'right', fontSize: 13, color: userInput.length >= 5000 && !isLoggedIn ? '#e60023' : '#888', margin: '-10px 8px 4px 0' }}>
+        <div style={{ textAlign: 'right', fontSize: 12, color: userInput.length >= 5000 && !isLoggedIn ? '#e60023' : '#888', margin: '-10px 8px 4px 0' }}>
           {t.characterCountLabel} {userInput.length}{!isLoggedIn}
           {userInput.length >= 5000 && !isLoggedIn && (
             <span style={{ color: '#e60023', marginLeft: 8 }}>
@@ -346,7 +352,7 @@ const Home: React.FC = () => {
                 </span>
               </button>
             )}
-            <span id="ai-disclaim" style={{ display: 'block', marginTop: 16, color: 'var(--text-muted)', fontWeight: 400, fontSize: 15, textAlign: 'right' }}>{t.genieTooltip}</span>
+            <span id="ai-disclaim" style={{ display: 'block', marginTop: 16, color: 'var(--text-muted)', fontWeight: 400, fontSize: 12, textAlign: 'right' }}>{t.genieTooltip}</span>
           </div>
         </div>
       </section>

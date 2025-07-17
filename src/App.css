@@ -182,7 +182,7 @@ code {
 
 .demo-section {
   max-width: 90%;
-  margin: .5rem auto 0 auto;
+  margin: .1rem auto 0 auto;
   background: var(--bg-secondary);
   border-radius: 12px;
   box-shadow: 0 2px 12px var(--shadow-medium);
@@ -197,6 +197,7 @@ code {
 h2.demo-title {
   margin-top: 2px;
   margin-bottom: 0;
+  font-size: 1.1rem;
 }
 .demo-desc {
   margin-bottom: 2px;
@@ -327,7 +328,7 @@ h2.demo-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 2.5rem 0.5rem 2rem;
+  padding: 0.15rem 2.5rem 0.15rem 1rem;
   /*
   position: sticky;
   top: 0;
