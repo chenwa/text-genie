@@ -46,6 +46,7 @@ const translations: Record<SupportedLang, {
   firstName: string; // "First Name" field label
   lastName: string; // "Last Name" field label
   forgotPasswordError: string; // "Error message for forgotten password"
+  brandName: string; // <-- Added brand name
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -130,6 +131,7 @@ const translations: Record<SupportedLang, {
     firstName: "First Name",
     lastName: "Last Name",
     forgotPasswordError: "Sorry, there was a problem sending your password reset email.",
+    brandName: "Typing Genie",
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -214,6 +216,7 @@ const translations: Record<SupportedLang, {
     firstName: "Nombre",
     lastName: "Apellido",
     forgotPasswordError: "Lo siento, hubo un problema al enviar el correo de restablecimiento de contraseña.",
+    brandName: "Genio de Escritura",
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -298,6 +301,7 @@ const translations: Record<SupportedLang, {
     firstName: "名字",
     lastName: "姓氏",
     forgotPasswordError: "抱歉，发送密码重置电子邮件时出现问题。",
+    brandName: "打字精灵",
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -382,6 +386,7 @@ const translations: Record<SupportedLang, {
     firstName: "Vorname",
     lastName: "Nachname",
     forgotPasswordError: "Entschuldigung, beim Senden Ihrer Passwort-Zurücksetz-E-Mail ist ein Problem aufgetreten.",
+    brandName: "Schreib-Genie",
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -466,6 +471,7 @@ const translations: Record<SupportedLang, {
     firstName: "Имя",
     lastName: "Фамилия",
     forgotPasswordError: "Извините, произошла ошибка при отправке электронной почты для сброса пароля.",
+    brandName: "Тайпинг Джинн",
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -550,6 +556,7 @@ const translations: Record<SupportedLang, {
     firstName: "名",
     lastName: "姓",
     forgotPasswordError: "申し訳ありませんが、パスワードリセット用のメール送信中に問題が発生しました。",
+    brandName: "タイピングジニー",
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -634,6 +641,7 @@ const translations: Record<SupportedLang, {
     firstName: "Prénom",
     lastName: "Nom de famille",
     forgotPasswordError: "Désolé, il y a eu un problème lors de l'envoi de votre e-mail de réinitialisation de mot de passe.",
+    brandName: "Génie d'Écriture",
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -718,6 +726,7 @@ const translations: Record<SupportedLang, {
     firstName: "Primeiro Nome",
     lastName: "Último Nome",
     forgotPasswordError: "Desculpe, houve um problema ao enviar seu e-mail de redefinição de senha.",
+    brandName: "Gênio da Escrita",
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -802,6 +811,7 @@ const translations: Record<SupportedLang, {
     firstName: "Nome",
     lastName: "Cognome",
     forgotPasswordError: "Spiacente, si è verificato un problema durante l'invio dell'email per il ripristino della password.",
+    brandName: "Genio della Scrittura",
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -862,7 +872,7 @@ const translations: Record<SupportedLang, {
       { title: '🧠 ذكاء يفهمك', desc: 'نبرتك، هدفك، وصوتك — كلها تُضبط تلقائيًا.' },
       { title: '✉️ رسائل بريد احترافية', desc: 'لا مزيد من التحديق في شاشة فارغة. فقط أخبرنا بما تحتاج — وسنكتب الباقي.' },
       { title: '📑 تقارير ومستندات منظمة', desc: 'لخص، أعد الصياغة، أو وسّع الأفكار في فقرات مرتبة.' },
-      { title: '🛠️ تصحيح، تلميع وتحسين', desc: 'القواعد، النبرة، التدفق، والبنية — تُحسّن فورًا.' },
+      { title: '🛠️ تصحيح، تلميع وتحسين', desc: 'القواعد، النبرة، التدفق، والبنية — تُحسن فورًا.' },
       { title: '🧞‍♂️ كيف يعمل', desc: '', list: ['تقدم نظرة عامة عامة', 'سيتم تزويدك برد مصقول قريبًا.'] },
     ],
     footer: '© 2025 تايبنغ جيني ·',
@@ -886,6 +896,7 @@ const translations: Record<SupportedLang, {
     firstName: "الاسم الأول",
     lastName: "اسم العائلة",
     forgotPasswordError: "عذراً، حدثت مشكلة أثناء إرسال بريد إعادة تعيين كلمة المرور.",
+    brandName: "تايبنغ جيني",
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -970,6 +981,7 @@ const translations: Record<SupportedLang, {
     firstName: "पहला नाम",
     lastName: "अंतिम नाम",
     forgotPasswordError: "क्षमा करें, आपके पासवर्ड रीसेट ईमेल भेजने में समस्या हुई।",
+    brandName: "लेखन जीनी",
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -989,10 +1001,10 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'Jenis Dokumen:',
     documentTypeOptions: [
       'Catatan Ramah',
-      'Email Formal',
+      'Email Resmi',
       'Ringkasan',
-      'Proposal Bisnis',
-      'Laporan/Ulasan',
+      'Usulan Bisnis',
+      'Laporan/Tinjauan',
       'Undangan',
       'Pengumuman',
       'Keluhan',
@@ -1054,6 +1066,7 @@ const translations: Record<SupportedLang, {
     firstName: "Nama Depan",
     lastName: "Nama Belakang",
     forgotPasswordError: "Maaf, terjadi masalah saat mengirim email reset kata sandi Anda.",
+    brandName: "Genie Penulisan",
   },
   ko: {
     heroTitle: '당신의 개인 작문 도우미 —',
@@ -1138,6 +1151,7 @@ const translations: Record<SupportedLang, {
     firstName: "이름",
     lastName: "성",
     forgotPasswordError: "죄송합니다. 비밀번호 재설정 이메일을 보내는 중 문제가 발생했습니다.",
+    brandName: "타이핑 지니",
   },
 };
 

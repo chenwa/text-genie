@@ -256,7 +256,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
           <div className="messenger-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h3 className="messenger-title" style={{padding: '0 1.2em', display: 'flex', alignItems: 'center', gap: 8, fontWeight: 400}}>
               <span style={{ fontSize: 30 }} role="img" aria-label="genie">🧞‍♂️</span>
-              <span style={{ fontWeight: 400 }}>Typing Genie</span>
+              <span style={{ fontWeight: 400 }}>{t.brandName}</span>
             </h3>
             <button 
               onClick={clearConversation}
