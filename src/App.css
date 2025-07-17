@@ -234,6 +234,10 @@ h2.demo-title {
   color: var(--text-primary);
   font-weight: 400;
   transition: border 0.2s;
+  width: 145px !important;
+  min-width: 145px !important;
+  max-width: 145px !important;
+  box-sizing: border-box;
 }
 .demo-select:focus {
   border-color: var(--accent-blue-hover);

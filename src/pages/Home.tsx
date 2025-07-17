@@ -300,6 +300,7 @@ const Home: React.FC = () => {
             <div
               className="demo-output-text"
               id="demo-output-text"
+              style={{ minHeight: 300 }}
               dangerouslySetInnerHTML={{ __html: demoOutput }}
             />
             {demoOutput && (
