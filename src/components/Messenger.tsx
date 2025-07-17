@@ -235,7 +235,24 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
       )}
       </button>
       {visible && (
-        <div className="messenger-container" style={{ marginTop: 36, height: 700, width: 520, minWidth: 520, maxWidth: 520 }}>
+        <div
+          className="messenger-container"
+          style={{
+            marginTop: 36,
+            height: 700,
+            width: 520,
+            minWidth: 520,
+            maxWidth: 520,
+            ...(window.innerWidth <= 600 && window.navigator.maxTouchPoints > 0
+              ? {
+                  width: '100%',
+                  minWidth: '100%',
+                  maxWidth: '100%',
+                  height: '90vh'
+                }
+              : {}),
+          }}
+        >
           <div className="messenger-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h3 className="messenger-title" style={{padding: '0 1.2em', display: 'flex', alignItems: 'center', gap: 8, fontWeight: 400}}>
               <span style={{ fontSize: 30 }} role="img" aria-label="genie">🧞‍♂️</span>
