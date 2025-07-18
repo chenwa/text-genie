@@ -228,7 +228,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 描述您需要帮助写的内容…',
     demoPlaceholder: '例如：“告诉我的老板我需要请假一天，理由是家庭紧急情况。”',
     demoGenerate: '➤ 生成', // Chinese (Simplified)
-    demoGenerating: '生成中...',
+    demoGenerating: '生成',
     demoPolished: '✨ 回复将在此处出现',
     demoCopy: '复制',
     demoCopied: '已复制！',
