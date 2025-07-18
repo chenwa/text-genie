@@ -357,7 +357,18 @@ h2.demo-title {
   font-weight: 800;
   font-size: 2.1rem;
   letter-spacing: 1px;
-  margin-left: 0.25em;
+}
+.navbar-brand-typing-small {
+  color: var(--accent-blue);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+.navbar-brand-genie-small {
+  color: var(--accent-teal);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
 }
 .navbar-right {
   display: flex;
