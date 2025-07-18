@@ -115,13 +115,13 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut, lang: propLang 
         </div>
         {/* Show 🧞‍♂️ icon link only to iPhone users */}
         {typeof navigator !== "undefined" && /iPhone/i.test(navigator.userAgent) && (
-          <Link to="/">
+          <Link to="/" title='TypingGenie'>
             <span className="navbar-brand-typing-small">T</span>
-            <span className="navbar-brand-genie-small">G🧞‍♂️</span>
+            <span className="navbar-brand-genie-small">G</span>
           </Link>
         )}
         {/* Only show navbar-right if showSignOut is not true */}
-        <div className="navbar-right" style={{ position: 'relative', right: 4, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 2 }}>
+        <div className="navbar-right" style={{ position: 'relative', right: 4, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 7 }}>
         {/* Language Selector */}
         <ThemeToggle />
         <select

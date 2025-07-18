@@ -57,7 +57,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ Try Typing Genie Demo',
     demoDesc: '💬 Describe what you need help writing…',
     demoPlaceholder: 'e.g. "Tell my boss I need to take Friday off for a family emergency."',
-    demoGenerate: '➤ Generate Text',
+    demoGenerate: '➤ Generate', // English
     demoGenerating: 'Generating...',
     demoPolished: '✨ Polished response will appear here',
     demoCopy: 'Copy',
@@ -142,7 +142,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ Prueba la Demo de Genio de Escritura',
     demoDesc: '💬 Describe con qué necesitas ayuda para escribir…',
     demoPlaceholder: 'p.ej. "Dile a mi jefe que necesito el viernes libre por una emergencia familiar."',
-    demoGenerate: '➤ Generar Texto',
+    demoGenerate: '➤ Generar', // Spanish
     demoGenerating: 'Generando...',
     demoPolished: '✨ La respuesta pulida aparecerá aquí',
     demoCopy: 'Copiar',
@@ -227,7 +227,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ 打字精灵试用演示',
     demoDesc: '💬 描述您需要帮助写的内容…',
     demoPlaceholder: '例如：“告诉我的老板我需要请假一天，理由是家庭紧急情况。”',
-    demoGenerate: '➤ 生成文本',
+    demoGenerate: '➤ 生成', // Chinese (Simplified)
     demoGenerating: '生成中...',
     demoPolished: '✨ 回复将在此处出现',
     demoCopy: '复制',
@@ -312,7 +312,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ Probieren Sie die Schreib-Genie-Demo aus',
     demoDesc: '💬 Beschreiben Sie, wobei Sie Hilfe beim Schreiben benötigen…',
     demoPlaceholder: 'z.B. "Sagen Sie meinem Chef, dass ich am Freitag wegen eines familiären Notfalls frei nehmen muss."',
-    demoGenerate: '➤ Text generieren',
+    demoGenerate: '➤ Generieren', // German
     demoGenerating: 'Wird generiert...',
     demoPolished: '✨ Ausgereifte Antwort erscheint hier',
     demoCopy: 'Kopieren',
@@ -397,7 +397,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ Попробуйте демонстрацию Тайпинг Джинн',
     demoDesc: '💬 Опишите, с чем вам нужна помощь в написании…',
     demoPlaceholder: 'например, "Скажите моему начальнику, что мне нужно взять выходной в пятницу по семейным обстоятельствам."',
-    demoGenerate: '➤ Сгенерировать текст',
+    demoGenerate: '➤ Сгенерировать', // Russian
     demoGenerating: 'Генерация...',
     demoPolished: '✨ Отточенный ответ появится здесь',
     demoCopy: 'Копировать',
@@ -455,7 +455,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Конфиденциальность',
     contact: 'Контакт',
     pleaseEnter: 'Пожалуйста, введите, с чем вам нужна помощь в написании.',
-    sorryProblem: 'Извините, возникла проблема с генерацией вашего текста.',
+    sorryProblem: 'Извините, возникла ошибка при отправке электронной почты для сброса пароля.',
     genieTooltip: 'Я — ИИ, иногда могу вести себя странно. Спасибо за ваше терпение!',
     characterCountLabel: 'Символы',
     demoGenerateTooltip: 'Пусть Тайпинг Джинн создаст для вас идеальный текст!',
@@ -482,7 +482,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ タイピングジニーデモを試す',
     demoDesc: '💬 何を書くのに助けが必要かを説明してください…',
     demoPlaceholder: '例：「家族の緊急事態のために金曜日に休暇を取る必要があることを上司に伝えてください。」',
-    demoGenerate: '➤ テキストを生成',
+    demoGenerate: '➤ 生成', // Japanese
     demoGenerating: '生成中...',
     demoPolished: '✨ 洗練された応答がここに表示されます',
     demoCopy: 'コピー',
@@ -567,7 +567,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ Essayez la démo de Génie d\'Écriture',
     demoDesc: '💬 Décrivez ce dont vous avez besoin d\'aide pour écrire…',
     demoPlaceholder: 'ex. "Dites à mon patron que j\'ai besoin de prendre vendredi congé pour une urgence familiale."',
-    demoGenerate: '➤ Générer le texte',
+    demoGenerate: '➤ Générer', // French
     demoGenerating: 'Génération en cours...',
     demoPolished: '✨ La réponse polie apparaîtra ici',
     demoCopy: 'Copier',
@@ -652,7 +652,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ Experimente a Demonstração do Gênio da Escrita',
     demoDesc: '💬 Descreva com o que você precisa de ajuda para escrever…',
     demoPlaceholder: 'ex.: "Diga ao meu chefe que preciso tirar folga na sexta-feira por uma emergência familiar."',
-    demoGenerate: '➤ Gerar Texto',
+    demoGenerate: '➤ Gerar', // Portuguese
     demoGenerating: 'Gerando...',
     demoPolished: '✨ Resposta polida aparecerá aqui',
     demoCopy: 'Copiar',
@@ -737,7 +737,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ Prova la demo di Genio della Scrittura',
     demoDesc: '💬 Descrivi di cosa hai bisogno di aiuto per scrivere…',
     demoPlaceholder: 'es. "Dì al mio capo che ho bisogno di prendere venerdì libero per un\'emergenza familiare."',
-    demoGenerate: '➤ Genera testo',
+    demoGenerate: '➤ Gerar', // Italian
     demoGenerating: 'Generazione in corso...',
     demoPolished: '✨ La risposta rifinita apparirà qui',
     demoCopy: 'Copia',
@@ -822,7 +822,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ جرّب عرض جني الكتابة',
     demoDesc: '💬 صف ما تحتاج المساعدة في كتابته…',
     demoPlaceholder: 'مثال: "أخبر مديري أنني بحاجة ليوم الجمعة إجازة بسبب حالة طارئة عائلية."',
-    demoGenerate: '➤ أنشئ النص',
+    demoGenerate: '➤ أنشئ', // Arabic
     demoGenerating: 'جاري الإنشاء...',
     demoPolished: '✨ سيظهر الرد المصقول هنا',
     demoCopy: 'نسخ',
@@ -907,7 +907,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ लेखन जीनी डेमो आज़माएँ',
     demoDesc: '💬 बताएं आपको किस लेखन में मदद चाहिए…',
     demoPlaceholder: 'जैसे: "अपने बॉस को बताएं कि मुझे पारिवारिक आपातकाल के कारण शुक्रवार की छुट्टी चाहिए।"',
-    demoGenerate: '➤ टेक्स्ट जनरेट करें',
+    demoGenerate: '➤ जनरेट', // Hindi
     demoGenerating: 'जनरेट हो रहा है...',
     demoPolished: '✨ शानदार उत्तर यहाँ दिखेगा',
     demoCopy: 'कॉपी करें',
@@ -992,7 +992,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ Coba Demo Genie Penulisan',
     demoDesc: '💬 Jelaskan apa yang ingin Anda tulis…',
     demoPlaceholder: 'misal: "Beritahu bos saya bahwa saya perlu cuti hari Jumat karena keadaan darurat keluarga."',
-    demoGenerate: '➤ Buat Teks',
+    demoGenerate: '➤ Buat', // Indonesian
     demoGenerating: 'Sedang membuat...',
     demoPolished: '✨ Hasil teks akan muncul di sini',
     demoCopy: 'Salin',
@@ -1077,7 +1077,7 @@ const translations: Record<SupportedLang, {
     demoTitle: '✨ 글쓰기 지니 데모 체험',
     demoDesc: '💬 작성에 도움이 필요한 것을 설명해주세요…',
     demoPlaceholder: '예: "가족 응급상황으로 금요일에 휴가를 내야 한다고 상사에게 말해주세요."',
-    demoGenerate: '➤ 텍스트 생성',
+    demoGenerate: '➤ 생성', // Korean
     demoGenerating: '생성 중...',
     demoPolished: '✨ 세련된 응답이 여기에 나타납니다',
     demoCopy: '복사',
