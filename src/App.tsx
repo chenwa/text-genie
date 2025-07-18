@@ -9,7 +9,7 @@ import './App.css';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import Contact from './pages/Contact'; // Import the Contact page
-import { ThemeProvider } from './contexts/ThemeContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from "./context/LanguageContext";
 
 // Create a new component to be able to use hooks

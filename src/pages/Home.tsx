@@ -252,6 +252,7 @@ const Home: React.FC = () => {
         <div className="demo-row" style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
           <label htmlFor="document_type" style={{ fontWeight: 500, marginRight: 4 }}>{t.documentTypeLabel}</label>
           <select id="document_type" className="demo-select" value={selectedDocType} onChange={e => setSelectedDocType(e.target.value)}>
+            <option value="" disabled style={{ fontSize: '1.2em', fontWeight: 'bold' }}>{t.documentTypeLabel}</option>
             {translationsTyped['en'].documentTypeOptions.map((opt: string, idx: number) => (
               <option key={opt} value={opt}>
                 {t.documentTypeOptions[idx]}
@@ -260,6 +261,7 @@ const Home: React.FC = () => {
           </select>
           <label htmlFor="tone" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>{t.toneLabel}</label>
           <select id="tone" className="demo-select" value={selectedTone} onChange={e => setSelectedTone(e.target.value)}>
+            <option value="" disabled style={{ fontSize: '1.2em', fontWeight: 'bold' }}>{t.toneLabel}</option>
             {translationsTyped['en'].toneOptions.map((opt: string, idx: number) => (
               <option key={opt} value={opt}>
                 {t.toneOptions[idx]}
@@ -268,6 +270,7 @@ const Home: React.FC = () => {
           </select>
           <label htmlFor="revise" style={{ fontWeight: 500, marginLeft: 12, marginRight: 4 }}>{t.reviseLabel}</label>
           <select id="revise" className="demo-select" value={selectedRevise} onChange={e => setSelectedRevise(e.target.value)}>
+            <option value="" disabled style={{ fontSize: '1.2em', fontWeight: 'bold' }}>{t.reviseLabel}</option>
             {translationsTyped['en'].reviseOptions.map((opt: string, idx: number) => (
               <option key={opt} value={opt}>
                 {t.reviseOptions[idx]}
