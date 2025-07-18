@@ -313,7 +313,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 Beschreiben Sie, wobei Sie Hilfe beim Schreiben benötigen…',
     demoPlaceholder: 'z.B. "Sagen Sie meinem Chef, dass ich am Freitag wegen eines familiären Notfalls frei nehmen muss."',
     demoGenerate: '➤ Generieren', // German
-    demoGenerating: 'Wird generiert...',
+    demoGenerating: 'Generieren',
     demoPolished: '✨ Ausgereifte Antwort erscheint hier',
     demoCopy: 'Kopieren',
     demoCopied: 'Kopiert!',
@@ -398,7 +398,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 Опишите, с чем вам нужна помощь в написании…',
     demoPlaceholder: 'например, "Скажите моему начальнику, что мне нужно взять выходной в пятницу по семейным обстоятельствам."',
     demoGenerate: '➤ Сгенерировать', // Russian
-    demoGenerating: 'Генерация...',
+    demoGenerating: 'Сгенерировать',
     demoPolished: '✨ Отточенный ответ появится здесь',
     demoCopy: 'Копировать',
     demoCopied: 'Скопировано!',
@@ -483,7 +483,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 何を書くのに助けが必要かを説明してください…',
     demoPlaceholder: '例：「家族の緊急事態のために金曜日に休暇を取る必要があることを上司に伝えてください。」',
     demoGenerate: '➤ 生成', // Japanese
-    demoGenerating: '生成中...',
+    demoGenerating: '生成',
     demoPolished: '✨ 洗練された応答がここに表示されます',
     demoCopy: 'コピー',
     demoCopied: 'コピーされました!',
@@ -568,7 +568,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 Décrivez ce dont vous avez besoin d\'aide pour écrire…',
     demoPlaceholder: 'ex. "Dites à mon patron que j\'ai besoin de prendre vendredi congé pour une urgence familiale."',
     demoGenerate: '➤ Générer', // French
-    demoGenerating: 'Génération en cours...',
+    demoGenerating: 'Générer',
     demoPolished: '✨ La réponse polie apparaîtra ici',
     demoCopy: 'Copier',
     demoCopied: 'Copié!',
@@ -653,7 +653,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 Descreva com o que você precisa de ajuda para escrever…',
     demoPlaceholder: 'ex.: "Diga ao meu chefe que preciso tirar folga na sexta-feira por uma emergência familiar."',
     demoGenerate: '➤ Gerar', // Portuguese
-    demoGenerating: 'Gerando...',
+    demoGenerating: 'Gerar',
     demoPolished: '✨ Resposta polida aparecerá aqui',
     demoCopy: 'Copiar',
     demoCopied: 'Copiado!',
@@ -738,7 +738,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 Descrivi di cosa hai bisogno di aiuto per scrivere…',
     demoPlaceholder: 'es. "Dì al mio capo che ho bisogno di prendere venerdì libero per un\'emergenza familiare."',
     demoGenerate: '➤ Gerar', // Italian
-    demoGenerating: 'Generazione in corso...',
+    demoGenerating: 'Gerar',
     demoPolished: '✨ La risposta rifinita apparirà qui',
     demoCopy: 'Copia',
     demoCopied: 'Copiato!',
@@ -823,7 +823,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 صف ما تحتاج المساعدة في كتابته…',
     demoPlaceholder: 'مثال: "أخبر مديري أنني بحاجة ليوم الجمعة إجازة بسبب حالة طارئة عائلية."',
     demoGenerate: '➤ أنشئ', // Arabic
-    demoGenerating: 'جاري الإنشاء...',
+    demoGenerating: 'أنشئ',
     demoPolished: '✨ سيظهر الرد المصقول هنا',
     demoCopy: 'نسخ',
     demoCopied: 'تم النسخ!',
@@ -908,7 +908,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 बताएं आपको किस लेखन में मदद चाहिए…',
     demoPlaceholder: 'जैसे: "अपने बॉस को बताएं कि मुझे पारिवारिक आपातकाल के कारण शुक्रवार की छुट्टी चाहिए।"',
     demoGenerate: '➤ जनरेट', // Hindi
-    demoGenerating: 'जनरेट हो रहा है...',
+    demoGenerating: 'जनरेट',
     demoPolished: '✨ शानदार उत्तर यहाँ दिखेगा',
     demoCopy: 'कॉपी करें',
     demoCopied: 'कॉपी हो गया!',
@@ -993,7 +993,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 Jelaskan apa yang ingin Anda tulis…',
     demoPlaceholder: 'misal: "Beritahu bos saya bahwa saya perlu cuti hari Jumat karena keadaan darurat keluarga."',
     demoGenerate: '➤ Buat', // Indonesian
-    demoGenerating: 'Sedang membuat...',
+    demoGenerating: 'Buat',
     demoPolished: '✨ Hasil teks akan muncul di sini',
     demoCopy: 'Salin',
     demoCopied: 'Disalin!',
@@ -1078,7 +1078,7 @@ const translations: Record<SupportedLang, {
     demoDesc: '💬 작성에 도움이 필요한 것을 설명해주세요…',
     demoPlaceholder: '예: "가족 응급상황으로 금요일에 휴가를 내야 한다고 상사에게 말해주세요."',
     demoGenerate: '➤ 생성', // Korean
-    demoGenerating: '생성 중...',
+    demoGenerating: '생성',
     demoPolished: '✨ 세련된 응답이 여기에 나타납니다',
     demoCopy: '복사',
     demoCopied: '복사됨!',
