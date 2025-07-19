@@ -51,6 +51,7 @@ const translations: Record<SupportedLang, {
   send: string; // <-- Added send key
   clearConversation: string; // <-- Added clear conversation key
   typeYourMessage: string; // <-- Added type your message key
+  close: string; // <-- Added close key
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -140,6 +141,7 @@ const translations: Record<SupportedLang, {
     send: "Send", // English
     clearConversation: "Clear conversation", // English
     typeYourMessage: "Type your message...", // English
+    close: "Close", // English
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -229,6 +231,7 @@ const translations: Record<SupportedLang, {
     send: "Enviar", // Spanish
     clearConversation: "Borrar conversación", // Spanish
     typeYourMessage: "Escribe tu mensaje...", // Spanish
+    close: "Cerrar", // Spanish
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -318,6 +321,7 @@ const translations: Record<SupportedLang, {
     send: "发送", // Chinese
     clearConversation: "清除对话", // Chinese
     typeYourMessage: "输入您的消息...", // Chinese
+    close: "关闭", // Chinese
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -407,6 +411,7 @@ const translations: Record<SupportedLang, {
     send: "Senden", // German
     clearConversation: "Konversation löschen", // German
     typeYourMessage: "Geben Sie Ihre Nachricht ein...", // German
+    close: "Schließen", // German
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -496,6 +501,7 @@ const translations: Record<SupportedLang, {
     send: "Отправить", // Russian
     clearConversation: "Очистить разговор", // Russian
     typeYourMessage: "Введите ваше сообщение...", // Russian
+    close: "Закрыть", // Russian
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -585,6 +591,7 @@ const translations: Record<SupportedLang, {
     send: "送信", // Japanese
     clearConversation: "会話をクリア", // Japanese
     typeYourMessage: "メッセージを入力してください...", // Japanese
+    close: "閉じる", // Japanese
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -674,6 +681,7 @@ const translations: Record<SupportedLang, {
     send: "Envoyer", // French
     clearConversation: "Effacer la conversation", // French
     typeYourMessage: "Tapez votre message...", // French
+    close: "Fermer", // French
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -763,6 +771,7 @@ const translations: Record<SupportedLang, {
     send: "Enviar", // Portuguese
     clearConversation: "Limpar conversa", // Portuguese
     typeYourMessage: "Digite sua mensagem...", // Portuguese
+    close: "Fechar", // Portuguese
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -783,15 +792,6 @@ const translations: Record<SupportedLang, {
     documentTypeOptions: [
       'Nota amichevole',
       'Email formale',
-      'Riepilogo',
-      'Proposta commerciale',
-      'Rapporto/Recensione',
-      'Invito',
-      'Annuncio',
-      'Reclamo',
-      'Scusa',
-      'Storia',
-      'Poesia',
     ],
     toneLabel: 'Tono:',
     toneOptions: [
@@ -852,6 +852,7 @@ const translations: Record<SupportedLang, {
     send: "Invia", // Italian
     clearConversation: "Cancella conversazione", // Italian
     typeYourMessage: "Scrivi il tuo messaggio...", // Italian
+    close: "Chiudi", // Italian
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -941,6 +942,7 @@ const translations: Record<SupportedLang, {
     send: "إرسال", // Arabic
     clearConversation: "مسح المحادثة", // Arabic
     typeYourMessage: "اكتب رسالتك...", // Arabic
+    close: "إغلاق", // Arabic
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -1030,6 +1032,7 @@ const translations: Record<SupportedLang, {
     send: "भेजें", // Hindi
     clearConversation: "बातचीत साफ़ करें", // Hindi
     typeYourMessage: "अपना संदेश लिखें...", // Hindi
+    close: "बंद करें", // Hindi
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -1119,6 +1122,7 @@ const translations: Record<SupportedLang, {
     send: "Kirim", // Indonesian
     clearConversation: "Hapus percakapan", // Indonesian
     typeYourMessage: "Ketik pesan Anda...", // Indonesian
+    close: "Tutup", // Indonesian
   },
   ko: {
     heroTitle: '당신의 개인 작문 도우미 —',
@@ -1208,6 +1212,7 @@ const translations: Record<SupportedLang, {
     send: "보내기", // Korean
     clearConversation: "대화 지우기", // Korean
     typeYourMessage: "메시지를 입력하세요...", // Korean
+    close: "닫기", // Korean
   },
 };
 
