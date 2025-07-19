@@ -249,7 +249,7 @@ const Home: React.FC = () => {
         {isLoggedIn && (
           <h2 className="demo-title">{t.heroTitle} <span className="hero-highlight">{t.heroHighlight}</span></h2>
         )}
-        <div className="demo-desc">{t.heroTagline}</div>
+        <div className="demo-desc" style={{ marginLeft: '5px' }}>{t.heroTagline}</div>
         <textarea
           id="user_input"
           className="demo-textarea"
