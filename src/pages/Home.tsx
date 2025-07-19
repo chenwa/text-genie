@@ -141,6 +141,57 @@ const Home: React.FC = () => {
   // Add type assertions for translations
   const t = translationsTyped[lang];
 
+  // SEO: Set meta tags dynamically based on language
+  React.useEffect(() => {
+    const t = translationsTyped[lang];
+    document.title = `${t.brandName} – ${t.heroTitle.replace(/—$/, '').trim()}`;
+    // Remove any previous meta tags to avoid duplicates
+    const prevDesc = document.querySelector('meta[name="description"]');
+    if (prevDesc) prevDesc.remove();
+    const prevOgTitle = document.querySelector('meta[property="og:title"]');
+    if (prevOgTitle) prevOgTitle.remove();
+    const prevOgDesc = document.querySelector('meta[property="og:description"]');
+    if (prevOgDesc) prevOgDesc.remove();
+    const prevOgImage = document.querySelector('meta[property="og:image"]');
+    if (prevOgImage) prevOgImage.remove();
+
+    // Add meta description
+    const metaDesc = document.createElement('meta');
+    metaDesc.name = 'description';
+    metaDesc.content = t.heroSubtitle;
+    document.head.appendChild(metaDesc);
+
+    // Open Graph tags
+    const ogTitle = document.createElement('meta');
+    ogTitle.setAttribute('property', 'og:title');
+    ogTitle.content = `${t.brandName} – ${t.heroTitle.replace(/—$/, '').trim()}`;
+    document.head.appendChild(ogTitle);
+
+    const ogDesc = document.createElement('meta');
+    ogDesc.setAttribute('property', 'og:description');
+    ogDesc.content = t.heroSubtitle;
+    document.head.appendChild(ogDesc);
+
+    const ogImage = document.createElement('meta');
+    ogImage.setAttribute('property', 'og:image');
+    ogImage.content = '/genie-og.png'; // Use your actual OG image path
+    document.head.appendChild(ogImage);
+
+    // Optional: canonical link
+    let canonical = document.querySelector("link[rel='canonical']");
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', window.location.origin + window.location.pathname);
+
+    // Cleanup on unmount
+    return () => {
+      [metaDesc, ogTitle, ogDesc, ogImage].forEach(tag => tag.remove());
+    };
+  }, [lang]);
+
   return (
     <div className="home-root" style={{ position: 'relative' }}>
       <style>
@@ -164,37 +215,7 @@ const Home: React.FC = () => {
           <div className="hero-illustration">
             <div
               className="hero-genie"
-              onMouseEnter={e => {
-                let tooltip = document.createElement('div');
-                tooltip.id = 'genie-tooltip';
-                tooltip.innerText = t.genieTooltip;
-                Object.assign(tooltip.style, {
-                  position: 'fixed',
-                  top: (e.currentTarget.getBoundingClientRect().top - 60) + 'px',
-                  left: (e.currentTarget.getBoundingClientRect().left + e.currentTarget.offsetWidth / 2 - 220) + 'px',
-                  background: '#fffbe7',
-                  color: '#222',
-                  fontWeight: 'bold',
-                  fontSize: '1rem',
-                  border: '2px solid #ffd54f',
-                  borderRadius: '12px',
-                  padding: '18px 32px',
-                  zIndex: 9999,
-                  boxShadow: '0 4px 24px rgba(0,0,0,0.13)',
-                  pointerEvents: 'none',
-                  transition: 'opacity 0.1s',
-                  opacity: '1',
-                  maxWidth: '440px',
-                  textAlign: 'center',
-                  lineHeight: '1.5',
-                });
-                document.body.appendChild(tooltip);
-              }}
-              onMouseLeave={() => {
-                const tooltip = document.getElementById('genie-tooltip');
-                if (tooltip) tooltip.remove();
-              }}
-              style={{ cursor: 'pointer' }}
+              title={t.genieTooltip}
             >
               <span role="img" aria-label="Genie" style={{ fontSize: 220 }}>🧞‍♂️</span>
             </div>
@@ -323,7 +344,6 @@ const Home: React.FC = () => {
                     setTimeout(() => setCopied(false), 1200);
                   }
                 }}
-                title="Copy to clipboard"
                 style={{
                   position: 'absolute',
                   top: -20,
