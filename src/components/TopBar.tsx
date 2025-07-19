@@ -164,8 +164,8 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut, lang: propLang 
         {showSignOut ? (
           <>
             {formattedName && (
-              <div style={{ marginTop: '0.1em', float: 'right' }}>
-                <span className="nf-nav-separator">Hi {formattedName}!&nbsp;</span>
+              <div style={{ marginTop: '0.1em', float: 'right', fontWeight: '600' }}>
+                <span className="nf-nav-separator">&nbsp;{formattedName}&nbsp;</span>
               </div>
             )}
             <Link to="/" className="navbar-link login" onClick={e => {

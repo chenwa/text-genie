@@ -124,7 +124,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Character',
     demoGenerateTooltip: 'Let Typing Genie craft your perfect text!',
     signupEncouragement: 'No account? Sign up to unlock unlimited Genie magic!',
-    greeting: 'Hi! How can I help you with your writing today?',
+    greeting: "Hi! How can I help you with your writing today?", // English
     askGenie: 'Ask Genie',
     login: 'Login',
     signUp: 'Sign Up',
@@ -213,7 +213,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Caracteres',
     demoGenerateTooltip: '¡Deja que Genio de Escritura elabore tu texto perfecto!',
     signupEncouragement: '¿No tienes cuenta? ¡Regístrate para desbloquear magia ilimitada de Genie!',
-    greeting: '¡Hola! ¿Cómo puedo ayudarte con tu escritura hoy?',
+    greeting: "¡Hola! ¿Cómo puedo ayudarte con tu escritura hoy?", // Spanish
     askGenie: 'Pregunta al Genio',
     login: 'Iniciar Sesión',
     signUp: 'Registrarse',
@@ -302,7 +302,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: '字符',
     demoGenerateTooltip: '让打字精灵为您制作完美的文本！',
     signupEncouragement: '还没有账号？注册即可解锁无限Genie魔法！',
-    greeting: '你好！我今天如何帮助你的写作？',
+    greeting: "你好！我今天如何帮助你的写作？", // Chinese
     askGenie: '问精灵',
     login: '登录',
     signUp: '注册',
@@ -391,7 +391,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Zeichen',
     demoGenerateTooltip: 'Lassen Sie Schreib-Genie Ihren perfekten Text erstellen!',
     signupEncouragement: 'Noch kein Konto? Melden Sie sich an, um unbegrenzte Genie-Magie freizuschalten!',
-    greeting: 'Hallo! Wie kann ich Ihnen heute beim Schreiben helfen?',
+    greeting: "Hallo! Wie kann ich Ihnen heute beim Schreiben helfen?", // German
     askGenie: 'Fragen Sie Genie',
     login: 'Anmelden',
     signUp: 'Registrieren',
@@ -480,7 +480,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Символы',
     demoGenerateTooltip: 'Пусть Тайпинг Джинн создаст для вас идеальный текст!',
     signupEncouragement: 'Нет аккаунта? Зарегистрируйтесь, чтобы открыть неограниченную магию Джинна!',
-    greeting: 'Привет! Как я могу помочь вам с письмом сегодня?',
+    greeting: "Привет! Как я могу помочь вам с письмом сегодня?", // Russian
     askGenie: 'Спросить Джинна',
     login: 'Войти',
     signUp: 'Зарегистрироваться',
@@ -569,7 +569,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: '文字数',
     demoGenerateTooltip: 'タイピングジニーに完璧なテキストを作成させてください！',
     signupEncouragement: 'アカウントがありませんか？サインアップして無制限のGenieマジックを体験しよう！',
-    greeting: 'こんにちは！今日はどんな文章作成をお手伝いしましょうか？',
+    greeting: "こんにちは！今日はどんな文章作成をお手伝いしましょうか？", // Japanese
     askGenie: 'ジーニーに聞く',
     login: 'ログイン',
     signUp: 'サインアップ',
@@ -658,7 +658,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Caractères',
     demoGenerateTooltip: 'Laissez Génie d\'Écriture créer votre texte parfait !',
     signupEncouragement: 'Pas de compte ? Inscrivez-vous pour débloquer la magie illimitée de Genie !',
-    greeting: 'Bonjour ! Comment puis-je vous aider à écrire aujourd\'hui ?',
+    greeting: "Bonjour ! Comment puis-je vous aider à écrire aujourd'hui ?", // French
     askGenie: 'Demander au Génie',
     login: 'Se connecter',
     signUp: 'S\'inscrire',
@@ -747,7 +747,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Caracteres',
     demoGenerateTooltip: 'Deixe o Gênio da Escrita criar seu texto perfeito!',
     signupEncouragement: 'Não tem conta? Inscreva-se para liberar magia ilimitada do Genie!',
-    greeting: 'Olá! Como posso ajudar você com sua escrita hoje?',
+    greeting: "Olá! Como posso ajudar você com sua escrita hoje?", // Portuguese
     askGenie: 'Perguntar ao Gênio',
     login: 'Entrar',
     signUp: 'Inscrever-se',
@@ -836,7 +836,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Caratteri',
     demoGenerateTooltip: 'Lascia che Genio della Scrittura crei il tuo testo perfetto!',
     signupEncouragement: 'Nessun account? Iscriviti per sbloccare la magia illimitata di Genie!',
-    greeting: 'Ciao! Come posso aiutarti con la tua scrittura oggi?',
+    greeting: "Ciao! Come posso aiutarti con la tua scrittura oggi?", // Italian
     askGenie: 'Chiedi al Genio',
     login: 'Accedi',
     signUp: 'Registrati',
@@ -925,7 +925,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'عدد الأحرف',
     demoGenerateTooltip: 'دع تايبنغ جيني يصنع لك النص المثالي!',
     signupEncouragement: 'لا تملك حسابًا؟ سجّل للحصول على سحر جيني غير محدود!',
-    greeting: 'مرحبًا! كيف يمكنني مساعدتك في الكتابة اليوم؟',
+    greeting: "مرحبًا! كيف يمكنني مساعدتك في الكتابة اليوم؟", // Arabic
     askGenie: 'اسأل الجني',
     login: 'تسجيل الدخول',
     signUp: 'التسجيل',
@@ -1014,7 +1014,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'अक्षर',
     demoGenerateTooltip: 'टाइपिंग जीनी को आपका परफेक्ट टेक्स्ट बनाने दें!',
     signupEncouragement: 'कोई खाता नहीं? अनलिमिटेड Genie मैजिक के लिए साइन अप करें!',
-    greeting: 'नमस्ते! आज मैं आपकी लेखन में कैसे मदद कर सकता हूँ?',
+    greeting: "नमस्ते! आज मैं आपकी लेखन में कैसे मदद कर सकता हूँ?", // Hindi
     askGenie: 'जीनी से पूछें',
     login: 'लॉगिन',
     signUp: 'साइन अप',
@@ -1103,7 +1103,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: 'Karakter',
     demoGenerateTooltip: 'Biarkan Genie Penulisan menyusun teks sempurna Anda!',
     signupEncouragement: 'Belum punya akun? Daftar untuk membuka keajaiban Genie tanpa batas!',
-    greeting: 'Hai! Hari ini saya bisa membantu apa dalam menulismu?',
+    greeting: "Hai! Hari ini saya bisa membantu apa dalam menulismu?", // Indonesian
     askGenie: 'Tanya Genie',
     login: 'Masuk',
     signUp: 'Daftar',
@@ -1192,7 +1192,7 @@ const translations: Record<SupportedLang, {
     characterCountLabel: '문자',
     demoGenerateTooltip: '타이핑 지니가 완벽한 텍스트를 만들어드릴게요!',
     signupEncouragement: '계정이 없나요? 가입해서 무제한 Genie 마법을 사용해보세요!',
-    greeting: '안녕하세요! 오늘 어떤 글쓰기를 도와드릴까요?',
+    greeting: "안녕하세요! 오늘 어떤 글쓰기를 도와드릴까요?", // Korean
     askGenie: '지니에게 물어보기',
     login: '로그인',
     signUp: '회원가입',
