@@ -249,12 +249,12 @@ const Home: React.FC = () => {
         {isLoggedIn && (
           <h2 className="demo-title">{t.heroTitle} <span className="hero-highlight">{t.heroHighlight}</span></h2>
         )}
-        <div className="demo-desc" style={{ marginLeft: '5px' }}>{t.heroTagline}</div>
+        <div className="demo-desc" style={{ marginLeft: '5px', fontSize: '16px', color: 'var(--text-muted)' }}>{t.heroTagline}</div>
         <textarea
           id="user_input"
           className="demo-textarea"
           placeholder={t.demoPlaceholder}
-          style={isLoggedIn ? { height: '270px' } : { height: '170px' }}
+          style={isLoggedIn ? { height: '270px', border: '1px solid #1976D2' } : { height: '170px', border: '1px solid #1976D2' }}
           value={userInput}
           onChange={e => {
             if (!isLoggedIn && e.target.value.length > 5000) return;
@@ -320,7 +320,7 @@ const Home: React.FC = () => {
         </div>
         <div
           className="demo-output"
-          style={isLoggedIn ? { minHeight: 400, padding: 5, marginBottom: 20 } : { padding: 5, marginBottom: 20 }}
+          style={isLoggedIn ? { minHeight: 400, padding: 5, marginBottom: 20 } : { padding: 5, marginBottom: 10 }}
         >
           {!demoLoading && !demoOutput && (
             <em style={{ color: '#888', fontSize: '0.9rem' }}>{t.demoPolished}</em>
@@ -375,7 +375,7 @@ const Home: React.FC = () => {
                 </span>
               </button>
             )}
-            <span id="ai-disclaim" style={{ display: 'block', marginTop: 16, color: 'var(--text-muted)', fontWeight: 400, fontSize: 12, textAlign: 'right' }}>{t.genieTooltip}</span>
+            <span id="ai-disclaim" style={{ display: 'block', marginTop: 4, color: 'var(--text-muted)', fontSize: 10, textAlign: 'right' }}>{t.genieTooltip}</span>
           </div>
         </div>
       </section>
