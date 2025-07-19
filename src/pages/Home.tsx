@@ -196,7 +196,7 @@ const Home: React.FC = () => {
               }}
               style={{ cursor: 'pointer' }}
             >
-              <span role="img" aria-label="Genie" style={{ fontSize: 240 }}>🧞‍♂️</span>
+              <span role="img" aria-label="Genie" style={{ fontSize: 220 }}>🧞‍♂️</span>
             </div>
           </div>
           <div className="hero-content">
@@ -326,8 +326,8 @@ const Home: React.FC = () => {
                 title="Copy to clipboard"
                 style={{
                   position: 'absolute',
-                  top: 8,
-                  right: 8,
+                  top: -20,
+                  right: -4,
                   background: 'var(--bg-secondary)',
                   border: '1px solid var(--border-color)',
                   borderRadius: 4,
