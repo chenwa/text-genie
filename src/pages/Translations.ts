@@ -47,6 +47,7 @@ const translations: Record<SupportedLang, {
   lastName: string; // "Last Name" field label
   forgotPasswordError: string; // "Error message for forgotten password"
   brandName: string; // <-- Added brand name
+  privacyNotice: string; // <-- Added privacy notice
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -132,6 +133,7 @@ const translations: Record<SupportedLang, {
     lastName: "Last Name",
     forgotPasswordError: "Sorry, there was a problem sending your password reset email.",
     brandName: "Typing Genie",
+    privacyNotice: "TypingGenie does not collect, sell, or share your data.",
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -217,6 +219,7 @@ const translations: Record<SupportedLang, {
     lastName: "Apellido",
     forgotPasswordError: "Lo siento, hubo un problema al enviar el correo de restablecimiento de contraseña.",
     brandName: "Genio de Escritura",
+    privacyNotice: "TypingGenie no recopila, vende ni comparte tus datos.",
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -302,6 +305,7 @@ const translations: Record<SupportedLang, {
     lastName: "姓氏",
     forgotPasswordError: "抱歉，发送密码重置电子邮件时出现问题。",
     brandName: "打字精灵",
+    privacyNotice: "TypingGenie 不会收集、出售或分享您的数据。",
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -387,6 +391,7 @@ const translations: Record<SupportedLang, {
     lastName: "Nachname",
     forgotPasswordError: "Entschuldigung, beim Senden Ihrer Passwort-Zurücksetz-E-Mail ist ein Problem aufgetreten.",
     brandName: "Schreib-Genie",
+    privacyNotice: "TypingGenie sammelt, verkauft oder teilt Ihre Daten nicht.",
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -472,6 +477,7 @@ const translations: Record<SupportedLang, {
     lastName: "Фамилия",
     forgotPasswordError: "Извините, произошла ошибка при отправке электронной почты для сброса пароля.",
     brandName: "Тайпинг Джинн",
+    privacyNotice: "TypingGenie не собирает, не продает и не передает ваши данные.",
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -557,6 +563,7 @@ const translations: Record<SupportedLang, {
     lastName: "姓",
     forgotPasswordError: "申し訳ありませんが、パスワードリセット用のメール送信中に問題が発生しました。",
     brandName: "タイピングジニー",
+    privacyNotice: "TypingGenieはあなたのデータを収集、販売、または共有しません。",
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -642,6 +649,7 @@ const translations: Record<SupportedLang, {
     lastName: "Nom de famille",
     forgotPasswordError: "Désolé, il y a eu un problème lors de l'envoi de votre e-mail de réinitialisation de mot de passe.",
     brandName: "Génie d'Écriture",
+    privacyNotice: "TypingGenie ne collecte, ne vend ni ne partage vos données.",
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -727,6 +735,7 @@ const translations: Record<SupportedLang, {
     lastName: "Último Nome",
     forgotPasswordError: "Desculpe, houve um problema ao enviar seu e-mail de redefinição de senha.",
     brandName: "Gênio da Escrita",
+    privacyNotice: "TypingGenie não coleta, vende ou compartilha seus dados.",
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -812,6 +821,7 @@ const translations: Record<SupportedLang, {
     lastName: "Cognome",
     forgotPasswordError: "Spiacente, si è verificato un problema durante l'invio dell'email per il ripristino della password.",
     brandName: "Genio della Scrittura",
+    privacyNotice: "TypingGenie non raccoglie, vende o condivide i tuoi dati.",
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -897,6 +907,7 @@ const translations: Record<SupportedLang, {
     lastName: "اسم العائلة",
     forgotPasswordError: "عذراً، حدثت مشكلة أثناء إرسال بريد إعادة تعيين كلمة المرور.",
     brandName: "تايبنغ جيني",
+    privacyNotice: "تايبنغ جيني لا يجمع أو يبيع أو يشارك بياناتك.",
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -982,6 +993,7 @@ const translations: Record<SupportedLang, {
     lastName: "अंतिम नाम",
     forgotPasswordError: "क्षमा करें, आपके पासवर्ड रीसेट ईमेल भेजने में समस्या हुई।",
     brandName: "लेखन जीनी",
+    privacyNotice: "TypingGenie आपके डेटा को एकत्र, बेच या साझा नहीं करता है।",
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -1067,6 +1079,7 @@ const translations: Record<SupportedLang, {
     lastName: "Nama Belakang",
     forgotPasswordError: "Maaf, terjadi masalah saat mengirim email reset kata sandi Anda.",
     brandName: "Genie Penulisan",
+    privacyNotice: "TypingGenie tidak mengumpulkan, menjual, atau membagikan data Anda.",
   },
   ko: {
     heroTitle: '당신의 개인 작문 도우미 —',
@@ -1152,6 +1165,7 @@ const translations: Record<SupportedLang, {
     lastName: "성",
     forgotPasswordError: "죄송합니다. 비밀번호 재설정 이메일을 보내는 중 문제가 발생했습니다.",
     brandName: "타이핑 지니",
+    privacyNotice: "TypingGenie는 귀하의 데이터를 수집, 판매 또는 공유하지 않습니다.",
   },
 };
 

@@ -111,7 +111,7 @@ const Signup: React.FC = () => {
       <div className="nf-info-section">
         <strong>{t.login}</strong>: <Link to="/login">{t.login}</Link> {t.signupEncouragement}
         <br /><br />
-        <strong>{t.privacy}:</strong> TypingGenie does <u>not</u> collect, sell, or share your data. {t.genieTooltip}
+        <strong>{t.privacy}:</strong> {t.privacyNotice}
       </div>
       <footer className="nf-footer nf-footer-small">
         &copy; {new Date().getFullYear()} TypingGenie. All rights reserved.
