@@ -181,7 +181,7 @@ code {
 }
 
 .demo-section {
-  max-width: 90%;
+  max-width: 100%;
   margin: .1rem auto 0 auto;
   background: var(--bg-secondary);
   border-radius: 12px;
