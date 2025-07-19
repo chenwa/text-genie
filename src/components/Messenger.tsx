@@ -151,7 +151,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
         },
       ]);
     } catch (e) {
-      const errorMsg = 'Sorry, there was a problem connecting to the assistant.';
+      const errorMsg = t.sorryProblem || 'Sorry, there was a problem connecting to the assistant.';
       setMessages(prev => [
         ...prev,
         {
@@ -210,8 +210,8 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
           alignItems: 'center',
           justifyContent: 'center',
         }}
-        aria-label={visible ? 'Hide Messenger' : t.askGenie}
-        title={visible ? 'Hide Messenger' : t.askGenie}
+        aria-label={visible ? 'X' : t.askGenie}
+        title={visible ? 'X' : t.askGenie}
       >
         {visible ? '×' : <span role="img" aria-label="chat">💬</span>}
       {!visible && (
@@ -272,7 +272,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
                 top: '-14px',
                 left: '-30px'
               }}
-              title="Clear conversation"
+              title={t.clearConversation}
             >
               🗑️
             </button>
@@ -289,7 +289,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
             <input
               type="text"
               className="messenger-input"
-              placeholder="Type your message..."
+              placeholder={t.typeYourMessage || "Type your message..."}
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleInputKeyDown}
@@ -297,7 +297,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
               ref={inputRef}
             />
             <button className="messenger-send-btn" onClick={handleSend} disabled={!input.trim() || loading}>
-              {loading ? '...' : 'Send'}
+              {loading ? '...' : t.send}
             </button>
           </div>
         </div>

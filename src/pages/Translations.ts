@@ -48,6 +48,9 @@ const translations: Record<SupportedLang, {
   forgotPasswordError: string; // "Error message for forgotten password"
   brandName: string; // <-- Added brand name
   privacyNotice: string; // <-- Added privacy notice
+  send: string; // <-- Added send key
+  clearConversation: string; // <-- Added clear conversation key
+  typeYourMessage: string; // <-- Added type your message key
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -116,7 +119,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Privacy',
     contact: 'Contact',
     pleaseEnter: 'Please enter what you need help writing.',
-    sorryProblem: 'Sorry, there was a problem generating your text.',
+    sorryProblem: "Sorry, there was a problem connecting to the assistant.", // English
     genieTooltip: 'I am AI, so sometimes I get a little wild. Thanks for bearing with me!',
     characterCountLabel: 'Character',
     demoGenerateTooltip: 'Let Typing Genie craft your perfect text!',
@@ -134,6 +137,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "Sorry, there was a problem sending your password reset email.",
     brandName: "Typing Genie",
     privacyNotice: "TypingGenie does not collect, sell, or share your data.",
+    send: "Send", // English
+    clearConversation: "Clear conversation", // English
+    typeYourMessage: "Type your message...", // English
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -202,7 +208,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Privacidad',
     contact: 'Contacto',
     pleaseEnter: 'Por favor, escribe con qué necesitas ayuda.',
-    sorryProblem: 'Lo siento, hubo un problema al generar tu texto.',
+    sorryProblem: "Lo siento, hubo un problema al conectar con el asistente.", // Spanish
     genieTooltip: '¡Soy IA, así que a veces me pongo un poco loco. ¡Gracias por tu paciencia!',
     characterCountLabel: 'Caracteres',
     demoGenerateTooltip: '¡Deja que Genio de Escritura elabore tu texto perfecto!',
@@ -220,6 +226,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "Lo siento, hubo un problema al enviar el correo de restablecimiento de contraseña.",
     brandName: "Genio de Escritura",
     privacyNotice: "TypingGenie no recopila, vende ni comparte tus datos.",
+    send: "Enviar", // Spanish
+    clearConversation: "Borrar conversación", // Spanish
+    typeYourMessage: "Escribe tu mensaje...", // Spanish
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -288,7 +297,7 @@ const translations: Record<SupportedLang, {
     privacy: '隐私',
     contact: '联系',
     pleaseEnter: '请输入您需要帮助撰写的内容。',
-    sorryProblem: '抱歉，生成文本时出现问题。',
+    sorryProblem: "抱歉，连接助手时出现问题。", // Chinese (Simplified)
     genieTooltip: '我是人工智能，有时会有点疯狂。感谢您的包容！',
     characterCountLabel: '字符',
     demoGenerateTooltip: '让打字精灵为您制作完美的文本！',
@@ -306,6 +315,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "抱歉，发送密码重置电子邮件时出现问题。",
     brandName: "打字精灵",
     privacyNotice: "TypingGenie 不会收集、出售或分享您的数据。",
+    send: "发送", // Chinese
+    clearConversation: "清除对话", // Chinese
+    typeYourMessage: "输入您的消息...", // Chinese
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -374,7 +386,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Datenschutz',
     contact: 'Kontakt',
     pleaseEnter: 'Bitte geben Sie ein, wobei Sie Hilfe beim Schreiben benötigen.',
-    sorryProblem: 'Entschuldigung, beim Generieren Ihres Textes ist ein Problem aufgetreten.',
+    sorryProblem: "Entschuldigung, beim Verbinden mit dem Assistenten ist ein Problem aufgetreten.", // German
     genieTooltip: 'Ich bin KI, manchmal werde ich ein wenig verrückt. Danke für Ihre Geduld!',
     characterCountLabel: 'Zeichen',
     demoGenerateTooltip: 'Lassen Sie Schreib-Genie Ihren perfekten Text erstellen!',
@@ -392,6 +404,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "Entschuldigung, beim Senden Ihrer Passwort-Zurücksetz-E-Mail ist ein Problem aufgetreten.",
     brandName: "Schreib-Genie",
     privacyNotice: "TypingGenie sammelt, verkauft oder teilt Ihre Daten nicht.",
+    send: "Senden", // German
+    clearConversation: "Konversation löschen", // German
+    typeYourMessage: "Geben Sie Ihre Nachricht ein...", // German
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -460,7 +475,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Конфиденциальность',
     contact: 'Контакт',
     pleaseEnter: 'Пожалуйста, введите, с чем вам нужна помощь в написании.',
-    sorryProblem: 'Извините, возникла ошибка при отправке электронной почты для сброса пароля.',
+    sorryProblem: "Извините, возникла ошибка при подключении к ассистенту.", // Russian
     genieTooltip: 'Я — ИИ, иногда могу вести себя странно. Спасибо за ваше терпение!',
     characterCountLabel: 'Символы',
     demoGenerateTooltip: 'Пусть Тайпинг Джинн создаст для вас идеальный текст!',
@@ -478,6 +493,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "Извините, произошла ошибка при отправке электронной почты для сброса пароля.",
     brandName: "Тайпинг Джинн",
     privacyNotice: "TypingGenie не собирает, не продает и не передает ваши данные.",
+    send: "Отправить", // Russian
+    clearConversation: "Очистить разговор", // Russian
+    typeYourMessage: "Введите ваше сообщение...", // Russian
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -546,7 +564,7 @@ const translations: Record<SupportedLang, {
     privacy: 'プライバシー',
     contact: 'お問い合わせ',
     pleaseEnter: '書くのに助けが必要なことを入力してください。',
-    sorryProblem: '申し訳ありませんが、テキストの生成中に問題が発生しました。',
+    sorryProblem: "申し訳ありませんが、アシスタントへの接続中に問題が発生しました。", // Japanese
     genieTooltip: '私はAIです。時々ちょっと変になることもあります。ご容赦ください！',
     characterCountLabel: '文字数',
     demoGenerateTooltip: 'タイピングジニーに完璧なテキストを作成させてください！',
@@ -564,6 +582,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "申し訳ありませんが、パスワードリセット用のメール送信中に問題が発生しました。",
     brandName: "タイピングジニー",
     privacyNotice: "TypingGenieはあなたのデータを収集、販売、または共有しません。",
+    send: "送信", // Japanese
+    clearConversation: "会話をクリア", // Japanese
+    typeYourMessage: "メッセージを入力してください...", // Japanese
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -632,7 +653,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Confidentialité',
     contact: 'Contact',
     pleaseEnter: 'Veuillez entrer ce dont vous avez besoin d\'aide pour écrire.',
-    sorryProblem: 'Désolé, il y a eu un problème lors de la génération de votre texte.',
+    sorryProblem: "Désolé, il y a eu un problème lors de la connexion à l'assistant.", // French
     genieTooltip: "Je suis une IA, alors parfois je deviens un peu imprévisible. Merci de votre patience !",
     characterCountLabel: 'Caractères',
     demoGenerateTooltip: 'Laissez Génie d\'Écriture créer votre texte parfait !',
@@ -650,6 +671,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "Désolé, il y a eu un problème lors de l'envoi de votre e-mail de réinitialisation de mot de passe.",
     brandName: "Génie d'Écriture",
     privacyNotice: "TypingGenie ne collecte, ne vend ni ne partage vos données.",
+    send: "Envoyer", // French
+    clearConversation: "Effacer la conversation", // French
+    typeYourMessage: "Tapez votre message...", // French
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -718,7 +742,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Privacidade',
     contact: 'Contato',
     pleaseEnter: 'Por favor, digite com o que você precisa de ajuda.',
-    sorryProblem: 'Desculpe, houve um problema ao gerar seu texto.',
+    sorryProblem: "Desculpe, houve um problema ao conectar-se ao assistente.", // Portuguese
     genieTooltip: 'Sou IA, então às vezes fico meio doido. Obrigado por sua compreensão!',
     characterCountLabel: 'Caracteres',
     demoGenerateTooltip: 'Deixe o Gênio da Escrita criar seu texto perfeito!',
@@ -736,6 +760,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "Desculpe, houve um problema ao enviar seu e-mail de redefinição de senha.",
     brandName: "Gênio da Escrita",
     privacyNotice: "TypingGenie não coleta, vende ou compartilha seus dados.",
+    send: "Enviar", // Portuguese
+    clearConversation: "Limpar conversa", // Portuguese
+    typeYourMessage: "Digite sua mensagem...", // Portuguese
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -804,7 +831,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Privacy',
     contact: 'Contatto',
     pleaseEnter: 'Inserisci cosa ti serve aiuto per scrivere.',
-    sorryProblem: 'Spiacente, c\'è stato un problema nella generazione del tuo testo.',
+    sorryProblem: "Spiacente, c'è stato un problema nella connessione con l'assistente.", // Italian
     genieTooltip: 'Sono un’IA, quindi a volte posso essere un po’ imprevedibile. Grazie per la pazienza!',
     characterCountLabel: 'Caratteri',
     demoGenerateTooltip: 'Lascia che Genio della Scrittura crei il tuo testo perfetto!',
@@ -822,6 +849,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "Spiacente, si è verificato un problema durante l'invio dell'email per il ripristino della password.",
     brandName: "Genio della Scrittura",
     privacyNotice: "TypingGenie non raccoglie, vende o condivide i tuoi dati.",
+    send: "Invia", // Italian
+    clearConversation: "Cancella conversazione", // Italian
+    typeYourMessage: "Scrivi il tuo messaggio...", // Italian
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -890,7 +920,7 @@ const translations: Record<SupportedLang, {
     privacy: 'الخصوصية',
     contact: 'اتصل',
     pleaseEnter: 'يرجى إدخال ما تحتاج المساعدة في كتابته.',
-    sorryProblem: 'عذراً، حدثت مشكلة أثناء إنشاء النص.',
+    sorryProblem: "عذراً، حدثت مشكلة أثناء الاتصال بالمساعد.", // Arabic
     genieTooltip: 'أنا ذكاء اصطناعي، لذا أحياناً أتصرف بغرابة. شكرًا لصبرك!',
     characterCountLabel: 'عدد الأحرف',
     demoGenerateTooltip: 'دع تايبنغ جيني يصنع لك النص المثالي!',
@@ -908,6 +938,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "عذراً، حدثت مشكلة أثناء إرسال بريد إعادة تعيين كلمة المرور.",
     brandName: "تايبنغ جيني",
     privacyNotice: "تايبنغ جيني لا يجمع أو يبيع أو يشارك بياناتك.",
+    send: "إرسال", // Arabic
+    clearConversation: "مسح المحادثة", // Arabic
+    typeYourMessage: "اكتب رسالتك...", // Arabic
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -976,7 +1009,7 @@ const translations: Record<SupportedLang, {
     privacy: 'गोपनीयता',
     contact: 'संपर्क करें',
     pleaseEnter: 'कृपया बताएं आपको किस लेखन में मदद चाहिए।',
-    sorryProblem: 'माफ़ कीजिए, टेक्स्ट जनरेट करने में समस्या आई।',
+    sorryProblem: "क्षमा करें, आपके पासवर्ड रीसेट ईमेल भेजने में समस्या हुई।", // Hindi
     genieTooltip: 'मैं एआई हूँ, तो कभी-कभी थोड़ा अजीब हो जाता हूँ। धन्यवाद कि आप सहन करते हैं!',
     characterCountLabel: 'अक्षर',
     demoGenerateTooltip: 'टाइपिंग जीनी को आपका परफेक्ट टेक्स्ट बनाने दें!',
@@ -994,6 +1027,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "क्षमा करें, आपके पासवर्ड रीसेट ईमेल भेजने में समस्या हुई।",
     brandName: "लेखन जीनी",
     privacyNotice: "TypingGenie आपके डेटा को एकत्र, बेच या साझा नहीं करता है।",
+    send: "भेजें", // Hindi
+    clearConversation: "बातचीत साफ़ करें", // Hindi
+    typeYourMessage: "अपना संदेश लिखें...", // Hindi
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -1062,7 +1098,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Privasi',
     contact: 'Kontak',
     pleaseEnter: 'Silakan masukkan apa yang ingin Anda tulis.',
-    sorryProblem: 'Maaf, terjadi masalah saat membuat teks Anda.',
+    sorryProblem: "Maaf, terjadi masalah saat menghubungkan ke asisten.", // Indonesian
     genieTooltip: 'Saya AI, jadi kadang-kadang saya bisa agak aneh. Terima kasih atas pengertiannya!',
     characterCountLabel: 'Karakter',
     demoGenerateTooltip: 'Biarkan Genie Penulisan menyusun teks sempurna Anda!',
@@ -1080,6 +1116,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "Maaf, terjadi masalah saat mengirim email reset kata sandi Anda.",
     brandName: "Genie Penulisan",
     privacyNotice: "TypingGenie tidak mengumpulkan, menjual, atau membagikan data Anda.",
+    send: "Kirim", // Indonesian
+    clearConversation: "Hapus percakapan", // Indonesian
+    typeYourMessage: "Ketik pesan Anda...", // Indonesian
   },
   ko: {
     heroTitle: '당신의 개인 작문 도우미 —',
@@ -1148,7 +1187,7 @@ const translations: Record<SupportedLang, {
     privacy: '개인정보처리방침',
     contact: '연락처',
     pleaseEnter: '작성에 도움이 필요한 것을 입력해주세요.',
-    sorryProblem: '죄송합니다. 텍스트 생성 중 문제가 발생했습니다.',
+    sorryProblem: "죄송합니다. 비밀번호 재설정 이메일을 보내는 중 문제가 발생했습니다.", // Korean
     genieTooltip: '저는 AI입니다. 때때로 조금 이상할 수 있습니다. 이해해주셔서 감사합니다!',
     characterCountLabel: '문자',
     demoGenerateTooltip: '타이핑 지니가 완벽한 텍스트를 만들어드릴게요!',
@@ -1166,6 +1205,9 @@ const translations: Record<SupportedLang, {
     forgotPasswordError: "죄송합니다. 비밀번호 재설정 이메일을 보내는 중 문제가 발생했습니다.",
     brandName: "타이핑 지니",
     privacyNotice: "TypingGenie는 귀하의 데이터를 수집, 판매 또는 공유하지 않습니다.",
+    send: "보내기", // Korean
+    clearConversation: "대화 지우기", // Korean
+    typeYourMessage: "메시지를 입력하세요...", // Korean
   },
 };
 
