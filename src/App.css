@@ -158,8 +158,8 @@ code {
 .hero-genie {
   background: var(--hero-genie-bg);
   border-radius: 50%;
-  width: 260px;
-  height: 260px;
+  width: 220px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;

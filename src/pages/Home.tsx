@@ -217,7 +217,7 @@ const Home: React.FC = () => {
               className="hero-genie"
               title={t.genieTooltip}
             >
-              <span role="img" aria-label="Genie" style={{ fontSize: 220 }}>🧞‍♂️</span>
+              <span role="img" aria-label="Genie" style={{ fontSize: 200 }}>🧞‍♂️</span>
             </div>
           </div>
           <div className="hero-content">
