@@ -400,7 +400,10 @@ const Home: React.FC = () => {
 
       {/* Footer */}
       <footer className="footer" style={{ marginTop: 0 }}>
-        {t.footer} · <Link to="/terms" className="footer-link">{t.terms}</Link> · <Link to="/privacy" className="footer-link">{t.privacy}</Link> · <Link to="/contact" className="footer-link">{t.contact}</Link>
+        {t.footer} 
+        {/* * 
+        <Link to="/terms" className="footer-link">{t.terms}</Link> · <Link to="/privacy" className="footer-link">{t.privacy}</Link> · <Link to="/contact" className="footer-link">{t.contact}</Link> 
+        */}
       </footer>
 
       <div style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 1000 }}>
