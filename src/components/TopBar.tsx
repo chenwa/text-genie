@@ -120,10 +120,10 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut, lang: propLang 
             <span className="navbar-brand-genie-small">G</span>
           </Link>
         )}
+        <ThemeToggle />
         {/* Only show navbar-right if showSignOut is not true */}
         <div className="navbar-right" style={{ position: 'relative', right: 4, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 7 }}>
         {/* Language Selector */}
-        <ThemeToggle />
         <select
           value={currentLang}
           onChange={e => {
