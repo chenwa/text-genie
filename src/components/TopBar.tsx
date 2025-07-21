@@ -186,8 +186,8 @@ const TopBar: React.FC<TopBarProps> = ({ showSignOut, onSignOut, lang: propLang 
           </>
         ) : (
           <>
-            <Link to="/login" className="navbar-link login">{t.login}</Link>
-            <Link to="/signup" className="navbar-link signup">{t.signUp}</Link>
+            {location.pathname !== '/login' && <Link to="/login" className="navbar-link login">{t.login}</Link>}
+            {location.pathname !== '/signup' && <Link to="/signup" className="navbar-link signup">{t.signUp}</Link>}
           </>
         )}
         </div>
