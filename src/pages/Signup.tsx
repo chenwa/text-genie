@@ -42,11 +42,12 @@ const Signup: React.FC = () => {
         password: formData.password,
         org: 'typinggenie',
       };
-      const res = await fetch(`${API_BASE_URL}/create_user/`, {
+      const res = await fetch(`${API_BASE_URL}/create_user`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user),
       });
+      console.log(`${API_BASE_URL}/create_user`);
       if (res.ok) {
         const data = await res.json();
         localStorage.setItem('token', data.access_token);

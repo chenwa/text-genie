@@ -32,12 +32,15 @@ async def relay_request(path: str, request: Request):
 
     # Use httpx to forward the request
     async with httpx.AsyncClient() as client:
-        response = await client.request(
-            method=request.method,
-            url=target_url + (f"?{query_params}" if query_params else ""),
-            headers=headers,
-            content=body
-        )
+        try:
+            response = await client.request(
+                method=request.method,
+                url=target_url + (f"?{query_params}" if query_params else ""),
+                headers=headers,
+                content=body
+            )
+        except Exception as e:
+            return Response(content=str(e), status_code=500)
 
     # Return the backend’s response with the original status code
     return Response(
