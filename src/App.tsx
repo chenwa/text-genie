@@ -14,7 +14,6 @@ import { LanguageProvider } from "./context/LanguageContext";
 
 // Create a new component to be able to use hooks
 const AppContent = () => {
-    const location = useLocation();
     const navigate = useNavigate();
 
     const handleSignOut = () => {
