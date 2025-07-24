@@ -1,15 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Contact: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    // In a real app, send the message to your backend or support system
-  };
 
   return (
     <div className="nf-form-container" style={{ maxWidth: 700, margin: '40px auto', padding: '2em 2.5em', background: 'var(--bg-secondary)', borderRadius: 12, boxShadow: '0 2px 12px var(--shadow-medium)', textAlign: 'left', display: 'block', alignItems: 'flex-start', position: 'relative' }}>
