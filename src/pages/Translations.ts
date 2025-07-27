@@ -70,6 +70,7 @@ const translations: Record<SupportedLang, {
     demoLimit: 'limit reached. Sign up for unlimited usage.',
     documentTypeLabel: 'Document Type:',
     documentTypeOptions: [
+      'Rewrite and Polish',
       'Friendly Note',
       'Formal Email',
       'Summary',
@@ -160,6 +161,7 @@ const translations: Record<SupportedLang, {
     demoLimit: 'límite alcanzado. Regístrate para uso ilimitado.',
     documentTypeLabel: 'Tipo de documento:',
     documentTypeOptions: [
+      'Reescribir y Pulir',
       'Nota amistosa',
       'Correo formal',
       'Resumen',
@@ -250,6 +252,7 @@ const translations: Record<SupportedLang, {
     demoLimit: '达到限制。注册以无限制使用。',
     documentTypeLabel: '文档类型：',
     documentTypeOptions: [
+      '重写和润色',
       '友好的便条',
       '正式电子邮件',
       '摘要',
@@ -340,6 +343,7 @@ const translations: Record<SupportedLang, {
     demoLimit: 'Limit erreicht. Melden Sie sich an, um unbegrenzten Zugriff zu erhalten.',
     documentTypeLabel: 'Dokumenttyp:',
     documentTypeOptions: [
+      'Überarbeiten und Polieren',
       'Freundliche Notiz',
       'Formelle E-Mail',
       'Zusammenfassung',
@@ -430,6 +434,7 @@ const translations: Record<SupportedLang, {
     demoLimit: 'достигнут предел. Зарегистрируйтесь для неограниченного использования.',
     documentTypeLabel: 'Тип документа:',
     documentTypeOptions: [
+      'Переписать и Отредактировать',
       'Дружелюбная записка',
       'Официальное письмо',
       'Резюме',
@@ -520,6 +525,7 @@ const translations: Record<SupportedLang, {
     demoLimit: '制限に達しました。無制限の使用のためにサインアップしてください。',
     documentTypeLabel: '文書タイプ:',
     documentTypeOptions: [
+      '書き直して磨く',
       '友好的なメモ',
       '正式なメール',
       '要約',
@@ -610,6 +616,7 @@ const translations: Record<SupportedLang, {
     demoLimit: 'limite atteinte. Inscrivez-vous pour un usage illimité.',
     documentTypeLabel: 'Type de document :',
     documentTypeOptions: [
+      'Réécrire et Polir',
       'Note amicale',
       'E-mail formel',
       'Résumé',
@@ -700,6 +707,7 @@ const translations: Record<SupportedLang, {
     demoLimit: 'limite atingido. Inscreva-se para uso ilimitado.',
     documentTypeLabel: 'Tipo de Documento:',
     documentTypeOptions: [
+      'Reescrever e Polir',
       'Nota Amigável',
       'E-mail Formal',
       'Resumo',
@@ -790,8 +798,18 @@ const translations: Record<SupportedLang, {
     demoLimit: 'limite raggiunto. Iscriviti per un utilizzo illimitato.',
     documentTypeLabel: 'Tipo di documento:',
     documentTypeOptions: [
+      'Riscrivi e Lucida',
       'Nota amichevole',
       'Email formale',
+      'Sintesi',
+      'Proposta commerciale',
+      'Rapporto/Recensione',
+      'Invito',
+      'Annuncio',
+      'Reclamo',
+      'Scusa',
+      'Storia',
+      'Poesia',
     ],
     toneLabel: 'Tono:',
     toneOptions: [
@@ -831,7 +849,7 @@ const translations: Record<SupportedLang, {
     privacy: 'Privacy',
     contact: 'Contatto',
     pleaseEnter: 'Inserisci cosa ti serve aiuto per scrivere.',
-    sorryProblem: "Spiacente, c'è stato un problema nella connessione con l'assistente.", // Italian
+    sorryProblem: "Spiacente, si è verificato un problema nella connessione con l'assistente.", // Italian
     genieTooltip: 'Sono un’IA, quindi a volte posso essere un po’ imprevedibile. Grazie per la pazienza!',
     characterCountLabel: 'Caratteri',
     demoGenerateTooltip: 'Lascia che Genio della Scrittura crei il tuo testo perfetto!',
@@ -871,6 +889,7 @@ const translations: Record<SupportedLang, {
     demoLimit: 'تم الوصول للحد. سجّل لاستخدام غير محدود.',
     documentTypeLabel: 'نوع المستند:',
     documentTypeOptions: [
+      'إعادة الصياغة والتلميع',
       'ملاحظة ودية',
       'بريد إلكتروني رسمي',
       'ملخص',
@@ -961,6 +980,7 @@ const translations: Record<SupportedLang, {
     demoLimit: 'सीमा पूरी हुई। अनलिमिटेड उपयोग के लिए साइन अप करें।',
     documentTypeLabel: 'दस्तावेज़ प्रकार:',
     documentTypeOptions: [
+      'पुनर्लेखन और पॉलिश',
       'दोस्ताना नोट',
       'औपचारिक ईमेल',
       'सारांश',
@@ -1051,6 +1071,7 @@ const translations: Record<SupportedLang, {
     demoLimit: 'batas tercapai. Daftar untuk penggunaan tanpa batas.',
     documentTypeLabel: 'Jenis Dokumen:',
     documentTypeOptions: [
+      'Tulis Ulang dan Poles',
       'Catatan Ramah',
       'Email Resmi',
       'Ringkasan',
@@ -1141,6 +1162,7 @@ const translations: Record<SupportedLang, {
     demoLimit: '한도 도달. 무제한 사용을 위해 가입하세요.',
     documentTypeLabel: '문서 유형:',
     documentTypeOptions: [
+      '다시 쓰기 및 다듬기',
       '친근한 메모',
       '공식 이메일',
       '요약',
