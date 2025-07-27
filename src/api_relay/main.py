@@ -25,10 +25,16 @@ async def relay_request(path: str, request: Request):
     query_params = str(request.query_params)
 
     # Extract headers
-    headers = dict(request.headers)
+    # Extract headers (exclude some problematic ones)
+    headers = {
+        k: v for k, v in request.headers.items()
+        if k.lower() not in {"host", "content-length"}
+    }
 
     # Read request body
     body = await request.body()
+
+    print(f"→ Relaying {request.method} to: {target_url}?{query_params}")
 
     # Use httpx to forward the request
     async with httpx.AsyncClient() as client:
@@ -41,6 +47,8 @@ async def relay_request(path: str, request: Request):
             )
         except Exception as e:
             return Response(content=str(e), status_code=500)
+        
+        print(f"← Response: {response.status_code}, {response.text[:200]}")
 
     # Return the backend’s response with the original status code
     return Response(
