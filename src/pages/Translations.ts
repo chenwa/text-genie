@@ -71,7 +71,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'Document Type:',
     documentTypeOptions: [
       'Edit & Improve',
-      'Formal Email',
       'Business Proposal',
       'Report/Review',
       'Invitation',
@@ -157,7 +156,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'Tipo de documento:',
     documentTypeOptions: [
       'Editar y Mejorar',
-      'Correo formal',
       'Propuesta de negocio',
       'Informe/Reseña',
       'Invitación',
@@ -243,7 +241,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: '文档类型：',
     documentTypeOptions: [
       '编辑与提升',
-      '正式电子邮件',
       '商业提案',
       '报告/评论',
       '邀请函',
@@ -329,7 +326,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'Dokumenttyp:',
     documentTypeOptions: [
       'Bearbeiten & Verbessern',
-      'Formelle E-Mail',
       'Geschäftsvorschlag',
       'Bericht/Bewertung',
       'Einladung',
@@ -415,7 +411,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'Тип документа:',
     documentTypeOptions: [
       'Редактировать и Улучшить',
-      'Официальное письмо',
       'Бизнес-предложение',
       'Отчет/Обзор',
       'Приглашение',
@@ -501,7 +496,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: '文書タイプ:',
     documentTypeOptions: [
       '編集と改善',
-      '正式なメール',
       'ビジネス提案',
       'レポート/レビュー',
       '招待状',
@@ -587,7 +581,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'Type de document :',
     documentTypeOptions: [
       'Éditer et Améliorer',
-      'E-mail formel',
       'Proposition commerciale',
       'Rapport/Avis',
       'Invitation',
@@ -673,7 +666,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'Tipo de Documento:',
     documentTypeOptions: [
       'Editar e Melhorar',
-      'E-mail Formal',
       'Proposta de Negócio',
       'Relatório/Comentário',
       'Convite',
@@ -759,7 +751,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'Tipo di documento:',
     documentTypeOptions: [
       'Modifica e Migliora',
-      'Email formale',
       'Proposta commerciale',
       'Rapporto/Recensione',
       'Invito',
@@ -845,7 +836,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'نوع المستند:',
     documentTypeOptions: [
       'تحرير وتحسين',
-      'بريد إلكتروني رسمي',
       'اقتراح عمل',
       'تقرير/مراجعة',
       'دعوة',
@@ -931,7 +921,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'दस्तावेज़ प्रकार:',
     documentTypeOptions: [
       'संपादित करें और सुधारें',
-      'औपचारिक ईमेल',
       'व्यावसायिक प्रस्ताव',
       'रिपोर्ट/समीक्षा',
       'निमंत्रण',
@@ -1017,7 +1006,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: 'Jenis Dokumen:',
     documentTypeOptions: [
       'Edit & Tingkatkan',
-      'Email Resmi',
       'Usulan Bisnis',
       'Laporan/Tinjauan',
       'Undangan',
@@ -1103,7 +1091,6 @@ const translations: Record<SupportedLang, {
     documentTypeLabel: '문서 유형:',
     documentTypeOptions: [
       '편집 및 개선',
-      '공식 이메일',
       '사업 제안서',
       '보고서/리뷰',
       '초대장',
