@@ -52,6 +52,7 @@ const translations: Record<SupportedLang, {
   clearConversation: string; // <-- Added clear conversation key
   typeYourMessage: string; // <-- Added type your message key
   close: string; // <-- Added close key
+  buyMeACoffee: string; // <-- Added Buy Me A Coffee key
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -137,6 +138,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "Clear conversation", // English
     typeYourMessage: "Type your message...", // English
     close: "Close", // English
+    buyMeACoffee: 'Buy Me A Coffee',
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -222,6 +224,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "Borrar conversación", // Spanish
     typeYourMessage: "Escribe tu mensaje...", // Spanish
     close: "Cerrar", // Spanish
+    buyMeACoffee: 'Invítame un café',
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -307,6 +310,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "清除对话", // Chinese
     typeYourMessage: "输入您的消息...", // Chinese
     close: "关闭", // Chinese
+    buyMeACoffee: '请我喝咖啡',
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -392,6 +396,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "Konversation löschen", // German
     typeYourMessage: "Geben Sie Ihre Nachricht ein...", // German
     close: "Schließen", // German
+    buyMeACoffee: 'Spendiere mir einen Kaffee',
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -477,6 +482,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "Очистить разговор", // Russian
     typeYourMessage: "Введите ваше сообщение...", // Russian
     close: "Закрыть", // Russian
+    buyMeACoffee: 'Купи мне кофе',
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -562,6 +568,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "会話をクリア", // Japanese
     typeYourMessage: "メッセージを入力してください...", // Japanese
     close: "閉じる", // Japanese
+    buyMeACoffee: 'コーヒーをごちそうして',
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -647,6 +654,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "Effacer la conversation", // French
     typeYourMessage: "Tapez votre message...", // French
     close: "Fermer", // French
+    buyMeACoffee: 'Offrez-moi un café',
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -732,6 +740,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "Limpar conversa", // Portuguese
     typeYourMessage: "Digite sua mensagem...", // Portuguese
     close: "Fechar", // Portuguese
+    buyMeACoffee: 'Me pague um café',
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -817,6 +826,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "Cancella conversazione", // Italian
     typeYourMessage: "Scrivi il tuo messaggio...", // Italian
     close: "Chiudi", // Italian
+    buyMeACoffee: 'Offrimi un caffè',
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -902,6 +912,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "مسح المحادثة", // Arabic
     typeYourMessage: "اكتب رسالتك...", // Arabic
     close: "إغلاق", // Arabic
+    buyMeACoffee: 'اشتر لي قهوة',
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -987,6 +998,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "बातचीत साफ़ करें", // Hindi
     typeYourMessage: "अपना संदेश लिखें...", // Hindi
     close: "बंद करें", // Hindi
+    buyMeACoffee: 'मुझे कॉफी पिलाओ',
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -1072,6 +1084,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "Hapus percakapan", // Indonesian
     typeYourMessage: "Ketik pesan Anda...", // Indonesian
     close: "Tutup", // Indonesian
+    buyMeACoffee: 'Belikan Saya Kopi',
   },
   ko: {
     heroTitle: '당신의 개인 작문 도우미 —',
@@ -1157,6 +1170,7 @@ const translations: Record<SupportedLang, {
     clearConversation: "대화 지우기", // Korean
     typeYourMessage: "메시지를 입력하세요...", // Korean
     close: "닫기", // Korean
+    buyMeACoffee: '커피 한 잔 사주세요',
   },
 };
 

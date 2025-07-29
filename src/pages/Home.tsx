@@ -407,9 +407,11 @@ const Home: React.FC = () => {
       </footer>
 
       <div style={{ position: 'fixed', bottom: 13, left: 5, zIndex: 1000 }}>  
-        <a href="https://www.buymeacoffee.com/typinggenie" target="_blank">
-          <img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" width="160" height="37" />
-        </a>
+        <button className="demo-generate-btn" onClick={() => window.open('https://www.buymeacoffee.com/typinggenie', '_blank')} 
+          style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 16, height: 30 }}>
+          <span role="img" aria-label="coffee" style={{ fontSize: 20 }}>☕</span>
+          <span>{t.buyMeACoffee || 'Buy Me A Coffee'}</span>
+        </button>
       </div>
       <div style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 1000 }}>
         <Messenger isLoggedIn={isLoggedIn} lang={lang} />
