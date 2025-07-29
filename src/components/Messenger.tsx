@@ -196,7 +196,7 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
           top: visible ? 8 : -40,
           right: 8,
           zIndex: 1100,
-          background: '#6680fa',
+          background: '#4F8CFF',
           color: '#fff',
           border: 'none',
           borderRadius: '50%',
