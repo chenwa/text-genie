@@ -253,7 +253,7 @@ h2.demo-title {
   font-weight: 700;
   font-size: 1.25rem;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(79,140,255,0.12);
+  box-shadow: 0 4px 12px #6680fa;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
 }
 .demo-generate-btn:hover {

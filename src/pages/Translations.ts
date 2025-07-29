@@ -70,8 +70,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'limit reached. Sign up for unlimited usage.',
     documentTypeLabel: 'Document Type:',
     documentTypeOptions: [
-      'Edit & Improve',
       'Business Proposal',
+      'Edit & Improve',
       'Report/Review',
       'Invitation',
       'Announcement',
@@ -155,8 +155,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'límite alcanzado. Regístrate para uso ilimitado.',
     documentTypeLabel: 'Tipo de documento:',
     documentTypeOptions: [
-      'Editar y Mejorar',
       'Propuesta de negocio',
+      'Editar y Mejorar',
       'Informe/Reseña',
       'Invitación',
       'Anuncio',
@@ -240,8 +240,8 @@ const translations: Record<SupportedLang, {
     demoLimit: '达到限制。注册以无限制使用。',
     documentTypeLabel: '文档类型：',
     documentTypeOptions: [
-      '编辑与提升',
       '商业提案',
+      '编辑与提升',
       '报告/评论',
       '邀请函',
       '公告',
@@ -325,8 +325,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'Limit erreicht. Melden Sie sich an, um unbegrenzten Zugriff zu erhalten.',
     documentTypeLabel: 'Dokumenttyp:',
     documentTypeOptions: [
-      'Bearbeiten & Verbessern',
       'Geschäftsvorschlag',
+      'Bearbeiten & Verbessern',
       'Bericht/Bewertung',
       'Einladung',
       'Ankündigung',
@@ -410,8 +410,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'достигнут предел. Зарегистрируйтесь для неограниченного использования.',
     documentTypeLabel: 'Тип документа:',
     documentTypeOptions: [
-      'Редактировать и Улучшить',
       'Бизнес-предложение',
+      'Редактировать и Улучшить',
       'Отчет/Обзор',
       'Приглашение',
       'Объявление',
@@ -495,8 +495,8 @@ const translations: Record<SupportedLang, {
     demoLimit: '制限に達しました。無制限の使用のためにサインアップしてください。',
     documentTypeLabel: '文書タイプ:',
     documentTypeOptions: [
-      '編集と改善',
       'ビジネス提案',
+      '編集と改善',
       'レポート/レビュー',
       '招待状',
       '発表',
@@ -580,8 +580,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'limite atteinte. Inscrivez-vous pour un usage illimité.',
     documentTypeLabel: 'Type de document :',
     documentTypeOptions: [
-      'Éditer et Améliorer',
       'Proposition commerciale',
+      'Éditer et Améliorer',
       'Rapport/Avis',
       'Invitation',
       'Annonce',
@@ -665,8 +665,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'limite atingido. Inscreva-se para uso ilimitado.',
     documentTypeLabel: 'Tipo de Documento:',
     documentTypeOptions: [
-      'Editar e Melhorar',
       'Proposta de Negócio',
+      'Editar e Melhorar',
       'Relatório/Comentário',
       'Convite',
       'Anúncio',
@@ -750,8 +750,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'limite raggiunto. Iscriviti per un utilizzo illimitato.',
     documentTypeLabel: 'Tipo di documento:',
     documentTypeOptions: [
-      'Modifica e Migliora',
       'Proposta commerciale',
+      'Modifica e Migliora',
       'Rapporto/Recensione',
       'Invito',
       'Annuncio',
@@ -835,8 +835,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'تم الوصول للحد. سجّل لاستخدام غير محدود.',
     documentTypeLabel: 'نوع المستند:',
     documentTypeOptions: [
-      'تحرير وتحسين',
       'اقتراح عمل',
+      'تحرير وتحسين',
       'تقرير/مراجعة',
       'دعوة',
       'إعلان',
@@ -920,8 +920,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'सीमा पूरी हुई। अनलिमिटेड उपयोग के लिए साइन अप करें।',
     documentTypeLabel: 'दस्तावेज़ प्रकार:',
     documentTypeOptions: [
-      'संपादित करें और सुधारें',
       'व्यावसायिक प्रस्ताव',
+      'संपादित करें और सुधारें',
       'रिपोर्ट/समीक्षा',
       'निमंत्रण',
       'घोषणा',
@@ -1005,8 +1005,8 @@ const translations: Record<SupportedLang, {
     demoLimit: 'batas tercapai. Daftar untuk penggunaan tanpa batas.',
     documentTypeLabel: 'Jenis Dokumen:',
     documentTypeOptions: [
-      'Edit & Tingkatkan',
       'Usulan Bisnis',
+      'Edit & Tingkatkan',
       'Laporan/Tinjauan',
       'Undangan',
       'Pengumuman',
@@ -1090,8 +1090,8 @@ const translations: Record<SupportedLang, {
     demoLimit: '한도 도달. 무제한 사용을 위해 가입하세요.',
     documentTypeLabel: '문서 유형:',
     documentTypeOptions: [
-      '편집 및 개선',
       '사업 제안서',
+      '편집 및 개선',
       '보고서/리뷰',
       '초대장',
       '공지사항',
