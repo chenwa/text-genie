@@ -193,8 +193,8 @@ const Messenger: React.FC<{ isLoggedIn?: boolean; lang?: SupportedLang }> = ({ i
         onClick={() => setVisible(v => !v)}
         style={{
           position: 'absolute',
-          top: visible ? 8 : -40,
-          right: 8,
+          top: visible ? 8 : -30,
+          right: 0,
           zIndex: 1100,
           background: '#4F8CFF',
           color: '#fff',
