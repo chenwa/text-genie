@@ -53,6 +53,14 @@ const translations: Record<SupportedLang, {
   typeYourMessage: string; // <-- Added type your message key
   close: string; // <-- Added close key
   buyMeACoffee: string; // <-- Added Buy Me A Coffee key
+  voice: string;
+  listening: string;
+  voiceNotSupported: string;
+  voiceHelper: string;
+  listeningHelper: string;
+  startVoiceTooltip: string;
+  stopVoiceTooltip: string;
+  iosDictationHint: string;
 }> = {
   en: {
     heroTitle: 'Your Personal Writing Assistant —',
@@ -139,6 +147,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "Type your message...", // English
     close: "Close", // English
     buyMeACoffee: 'Buy Me A Coffee',
+    voice: 'Voice',
+    listening: 'Listening',
+    voiceNotSupported: 'Voice input is not supported in this browser. Try Safari on macOS/iOS or Chrome with the Web Speech API.',
+    voiceHelper: 'Click to dictate via microphone.',
+    listeningHelper: 'Speak now — your words will be transcribed.',
+    startVoiceTooltip: 'Start voice input',
+    stopVoiceTooltip: 'Stop voice input',
+    iosDictationHint: 'On iOS, tap the keyboard microphone to dictate.',
   },
   es: {
     heroTitle: 'Tu Asistente de Escritura Personal —',
@@ -225,6 +241,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "Escribe tu mensaje...", // Spanish
     close: "Cerrar", // Spanish
     buyMeACoffee: 'Invítame un café',
+    voice: 'Voz',
+    listening: 'Escuchando',
+    voiceNotSupported: 'La entrada por voz no es compatible con este navegador. Prueba Safari en macOS/iOS o Chrome con la Web Speech API.',
+    voiceHelper: 'Haz clic para dictar con el micrófono.',
+    listeningHelper: 'Hable ahora — sus palabras serán transcritas.',
+    startVoiceTooltip: 'Iniciar entrada de voz',
+    stopVoiceTooltip: 'Detener entrada de voz',
+    iosDictationHint: 'En iOS, toque el micrófono del teclado para dictar.',
   },
   zh: {
     heroTitle: '您个人的写作助手 —',
@@ -311,6 +335,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "输入您的消息...", // Chinese
     close: "关闭", // Chinese
     buyMeACoffee: '请我喝咖啡',
+    voice: '语音',
+    listening: '正在聆听',
+    voiceNotSupported: '此浏览器不支持语音输入。请在 macOS/iOS 上使用 Safari，或在支持 Web Speech API 的 Chrome 中尝试。',
+    voiceHelper: '点击以通过麦克风进行语音输入。',
+    listeningHelper: '现在开始说话 — 您的话将被转录。',
+    startVoiceTooltip: '开始语音输入',
+    stopVoiceTooltip: '停止语音输入',
+    iosDictationHint: '在 iOS 上，点击键盘上的麦克风即可进行语音输入。',
   },
   de: {
     heroTitle: 'Ihr persönlicher Schreibassistent —',
@@ -397,6 +429,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "Geben Sie Ihre Nachricht ein...", // German
     close: "Schließen", // German
     buyMeACoffee: 'Spendiere mir einen Kaffee',
+    voice: 'Stimme',
+    listening: 'Zuhören',
+    voiceNotSupported: 'Spracheingabe wird in diesem Browser nicht unterstützt. Versuchen Sie Safari auf macOS/iOS oder Chrome mit der Web Speech API.',
+    voiceHelper: 'Klicken Sie, um per Mikrofon zu diktieren.',
+    listeningHelper: 'Sprechen Sie jetzt — Ihre Worte werden transkribiert.',
+    startVoiceTooltip: 'Sprach­eingabe starten',
+    stopVoiceTooltip: 'Sprach­eingabe stoppen',
+    iosDictationHint: 'Auf iOS tippen Sie auf das Mikrofon der Tastatur, um zu diktieren.',
   },
   ru: {
     heroTitle: 'Ваш личный помощник по письму —',
@@ -483,6 +523,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "Введите ваше сообщение...", // Russian
     close: "Закрыть", // Russian
     buyMeACoffee: 'Купи мне кофе',
+    voice: 'Голос',
+    listening: 'Слушаю',
+    voiceNotSupported: 'Голосовой ввод не поддерживается в этом браузере. Попробуйте Safari на macOS/iOS или Chrome с поддержкой Web Speech API.',
+    voiceHelper: 'Нажмите, чтобы диктовать через микрофон.',
+    listeningHelper: 'Говорите — ваши слова будут транскрибированы.',
+    startVoiceTooltip: 'Начать голосовой ввод',
+    stopVoiceTooltip: 'Остановить голосовой ввод',
+    iosDictationHint: 'На iOS нажмите микрофон на клавиатуре, чтобы диктовать.',
   },
   ja: {
     heroTitle: 'あなたのパーソナルライティングアシスタント —',
@@ -569,6 +617,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "メッセージを入力してください...", // Japanese
     close: "閉じる", // Japanese
     buyMeACoffee: 'コーヒーをごちそうして',
+    voice: '音声',
+    listening: '聞いています',
+    voiceNotSupported: 'このブラウザでは音声入力がサポートされていません。macOS/iOS の Safari、または Web Speech API に対応した Chrome をお試しください。',
+    voiceHelper: 'クリックしてマイクで音声入力してください。',
+    listeningHelper: '今すぐ話してください — 音声が書き起こされます。',
+    startVoiceTooltip: '音声入力を開始',
+    stopVoiceTooltip: '音声入力を停止',
+    iosDictationHint: 'iOSではキーボードのマイクボタンをタップして音声入力を行ってください。',
   },
   fr: {
     heroTitle: 'Votre assistant personnel à l\'écriture —',
@@ -655,6 +711,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "Tapez votre message...", // French
     close: "Fermer", // French
     buyMeACoffee: 'Offrez-moi un café',
+    voice: 'Voix',
+    listening: 'Écoute',
+    voiceNotSupported: 'La saisie vocale n\'est pas prise en charge dans ce navigateur. Essayez Safari sur macOS/iOS ou Chrome avec l\'API Web Speech.',
+    voiceHelper: 'Cliquez pour dicter via le microphone.',
+    listeningHelper: 'Parlez maintenant — vos paroles seront transcrites.',
+    startVoiceTooltip: 'Démarrer la saisie vocale',
+    stopVoiceTooltip: 'Arrêter la saisie vocale',
+    iosDictationHint: 'Sur iOS, touchez le micro du clavier pour dicter.',
   },
   pt: {
     heroTitle: 'Seu Assistente Pessoal de Escrita —',
@@ -741,6 +805,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "Digite sua mensagem...", // Portuguese
     close: "Fechar", // Portuguese
     buyMeACoffee: 'Me pague um café',
+    voice: 'Voz',
+    listening: 'Ouvindo',
+    voiceNotSupported: 'A entrada por voz não é compatível com este navegador. Experimente o Safari no macOS/iOS ou o Chrome com a Web Speech API.',
+    voiceHelper: 'Clique para ditar pelo microfone.',
+    listeningHelper: 'Fale agora — suas palavras serão transcritas.',
+    startVoiceTooltip: 'Iniciar entrada por voz',
+    stopVoiceTooltip: 'Parar entrada por voz',
+    iosDictationHint: 'No iOS, toque o microfone do teclado para ditar.',
   },
   it: {
     heroTitle: 'Il tuo assistente personale alla scrittura —',
@@ -827,6 +899,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "Scrivi il tuo messaggio...", // Italian
     close: "Chiudi", // Italian
     buyMeACoffee: 'Offrimi un caffè',
+    voice: 'Voce',
+    listening: 'Ascoltando',
+    voiceNotSupported: 'L\'immissione vocale non è supportata in questo browser. Prova Safari su macOS/iOS o Chrome con la Web Speech API.',
+    voiceHelper: 'Fai clic per dettare tramite il microfono.',
+    listeningHelper: 'Parla ora — le tue parole saranno trascritte.',
+    startVoiceTooltip: 'Avvia input vocale',
+    stopVoiceTooltip: 'Interrompi input vocale',
+    iosDictationHint: 'Su iOS, tocca il microfono della tastiera per dettare.',
   },
   ar: {
     heroTitle: 'مساعدك الشخصي للكتابة —',
@@ -913,6 +993,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "اكتب رسالتك...", // Arabic
     close: "إغلاق", // Arabic
     buyMeACoffee: 'اشتر لي قهوة',
+    voice: 'صوت',
+    listening: 'الاستماع',
+    voiceNotSupported: 'إدخال الصوت غير مدعوم في هذا المتصفح. جرِّب Safari على macOS/iOS أو Chrome الذي يدعم Web Speech API.',
+    voiceHelper: 'انقر للإملاء عبر الميكروفون.',
+    listeningHelper: 'تحدث الآن — سيتم تحويل كلماتك إلى نص.',
+    startVoiceTooltip: 'بدء الإدخال الصوتي',
+    stopVoiceTooltip: 'إيقاف الإدخال الصوتي',
+    iosDictationHint: 'على iOS، انقر فوق زر الميكروفون في لوحة المفاتيح للإملاء.',
   },
   hi: {
     heroTitle: 'आपका व्यक्तिगत लेखन सहायक —',
@@ -999,6 +1087,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "अपना संदेश लिखें...", // Hindi
     close: "बंद करें", // Hindi
     buyMeACoffee: 'मुझे कॉफी पिलाओ',
+    voice: 'वॉइस',
+    listening: 'सुन रहा है',
+    voiceNotSupported: 'इस ब्राउज़र में वॉइस इनपुट समर्थित नहीं है। macOS/iOS पर Safari या Web Speech API का समर्थन करने वाले Chrome का उपयोग करें।',
+    voiceHelper: 'माइक्रोफ़ोन के माध्यम से बोलकर दर्ज करने के लिए क्लिक करें।',
+    listeningHelper: 'अब बोलें — आपके शब्द प्रतिलेखित किए जाएंगे।',
+    startVoiceTooltip: 'वॉइस इनपुट शुरू करें',
+    stopVoiceTooltip: 'वॉइस इनपुट रोकें',
+    iosDictationHint: 'iOS पर डिक्टेट करने के लिए कीबोर्ड के माइक्रोफ़ोन को टैप करें।',
   },
   id: {
     heroTitle: 'Asisten Menulis Pribadi Anda —',
@@ -1085,6 +1181,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "Ketik pesan Anda...", // Indonesian
     close: "Tutup", // Indonesian
     buyMeACoffee: 'Belikan Saya Kopi',
+    voice: 'Suara',
+    listening: 'Mendengarkan',
+    voiceNotSupported: 'Input suara tidak didukung di browser ini. Coba Safari di macOS/iOS atau Chrome yang mendukung Web Speech API.',
+    voiceHelper: 'Klik untuk mendikte melalui mikrofon.',
+    listeningHelper: 'Bicaralah sekarang — kata-kata Anda akan ditranskrip.',
+    startVoiceTooltip: 'Mulai input suara',
+    stopVoiceTooltip: 'Hentikan input suara',
+    iosDictationHint: 'Di iOS, ketuk mikrofon pada keyboard untuk mendikte.',
   },
   ko: {
     heroTitle: '당신의 개인 작문 도우미 —',
@@ -1171,6 +1275,14 @@ const translations: Record<SupportedLang, {
     typeYourMessage: "메시지를 입력하세요...", // Korean
     close: "닫기", // Korean
     buyMeACoffee: '커피 한 잔 사주세요',
+    voice: '음성',
+    listening: '듣는 중',
+    voiceNotSupported: '이 브라우저에서는 음성 입력을 지원하지 않습니다. macOS/iOS에서는 Safari를 사용하거나 Web Speech API를 지원하는 Chrome을 사용해 보세요.',
+    voiceHelper: '마이크를 통해 받아쓰기하려면 클릭하세요.',
+    listeningHelper: '지금 말하세요 — 말한 내용이 기록됩니다.',
+    startVoiceTooltip: '음성 입력 시작',
+    stopVoiceTooltip: '음성 입력 중지',
+    iosDictationHint: 'iOS에서는 키보드의 마이크 버튼을 눌러 받아쓰기를 사용하세요.',
   },
 };
 

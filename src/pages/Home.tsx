@@ -62,6 +62,10 @@ const Home: React.FC = () => {
     }
     return "";
   });
+  // Voice input state
+  const [recognitionActive, setRecognitionActive] = React.useState<boolean>(false);
+  const recognitionRef = React.useRef<any>(null);
+  const [iosDictationHintVisible, setIosDictationHintVisible] = React.useState<boolean>(false);
   const [selectedDocType, setSelectedDocType] = React.useState<string>(() => {
     return localStorage.getItem(DOC_TYPE_STORAGE_KEY) || translationsTyped['en'].documentTypeOptions[1];
   });
@@ -137,6 +141,125 @@ const Home: React.FC = () => {
   };
 
   const maxChars = isLoggedIn ? undefined : 5000;
+
+  // Initialize/cleanup speech recognition when toggled
+  React.useEffect(() => {
+    return () => {
+      // Cleanup on unmount
+      try {
+        recognitionRef.current?.stop?.();
+      } catch (e) {
+        // noop
+      }
+      recognitionRef.current = null;
+    };
+  }, []);
+
+  const toggleRecognition = () => {
+    if (recognitionActive) {
+      // stop
+      try {
+        recognitionRef.current?.stop();
+      } catch (e) {
+        // ignore
+      }
+      setRecognitionActive(false);
+      return;
+    }
+
+    const SpeechRecognition: any = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      // If on iOS, prefer native keyboard dictation — focus the textarea and show a short hint.
+      const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent || '');
+      if (isiOS) {
+        const ta = document.getElementById('user_input') as HTMLTextAreaElement | null;
+        if (ta) {
+          ta.focus();
+          // move cursor to end
+          const len = ta.value?.length || 0;
+          try {
+            ta.setSelectionRange(len, len);
+          } catch (e) {
+            // ignore if not supported
+          }
+        }
+        setIosDictationHintVisible(true);
+        // hide after a few seconds
+        window.setTimeout(() => setIosDictationHintVisible(false), 6000);
+        return;
+      }
+
+      alert(translationsTyped[lang].voiceNotSupported);
+      return;
+    }
+
+    const recog = new SpeechRecognition();
+    recognitionRef.current = recog;
+    recog.lang = lang || 'en-US';
+    recog.continuous = true;
+    recog.interimResults = true;
+
+    let interim = '';
+
+    recog.onresult = (event: any) => {
+      interim = '';
+      let finalTranscript = '';
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        const res = event.results[i];
+        if (res.isFinal) {
+          finalTranscript += res[0].transcript;
+        } else {
+          interim += res[0].transcript;
+        }
+      }
+
+      // Append final transcript to the user input and update state
+      if (finalTranscript) {
+        setUserInput(prev => {
+          const combined = (prev + ' ' + finalTranscript).trimStart();
+          if (!isLoggedIn && typeof maxChars === 'number' && combined.length > maxChars) {
+            return combined.slice(0, maxChars);
+          }
+          return combined;
+        });
+      }
+
+      // For interim results, show them appended but not saved to storage
+      if (interim) {
+        // show interim in the textarea by combining with current userInput
+        // We don't update localStorage until final results or user input change
+        const base = userInput || '';
+        const preview = (base + ' ' + interim).trimStart();
+        // Direct DOM write to textarea for interim (non-invasive)
+        const ta = document.getElementById('user_input') as HTMLTextAreaElement | null;
+        if (ta) {
+          ta.value = preview;
+        }
+      } else {
+        // remove interim preview and ensure textarea shows state
+        const ta = document.getElementById('user_input') as HTMLTextAreaElement | null;
+        if (ta) ta.value = userInput;
+      }
+    };
+
+    recog.onerror = (e: any) => {
+      console.error('Speech recognition error', e);
+    };
+
+    recog.onend = () => {
+      // recognition ended (maybe user stopped); update active flag
+      setRecognitionActive(false);
+      recognitionRef.current = null;
+    };
+
+    try {
+      recog.start();
+      setRecognitionActive(true);
+    } catch (e) {
+      console.error('Could not start recognition', e);
+      setRecognitionActive(false);
+    }
+  };
 
   // Add type assertions for translations
   const t = translationsTyped[lang];
@@ -262,6 +385,30 @@ const Home: React.FC = () => {
           }}
           maxLength={maxChars}
         />
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 0, marginBottom: 4 }}>
+          <button
+            type="button"
+            onClick={toggleRecognition}
+            aria-pressed={recognitionActive}
+            title={recognitionActive ? t.stopVoiceTooltip : t.startVoiceTooltip}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '3px 6px',
+              borderRadius: 8,
+              border: '1px solid var(--border-color)',
+              background: recognitionActive ? '#e60023' : 'var(--bg-secondary)',
+              color: recognitionActive ? '#fff' : 'var(--text-muted)'
+            }}
+          >
+            <span style={{ fontSize: 16 }}>{recognitionActive ? `🎙️ ${t.listening}` : `🎤 ${t.voice}`}</span>
+          </button>
+          <div style={{ fontSize: 12, color: '#666' }}>{recognitionActive ? t.listeningHelper : t.voiceHelper}</div>
+          {iosDictationHintVisible && (
+            <div style={{ fontSize: 12, color: '#444', marginTop: 6 }}>{t.iosDictationHint}</div>
+          )}
+        </div>
         <div style={{ textAlign: 'right', fontSize: 12, color: userInput.length >= 5000 && !isLoggedIn ? '#e60023' : '#888', margin: '-10px 8px 4px 0' }}>
           {t.characterCountLabel} {userInput.length}{!isLoggedIn}
           {userInput.length >= 5000 && !isLoggedIn && (
@@ -406,7 +553,7 @@ const Home: React.FC = () => {
         */}
       </footer>
 
-      <div style={{ position: 'fixed', bottom: 7, left: 5, zIndex: 1000 }}>  
+      <div style={{ position: 'fixed', bottom: 7, left: 5, zIndex: 1000, display: 'none' }}>  
         <button className="demo-generate-btn" onClick={() => window.open('https://www.buymeacoffee.com/typinggenie', '_blank')} 
           style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 16, height: 35 }}>
           <span role="img" aria-label="coffee" style={{ fontSize: 20 }}>☕</span>
